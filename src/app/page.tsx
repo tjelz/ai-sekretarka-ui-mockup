@@ -18,7 +18,7 @@ export default function Home() {
               alt="Yieldo.ai"
               width={120}
               height={40}
-              className="h-20 w-auto mx-auto mb-6"
+              className="h-12 md:h-20 w-auto mx-auto mb-6"
               priority
             />
             <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto">

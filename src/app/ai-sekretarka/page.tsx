@@ -653,17 +653,18 @@ export default function AISekretarkaPage() {
       <footer className="border-t border-gray-200 py-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="text-2xl font-bold text-black inline-flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-lg flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
-              Yieldo
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Yieldo.ai"
+              width={120}
+              height={40}
+              className="h-10 w-auto mx-auto mb-4"
+            />
             <p className="text-gray-600 mb-6">
               Agencja AI dla Nowoczesnych Firm
             </p>
             <p className="text-sm text-gray-500">
-              © 2025 Yieldo Wszystkie prawa zastrzeżone.
+              © 2024 Yieldo.ai. Wszystkie prawa zastrzeżone.
             </p>
           </div>
         </div>

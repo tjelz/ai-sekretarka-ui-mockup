@@ -4,13 +4,40 @@ import { Button } from "@/components/ui/button"
 import { Phone, Calendar, MessageSquare, Shield, Clock, Zap, TrendingUp, CheckCircle2, Users, Settings, ArrowRight, Sparkles, Star } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
+import { toast } from "sonner"
 
 export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+    setIsSubmitting(true)
+
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1000))
+
+      // TODO: Replace with actual API endpoint
+      // const response = await fetch('/api/contact', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formData)
+      // })
+
+      toast.success("Zgłoszenie wysłane!", {
+        description: "Skontaktujemy się z Tobą wkrótce."
+      })
+
+      // Reset form
+      setFormData({ name: "", email: "", phone: "" })
+    } catch (error) {
+      toast.error("Wystąpił błąd", {
+        description: "Spróbuj ponownie później lub skontaktuj się z nami bezpośrednio."
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -583,14 +610,15 @@ export default function AISekretarkaPage() {
                   required
                 />
               </div>
-              <Button 
+              <Button
                 type="submit"
-                size="lg" 
-                className="w-full bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg py-7 rounded-xl font-semibold group"
+                size="lg"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg py-7 rounded-xl font-semibold group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 <Sparkles className="w-5 h-5 mr-2" />
-                Wyślij Zgłoszenie
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                {isSubmitting ? "Wysyłanie..." : "Wyślij Zgłoszenie"}
+                {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />}
               </Button>
             </form>
             

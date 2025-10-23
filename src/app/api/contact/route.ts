@@ -26,13 +26,13 @@ Dane kontaktowe:
 - Telefon: ${phone}
 
 ---
-Wysłane z: Yieldo.ai
+Wysłane z: Yieldo
 Data: ${new Date().toLocaleString('pl-PL')}
     `.trim();
 
     // Send email using Resend
     await resend.emails.send({
-      from: 'Yieldo.ai <onboarding@resend.dev>',
+      from: 'Yieldo <onboarding@resend.dev>',
       to: 'info.yieldo@gmail.com',
       subject: `Nowe zgłoszenie: ${name}`,
       text: emailContent,

@@ -10,18 +10,18 @@ export default function Home() {
     <div className="min-h-screen bg-white flex flex-col">
    
       {/* Hero Section - Centered */}
-      <section className="flex-1 flex items-center justify-center py-20 px-4">
+      <section className="flex-1 flex items-center justify-center py-8 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-6">
           <Image
               src="/logo.png"
-              alt="Yieldo.ai"
+              alt="Yieldo"
               width={120}
               height={40}
-              className="h-12 md:h-20 w-auto mx-auto mb-6"
+              className="h-8 md:h-12 w-auto mx-auto mb-6"
               priority
             />
-            <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-sm text-gray-600 max-w-3xl mx-auto">
               Kompleksowe rozwiązania AI dla rozwoju Twojego biznesu
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function Home() {
       <footer className="border-t border-gray-200 py-8 bg-white mt-auto">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm text-gray-500">
-            © 2024 Yieldo.ai. Wszystkie prawa zastrzeżone.
+            © 2025 Yieldo. Wszystkie prawa zastrzeżone.
           </p>
         </div>
       </footer>

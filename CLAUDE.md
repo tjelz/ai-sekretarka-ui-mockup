@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is **AI Sekretarka UI Mockup** - a marketing website for Yieldo.ai, specifically showcasing their "AI Sekretarka" (AI Secretary) service. The site is built with Next.js 15, React 19, TypeScript, and Tailwind CSS 4.
+This is **AI Sekretarka UI Mockup** - a marketing website for Yieldo, specifically showcasing their "AI Sekretarka" (AI Secretary) service. The site is built with Next.js 15, React 19, TypeScript, and Tailwind CSS 4.
 
 ## Tech Stack
 
@@ -37,7 +37,7 @@ npm run lint
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── page.tsx           # Homepage (Yieldo.ai landing)
+│   ├── page.tsx           # Homepage (Yieldo landing)
 │   ├── ai-sekretarka/     # AI Sekretarka product page
 │   │   └── page.tsx
 │   ├── layout.tsx         # Root layout
@@ -57,7 +57,7 @@ src/
 ### Routing
 - Uses Next.js App Router with file-based routing
 - Two main pages:
-  - `/` - Homepage showcasing Yieldo.ai agency
+  - `/` - Homepage showcasing Yieldo agency
   - `/ai-sekretarka` - Detailed product page for AI Secretary service
 
 ### Styling System

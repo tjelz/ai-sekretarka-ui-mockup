@@ -18,7 +18,7 @@ The website has been cleaned up and optimized for production. All development to
 ### 2. Added Proper SEO Metadata ✅
 
 **Root Layout (`/src/app/layout.tsx`):**
-- Updated title: "Yieldo.ai - Agencja AI dla Nowoczesnych Firm | AI Sekretarka 24/7"
+- Updated title: "Yieldo - Agencja AI dla Nowoczesnych Firm | AI Sekretarka 24/7"
 - Added comprehensive description for homepage
 - Added keywords for SEO
 - Added Open Graph metadata for social sharing

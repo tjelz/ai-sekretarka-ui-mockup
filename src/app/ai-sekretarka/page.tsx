@@ -52,7 +52,7 @@ export default function AISekretarkaPage() {
           <div className="flex justify-between items-center h-20">
             <Image
               src="/logo.png"
-              alt="Yieldo.ai"
+              alt="Yieldo"
               width={120}
               height={40}
               className="h-10 w-auto"
@@ -655,7 +655,7 @@ export default function AISekretarkaPage() {
           <div className="text-center">
             <Image
               src="/logo.png"
-              alt="Yieldo.ai"
+              alt="Yieldo"
               width={120}
               height={40}
               className="h-10 w-auto mx-auto mb-4"
@@ -664,7 +664,7 @@ export default function AISekretarkaPage() {
               Agencja AI dla Nowoczesnych Firm
             </p>
             <p className="text-sm text-gray-500">
-              © 2024 Yieldo.ai. Wszystkie prawa zastrzeżone.
+              © 2025 Yieldo. Wszystkie prawa zastrzeżone.
             </p>
           </div>
         </div>

@@ -1,10 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Phone, Calendar, MessageSquare, Shield, Clock, Zap, TrendingUp, CheckCircle2, Users, Settings, ArrowRight, Sparkles, Star } from "lucide-react"
+import { Phone, Calendar, MessageSquare, Shield, Clock, Zap, TrendingUp, CheckCircle2, Users, Settings, ArrowRight, Star, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { toast } from "sonner"
+import Image from "next/image"
 
 export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
@@ -49,12 +50,14 @@ export default function AISekretarkaPage() {
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="text-2xl font-bold text-black flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-lg flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
-              Yieldo
-            </div>
+            <Image
+              src="/logo.png"
+              alt="Yieldo.ai"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
             <div className="flex items-center gap-4">
               <a href="#contact" className="text-sm font-semibold text-[#007BFF] hover:text-[#0056b3] transition-colors">
                 Kontakt

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Sekretarka 24/7 - Automatyczna Obsługa Telefonów | Yieldo.ai",
+  title: "AI Sekretarka 24/7 - Automatyczna Obsługa Telefonów | Yieldo",
   description: "AI Sekretarka odbiera telefony 24/7, umawia klientów automatycznie i wysyła SMS. Idealne rozwiązanie dla małych firm, salonów beauty i usług. Oszczędź czas i zwiększ przychody.",
   keywords: "AI Sekretarka, automatyczne umawianie wizyt, obsługa telefonów 24/7, rezerwacje online, asystent AI, sekretarka wirtualna",
   openGraph: {

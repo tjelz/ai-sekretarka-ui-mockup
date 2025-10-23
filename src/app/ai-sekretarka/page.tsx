@@ -15,25 +15,28 @@ export default function AISekretarkaPage() {
     setIsSubmitting(true)
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
 
-      // TODO: Replace with actual API endpoint
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // })
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
 
       toast.success("Zgłoszenie wysłane!", {
-        description: "Skontaktujemy się z Tobą wkrótce."
+        description: "Email wysłany do info.yieldo@gmail.com. Skontaktujemy się wkrótce!"
       })
 
       // Reset form
       setFormData({ name: "", email: "", phone: "" })
     } catch (error) {
+      console.error('Form submission error:', error)
       toast.error("Wystąpił błąd", {
-        description: "Spróbuj ponownie później lub skontaktuj się z nami bezpośrednio."
+        description: "Spróbuj ponownie później lub napisz bezpośrednio na info.yieldo@gmail.com"
       })
     } finally {
       setIsSubmitting(false)
@@ -41,82 +44,77 @@ export default function AISekretarkaPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white">
+    <div className="min-h-screen bg-white">
       {/* Modern Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <Link href="/" className="text-2xl font-bold text-black flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <div className="text-2xl font-bold text-black flex items-center gap-2">
               <div className="w-10 h-10 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-lg flex items-center justify-center">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
-              Yieldo<span className="text-[#007BFF]">.ai</span>
-            </Link>
-            <div className="flex items-center gap-8">
-              <Link href="/ai-sekretarka" className="text-sm font-semibold text-[#007BFF] hover:text-[#0056b3] transition-colors flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                AI Sekretarka
-              </Link>
-              <Button className="bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-lg hover:scale-105 transition-all duration-300 rounded-full px-6">
-                <MessageSquare className="w-4 h-4 mr-2" />
+              Yieldo
+            </div>
+            <div className="flex items-center gap-4">
+              <a href="#contact" className="text-sm font-semibold text-[#007BFF] hover:text-[#0056b3] transition-colors">
                 Kontakt
-              </Button>
+              </a>
+              <a href="#pricing" className="text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
+                Cennik
+              </a>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section with Gradient */}
-      <section className="py-20 sm:py-32 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50 opacity-50"></div>
-        <div className="absolute top-20 left-10 w-72 h-72 bg-[#007BFF]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#007BFF]/10 rounded-full blur-3xl"></div>
-        
-        <div className="container mx-auto max-w-5xl text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-blue-100 text-[#007BFF] px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-md">
+      {/* Hero Section */}
+      <section className="py-16 sm:py-24 px-4 bg-white">
+        <div className="container mx-auto max-w-4xl text-center">
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-6">
             <Zap className="w-4 h-4" />
             Automatyczna AI Recepcjonistka
           </div>
-          
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black mb-8 leading-tight">
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             AI Sekretarka Odbiera Telefony
             <span className="text-[#007BFF] block mt-2">24/7 i Umawia Klientów</span>
           </h1>
-          
-          <p className="text-xl sm:text-2xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Dla małych firm, salonów beauty i usług – automatycznie zapisuje terminy, wysyła SMS-y i nigdy nie traci klientów
+
+          <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Dla małych firm, salonów beauty i usług – rozmawia naturalnym głosem, pamięta klientów, automatycznie zapisuje terminy i wysyła SMS-y. Przełącza się między głosem a tekstem bezproblemowo.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg px-10 py-7 rounded-full font-semibold group"
-            >
-              <Sparkles className="w-5 h-5 mr-2" />
-              Rozpocznij Teraz
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 border-[#007BFF] text-[#007BFF] hover:bg-[#007BFF] hover:text-white transition-all duration-300 text-lg px-10 py-7 rounded-full font-semibold"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Zobacz Demo
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
+            <a href="#contact">
+              <Button
+                size="lg"
+                className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-base px-8 py-6 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
+              >
+                Zamów Demo
+              </Button>
+            </a>
+            <a href="#pricing">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-base px-8 py-6 rounded-lg font-semibold transition-all"
+              >
+                Zobacz Cennik
+              </Button>
+            </a>
           </div>
 
-          <div className="mt-16 flex flex-wrap justify-center gap-8 text-sm text-gray-600">
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" />
+              <CheckCircle2 className="w-4 h-4 text-gray-400" />
               <span>Bez kart kredytowych</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" />
+              <CheckCircle2 className="w-4 h-4 text-gray-400" />
               <span>Szybkie wdrożenie</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-green-500" />
+              <CheckCircle2 className="w-4 h-4 text-gray-400" />
               <span>Zgodne z RODO</span>
             </div>
           </div>
@@ -124,94 +122,94 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 px-4 bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white">
+      <section className="py-10 px-4 bg-[#007BFF] text-white">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">99.9%</div>
-              <div className="text-blue-100 text-sm">Dostępność</div>
+              <div className="text-3xl sm:text-4xl font-bold mb-1">99.9%</div>
+              <div className="text-blue-100 text-xs sm:text-sm">Dostępność</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">&lt;3s</div>
-              <div className="text-blue-100 text-sm">Czas odpowiedzi</div>
+              <div className="text-3xl sm:text-4xl font-bold mb-1">&lt;3s</div>
+              <div className="text-blue-100 text-xs sm:text-sm">Czas odpowiedzi</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">24/7</div>
-              <div className="text-blue-100 text-sm">Wsparcie</div>
+              <div className="text-3xl sm:text-4xl font-bold mb-1">24/7</div>
+              <div className="text-blue-100 text-xs sm:text-sm">Wsparcie</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold mb-2">50+</div>
-              <div className="text-blue-100 text-sm">Zadowolonych firm</div>
+              <div className="text-3xl sm:text-4xl font-bold mb-1">50+</div>
+              <div className="text-blue-100 text-xs sm:text-sm">Zadowolonych firm</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 px-4">
-        <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-[#007BFF] px-6 py-3 rounded-full text-sm font-semibold mb-6">
-              <Star className="w-4 h-4" />
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
+              <Zap className="w-4 h-4" />
               Funkcje
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Funkcje AI Sekretarki
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Wszystko czego potrzebujesz, aby nigdy nie stracić żadnego klienta
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {/* Card 1 */}
-            <div className="bg-white border border-gray-200 p-8 rounded-2xl hover:shadow-2xl hover:scale-105 hover:border-[#007BFF] transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Phone className="w-8 h-8 text-[#007BFF]" strokeWidth={2} />
+            <div className="bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-blue-50 rounded-lg flex items-center justify-center mb-5">
+                <Phone className="w-7 h-7 text-[#007BFF]" strokeWidth={2} />
               </div>
-              <h3 className="text-xl font-bold text-black mb-4">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">
                 Odbieranie 24/7
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed">
                 AI rozumie po polsku, odpowiada na pytania o ceny, terminy i usługi
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white border border-gray-200 p-8 rounded-2xl hover:shadow-2xl hover:scale-105 hover:border-[#007BFF] transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Calendar className="w-8 h-8 text-green-600" strokeWidth={2} />
+            <div className="bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-green-50 rounded-lg flex items-center justify-center mb-5">
+                <Calendar className="w-7 h-7 text-green-600" strokeWidth={2} />
               </div>
-              <h3 className="text-xl font-bold text-black mb-4">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">
                 Automatyczne Rezerwacje
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Wpisywanie terminów do kalendarza (Google Calendar lub Booksy)
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white border border-gray-200 p-8 rounded-2xl hover:shadow-2xl hover:scale-105 hover:border-[#007BFF] transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <MessageSquare className="w-8 h-8 text-purple-600" strokeWidth={2} />
+            <div className="bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-purple-50 rounded-lg flex items-center justify-center mb-5">
+                <MessageSquare className="w-7 h-7 text-purple-600" strokeWidth={2} />
               </div>
-              <h3 className="text-xl font-bold text-black mb-4">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">
                 SMS Podsumowania
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Wysyła skrót rozmowy do właściciela, np. "Klient Anna, wizyta pt 15:00"
               </p>
             </div>
 
             {/* Card 4 */}
-            <div className="bg-white border border-gray-200 p-8 rounded-2xl hover:shadow-2xl hover:scale-105 hover:border-[#007BFF] transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Shield className="w-8 h-8 text-orange-600" strokeWidth={2} />
+            <div className="bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-orange-50 rounded-lg flex items-center justify-center mb-5">
+                <Shield className="w-7 h-7 text-orange-600" strokeWidth={2} />
               </div>
-              <h3 className="text-xl font-bold text-black mb-4">
+              <h3 className="text-lg font-bold text-gray-900 mb-3">
                 Bezpieczne i Proste
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-600 leading-relaxed">
                 Zgodne z RODO, łatwa konfiguracja w kilka minut
               </p>
             </div>
@@ -220,84 +218,93 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Implementation Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-white to-blue-50/50">
+      <section className="py-20 px-4 bg-gray-50">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-[#007BFF] px-6 py-3 rounded-full text-sm font-semibold mb-6">
-              <Settings className="w-4 h-4" />
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
+              <Clock className="w-4 h-4" />
               Wdrożenie
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Jak Wygląda Wdrożenie AI Sekretarki
             </h2>
-            <p className="text-xl text-gray-600">
-              Prosty proces w 4 krokach – od kontaktu do działającej AI
+            <p className="text-lg text-gray-600 mb-3">
+              Prosty proces w 4 krokach – gotowe w kilka godzin
+            </p>
+            <p className="text-sm text-[#007BFF] font-semibold">
+              ⚡ Wszystko gotowe w kilka godzin po wypełnieniu formularza
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow border border-gray-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-xl flex items-center justify-center mb-6 text-white text-2xl font-bold">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-200">
+              <div className="w-12 h-12 bg-[#007BFF] rounded-lg flex items-center justify-center mb-5 text-white text-xl font-bold">
                 1
               </div>
-              <h3 className="text-xl font-bold text-black mb-4 flex items-center gap-2">
-                <Users className="w-6 h-6 text-[#007BFF]" />
-                Pierwszy Kontakt
+              <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <Users className="w-5 h-5 text-[#007BFF]" />
+                Wypełnij Formularz
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Kontaktujesz się z nami – podajesz dane firmy (usługi, ceny, godziny).
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Podajesz dane firmy: usługi, ceny, godziny pracy i preferencje
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow border border-gray-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-xl flex items-center justify-center mb-6 text-white text-2xl font-bold">
+            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-200 relative">
+              <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                AUTO
+              </div>
+              <div className="w-12 h-12 bg-[#007BFF] rounded-lg flex items-center justify-center mb-5 text-white text-xl font-bold">
                 2
               </div>
-              <h3 className="text-xl font-bold text-black mb-4 flex items-center gap-2">
-                <Settings className="w-6 h-6 text-[#007BFF]" />
-                Konfiguracja AI
+              <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <Settings className="w-5 h-5 text-[#007BFF]" />
+                Automatyczna Konfiguracja
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Konfigurujemy AI (numer Twilio, integracja kalendarza) – trwa 1-2 dni.
+              <p className="text-sm text-gray-600 leading-relaxed">
+                System automatycznie konfiguruje AI, numer telefonu i integracje
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow border border-gray-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-xl flex items-center justify-center mb-6 text-white text-2xl font-bold">
+            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-200 relative">
+              <div className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                AUTO
+              </div>
+              <div className="w-12 h-12 bg-[#007BFF] rounded-lg flex items-center justify-center mb-5 text-white text-xl font-bold">
                 3
               </div>
-              <h3 className="text-xl font-bold text-black mb-4 flex items-center gap-2">
-                <CheckCircle2 className="w-6 h-6 text-[#007BFF]" />
-                Testy i Szkolenie
+              <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-[#007BFF]" />
+                Testy i Weryfikacja
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Testujemy połączenia i szkolimy Cię (SMS-y, logi).
+              <p className="text-sm text-gray-600 leading-relaxed">
+                System automatycznie testuje połączenia i gotowość do pracy
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow border border-gray-100">
-              <div className="w-14 h-14 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-xl flex items-center justify-center mb-6 text-white text-2xl font-bold">
+            <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] p-6 rounded-xl shadow-md text-white">
+              <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-5 text-white text-xl font-bold">
                 4
               </div>
-              <h3 className="text-xl font-bold text-black mb-4 flex items-center gap-2">
-                <Zap className="w-6 h-6 text-[#007BFF]" />
-                Start!
+              <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+                <Zap className="w-5 h-5" />
+                Start w Kilka Godzin!
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                AI działa, płacisz po wdrożeniu. Twój biznes nigdy nie śpi!
+              <p className="text-sm text-blue-100 leading-relaxed">
+                AI gotowa do pracy – Twój biznes nigdy nie śpi!
               </p>
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg px-12 py-7 rounded-full font-semibold group"
-            >
-              <Sparkles className="w-5 h-5 mr-2" />
-              Rozpocznij Wdrożenie
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+          <div className="text-center">
+            <a href="#contact">
+              <Button
+                size="lg"
+                className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-base px-10 py-6 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
+              >
+                Rozpocznij Teraz
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -444,75 +451,80 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-24 px-4">
+      <section id="pricing" className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-[#007BFF] px-6 py-3 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
               <Star className="w-4 h-4" />
               Cennik
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Cennik AI Sekretarki
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg text-gray-600">
               Proste, przejrzyste ceny bez ukrytych kosztów
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
             {/* Pricing Card 1 */}
-            <div className="bg-white border-2 border-gray-200 p-10 rounded-3xl hover:shadow-2xl hover:border-[#007BFF] transition-all duration-300 hover:scale-105">
-              <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+            <div className="bg-white border-2 border-gray-200 p-8 rounded-2xl hover:shadow-lg transition-shadow">
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
                 <Settings className="w-7 h-7 text-[#007BFF]" />
               </div>
-              <h3 className="text-2xl font-bold text-black mb-4">
-                Wdrożenie
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Konfiguracja
               </h3>
               <div className="mb-6">
                 <span className="text-5xl font-bold text-[#007BFF]">499 zł</span>
                 <span className="text-gray-600 ml-2">jednorazowo</span>
               </div>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Konfiguracja i testy – wszystko gotowe w 1-2 dni
+                Pełna personalizacja pod Twoje wymagania – gotowe do działania w kilka godzin
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle2 className="w-5 h-5 text-green-500" />
-                  Pełna konfiguracja
+                  Dostosowanie do Twoich potrzeb
                 </li>
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle2 className="w-5 h-5 text-green-500" />
-                  Integracja kalendarza
+                  Integracja z kalendarzem
                 </li>
                 <li className="flex items-center gap-2 text-gray-700">
                   <CheckCircle2 className="w-5 h-5 text-green-500" />
-                  Szkolenie zespołu
+                  Wdrożenie w kilka godzin
+                </li>
+                <li className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle2 className="w-5 h-5 text-green-500" />
+                  Pełne szkolenie
                 </li>
               </ul>
             </div>
 
             {/* Pricing Card 2 - Featured */}
-            <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] p-10 rounded-3xl shadow-2xl relative transform hover:scale-105 transition-all duration-300 text-white">
-              <div className="absolute -top-4 right-8 bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold">
-                Popularne
-              </div>
-              <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] p-8 rounded-2xl shadow-xl text-white">
+              <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
                 <Zap className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-4">
-                Abonament
+                Miesięczny Abonament
               </h3>
               <div className="mb-6">
                 <span className="text-5xl font-bold">199 zł</span>
-                <span className="text-blue-100 ml-2">miesięcznie</span>
+                <span className="text-blue-100 ml-2">/miesiąc</span>
               </div>
               <p className="text-blue-100 leading-relaxed mb-6">
-                Pełna obsługa i regularne aktualizacje
+                Pełna obsługa, wsparcie i nieograniczone rozmowy
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-white" />
-                  24/7 obsługa telefonów
+                  24/7 obsługa połączeń
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-white" />
+                  24/7 wsparcie techniczne
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-white" />
@@ -520,7 +532,7 @@ export default function AISekretarkaPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-white" />
-                  Priorytetowe wsparcie
+                  Regularne aktualizacje
                 </li>
               </ul>
             </div>
@@ -548,19 +560,19 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Footer CTA */}
-      <section className="py-24 px-4 bg-gradient-to-b from-white to-blue-50">
-        <div className="container mx-auto max-w-3xl">
-          <div className="bg-white rounded-3xl shadow-2xl p-12 border border-gray-100">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-blue-100 text-[#007BFF] px-6 py-3 rounded-full text-sm font-semibold mb-6">
+      <section id="contact" className="py-20 px-4 bg-gray-50">
+        <div className="container mx-auto max-w-2xl">
+          <div className="bg-white rounded-2xl shadow-lg p-10 border border-gray-200">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
                 <Phone className="w-4 h-4" />
                 Kontakt
               </div>
-              <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
                 Zamów Demo
               </h2>
-              <p className="text-xl text-gray-600">
-                Zobacz AI Sekretarkę w akcji – umów się na prezentację
+              <p className="text-lg text-gray-600">
+                Wypełnij formularz, a skontaktujemy się z Tobą w ciągu kilku godzin
               </p>
             </div>
             
@@ -614,47 +626,41 @@ export default function AISekretarkaPage() {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg py-7 rounded-xl font-semibold group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full bg-[#007BFF] hover:bg-[#0056b3] text-white text-lg py-6 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
-                <Sparkles className="w-5 h-5 mr-2" />
                 {isSubmitting ? "Wysyłanie..." : "Wyślij Zgłoszenie"}
-                {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />}
               </Button>
             </form>
-            
-            <p className="text-center text-gray-600 mt-8 text-lg font-medium">
-              AI Sekretarka – Proste Rozwiązanie dla Twojego Biznesu
-            </p>
+
+            <div className="text-center text-gray-600 mt-8 text-sm space-y-2">
+              <p className="flex items-center justify-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500" />
+                Odpowiadamy w ciągu kilku godzin
+              </p>
+              <p className="flex items-center justify-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-green-500" />
+                24/7 wsparcie techniczne po wdrożeniu
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-16 bg-white">
+      <footer className="border-t border-gray-200 py-12 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <Link href="/" className="text-2xl font-bold text-black inline-flex items-center gap-2 mb-6 hover:opacity-80 transition-opacity">
+            <div className="text-2xl font-bold text-black inline-flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-lg flex items-center justify-center">
                 <Sparkles className="w-6 h-6 text-white" />
               </div>
-              Yieldo<span className="text-[#007BFF]">.ai</span>
-            </Link>
-            <p className="text-gray-700 mb-6 text-lg">
+              Yieldo
+            </div>
+            <p className="text-gray-600 mb-6">
               Agencja AI dla Nowoczesnych Firm
             </p>
-            <div className="flex justify-center gap-6 mb-8">
-              <Link href="/ai-sekretarka" className="text-gray-600 hover:text-[#007BFF] transition-colors">
-                AI Sekretarka
-              </Link>
-              <Link href="/" className="text-gray-600 hover:text-[#007BFF] transition-colors">
-                Kontakt
-              </Link>
-              <Link href="/" className="text-gray-600 hover:text-[#007BFF] transition-colors">
-                O nas
-              </Link>
-            </div>
             <p className="text-sm text-gray-500">
-              © 2024 Yieldo AI Agency. Wszystkie prawa zastrzeżone.
+              © 2025 Yieldo Wszystkie prawa zastrzeżone.
             </p>
           </div>
         </div>

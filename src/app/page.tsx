@@ -1,128 +1,126 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Bot, Brain, Sparkles } from "lucide-react"
+import { Phone, TrendingUp, Search, Sparkles, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white flex flex-col">
       {/* Navigation */}
       <nav className="border-b border-gray-200">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="text-2xl font-bold text-black">
-              Yieldo<span style={{ color: "var(--blue-accent)" }}>.ai</span>
-            </Link>
-            <div className="flex items-center gap-6">
-              <Link href="/ai-sekretarka" className="text-sm font-medium text-gray-700 hover:text-black transition-colors">
-                AI Sekretarka
-              </Link>
-              <Button style={{ backgroundColor: "var(--blue-accent)" }} className="text-white hover:opacity-90">
-                Kontakt
-              </Button>
+          <div className="flex justify-center items-center h-20">
+            <div className="text-2xl font-bold text-black flex items-center gap-2">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-lg flex items-center justify-center">
+                <Sparkles className="w-6 h-6 text-white" />
+              </div>
+              Yieldo
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 sm:py-32">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black mb-6 leading-tight">
-              Agencja <span style={{ color: "var(--blue-accent)" }}>AI</span> dla Nowoczesnych Firm
+      {/* Hero Section - Centered */}
+      <section className="flex-1 flex items-center justify-center py-20 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
+              Ekosystem <span className="text-[#007BFF]">Yieldo</span>
             </h1>
-            <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-              Automatyzujemy procesy biznesowe za pomocą sztucznej inteligencji. Zwiększ efektywność, obniż koszty i rozwijaj się bez limitów.
+            <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto">
+              Kompleksowe rozwiązania AI dla rozwoju Twojego biznesu
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/ai-sekretarka">
-                <Button size="lg" className="text-lg px-8 py-6 text-white" style={{ backgroundColor: "var(--blue-accent)" }}>
-                  Poznaj AI Sekretarkę
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-black text-black hover:bg-gray-50">
-                Wszystkie Usługi
-              </Button>
-            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Services Preview */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold text-black mb-12 text-center">
-            Nasze <span style={{ color: "var(--blue-accent)" }}>Rozwiązania AI</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Modules Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* AI Sekretarka - Available */}
             <Link href="/ai-sekretarka" className="group">
-              <div className="bg-white p-8 rounded-xl border-2 border-gray-200 hover:border-[var(--blue-accent)] transition-all duration-300 hover:shadow-lg h-full">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: "var(--blue-accent)", opacity: 0.1 }}>
-                  <Bot className="h-6 w-6" style={{ color: "var(--blue-accent)" }} />
+              <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-white relative overflow-hidden">
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
+                <div className="relative">
+                  <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mb-6">
+                    <Phone className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">
+                    AI Sekretarka
+                  </h3>
+                  <p className="text-blue-100 mb-6 text-sm leading-relaxed">
+                    Automatyczna obsługa telefonów 24/7. Rozmawia, pamięta klientów i umawia wizyty.
+                  </p>
+                  <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                    <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    Dostępne Teraz
+                  </div>
+                  <div className="flex items-center text-white font-semibold group-hover:gap-3 transition-all">
+                    Odkryj Moduł
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-black mb-3 group-hover:text-[var(--blue-accent)] transition-colors">
-                  AI Sekretarka
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Automatyczna obsługa połączeń 24/7. Twój biznes nigdy nie śpi.
-                </p>
-                <span className="text-[var(--blue-accent)] font-medium inline-flex items-center">
-                  Dowiedz się więcej
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </span>
               </div>
             </Link>
 
-            <div className="bg-white p-8 rounded-xl border-2 border-gray-200 opacity-75">
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-gray-100">
-                <Brain className="h-6 w-6 text-gray-400" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-400 mb-3">
-                AI Asystent
-              </h3>
-              <p className="text-gray-400 mb-4">
-                Inteligentny asystent do automatyzacji zadań i procesów.
-              </p>
-              <span className="text-gray-400 font-medium">
+            {/* Company Booster - Coming Soon */}
+            <div className="bg-white p-8 rounded-2xl shadow-md border-2 border-gray-200 relative">
+              <div className="absolute top-4 right-4 bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold">
                 Wkrótce
-              </span>
+              </div>
+              <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
+                <TrendingUp className="w-8 h-8 text-gray-400" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                Company Booster
+              </h3>
+              <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                Zwiększ sprzedaż i efektywność działań marketingowych dzięki AI.
+              </p>
+              <div className="text-gray-400 font-medium">
+                W przygotowaniu
+              </div>
             </div>
 
-            <div className="bg-white p-8 rounded-xl border-2 border-gray-200 opacity-75">
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-gray-100">
-                <Sparkles className="h-6 w-6 text-gray-400" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-400 mb-3">
-                AI Analytics
-              </h3>
-              <p className="text-gray-400 mb-4">
-                Zaawansowana analityka biznesowa powered by AI.
-              </p>
-              <span className="text-gray-400 font-medium">
+            {/* Grant Radar - Coming Soon */}
+            <div className="bg-white p-8 rounded-2xl shadow-md border-2 border-gray-200 relative">
+              <div className="absolute top-4 right-4 bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold">
                 Wkrótce
-              </span>
+              </div>
+              <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
+                <Search className="w-8 h-8 text-gray-400" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                Grant Radar
+              </h3>
+              <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                Znajdź idealne dotacje i granty dla swojej firmy automatycznie.
+              </p>
+              <div className="text-gray-400 font-medium">
+                W przygotowaniu
+              </div>
             </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-16">
+            <Link href="/ai-sekretarka">
+              <Button
+                size="lg"
+                className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-lg px-10 py-6 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
+              >
+                Zacznij od AI Sekretarki
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-12 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Link href="/" className="text-2xl font-bold text-black inline-block mb-4">
-              Yieldo<span style={{ color: "var(--blue-accent)" }}>.ai</span>
-            </Link>
-            <p className="text-gray-600 mb-4">
-              Agencja AI dla Nowoczesnych Firm
-            </p>
-            <p className="text-sm text-gray-500">
-              © 2024 Yieldo AI Agency. Wszystkie prawa zastrzeżone.
-            </p>
-          </div>
+      <footer className="border-t border-gray-200 py-8 bg-white mt-auto">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-gray-500">
+            ©2025 Yieldo Wszystkie prawa zastrzeżone.
+          </p>
         </div>
       </footer>
     </div>

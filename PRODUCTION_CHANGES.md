@@ -98,10 +98,12 @@ Cleaned up `next.config.ts` to production-ready state:
    - Recommended: Add a proper .ico or .svg favicon
    - Location: `/src/app/favicon.ico` or `/public/favicon.ico`
 
-2. **Form API Endpoint** - The contact form currently simulates submission. Before deployment:
-   - Implement actual API endpoint at `/api/contact`
-   - Or integrate with email service (e.g., SendGrid, Resend)
-   - Update the form submission code (see TODO comment in `ai-sekretarka/page.tsx:21-26`)
+2. **Form API Endpoint** - ✅ IMPLEMENTED
+   - API endpoint created at `/api/contact`
+   - Form now sends data to info.yieldo@gmail.com
+   - **Action Required**: Configure email service (see `EMAIL_SETUP.md`)
+   - Three options provided: Resend (recommended), Gmail/Nodemailer, or SendGrid
+   - Currently logs to console in development mode
 
 3. **UI Library Components** - Some unused components (chart.tsx, sidebar.tsx) have type/lint errors
    - Does not affect build or runtime (errors are ignored in build)

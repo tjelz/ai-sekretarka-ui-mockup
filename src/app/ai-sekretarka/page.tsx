@@ -6,6 +6,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { toast } from "sonner"
 import Image from "next/image"
+import LostRevenueCalculator from "../components/LostRevenueCalculator"
 
 export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
@@ -147,6 +148,9 @@ export default function AISekretarkaPage() {
           </div>
         </div>
       </section>
+
+      <LostRevenueCalculator />
+
 
       {/* Features Section */}
       <section className="py-20 px-4 bg-gray-50">

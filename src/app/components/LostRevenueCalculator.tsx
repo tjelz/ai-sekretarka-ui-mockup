@@ -32,7 +32,7 @@ export default function LostRevenueCalculator() {
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 md:mb-3 leading-tight px-2">
             Ile pieniędzy tracisz co miesiąc
-            <br className="hidden sm:block" />
+            <br/>
             <span className="text-blue-600">przez nieodebrane telefony?</span>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2">

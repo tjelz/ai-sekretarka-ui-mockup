@@ -37,31 +37,17 @@ export default function CalculatorPage() {
                 priority
               />
             </Link>
-            <div className="flex items-center gap-4">
-              <Link href="/ai-sekretarka" className="text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <Link href="/ai-sekretarka" className="hidden sm:block text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
                 AI Sekretarka
               </Link>
-              <Link href="/kalkulator" className="text-sm font-semibold text-[#007BFF]">
+              <Link href="/kalkulator" className="hidden sm:block text-sm font-semibold text-[#007BFF]">
                 Kalkulator
               </Link>
-              <a
-                href={calendlyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-sm px-6 py-2 rounded-lg font-semibold transition-all"
-                >
-                  Zamów Demo
-                </Button>
-              </a>
               <Link href="/login">
                 <Button
                   size="sm"
-                  className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-6 py-2 rounded-lg font-semibold transition-all"
+                  className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-4 sm:px-6 py-2 rounded-lg font-semibold transition-all"
                 >
                   Zaloguj
                 </Button>
@@ -72,29 +58,29 @@ export default function CalculatorPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="py-16 px-4">
+      <section className="py-12 sm:py-16 px-4">
         <div className="container mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
             <TrendingUp className="w-4 h-4" />
             Kalkulator Oszczędności
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight px-4">
             Ile Tracisz Przez
             <span className="text-[#007BFF] block mt-2">Nieodebrane Telefony?</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed px-4">
             Użyj kalkulatora, aby zobaczyć ile pieniędzy tracisz miesięcznie i rocznie przez nieodebrane połączenia od klientów.
           </p>
         </div>
       </section>
 
       {/* Calculator Section */}
-      <section className="py-8 px-4">
+      <section className="py-6 sm:py-8 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-200">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+          <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-12 border border-gray-200">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               Oblicz Swoje Straty Finansowe
             </h2>
 
@@ -198,66 +184,93 @@ export default function CalculatorPage() {
               </div>
 
               {/* Results */}
-              <div className="bg-gradient-to-br from-red-50 via-red-50 to-orange-50 rounded-2xl p-8 border-2 border-red-100 relative overflow-hidden">
+              <div className="bg-gradient-to-br from-red-50 via-red-50 to-orange-50 rounded-2xl p-6 sm:p-8 border-2 border-red-100 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-40 h-40 bg-red-200/20 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-32 h-32 bg-orange-200/20 rounded-full blur-3xl" />
                 <div className="relative">
                   <div className="flex items-center gap-2 mb-6">
                     <AlertCircle className="w-5 h-5 text-red-600" />
-                    <h3 className="text-lg font-semibold text-gray-900 uppercase tracking-wide">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 uppercase tracking-wide">
                       Twoje Straty Finansowe
                     </h3>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="grid sm:grid-cols-2 gap-6 mb-6">
                     <div>
                       <p className="text-sm text-gray-600 mb-2">Tracisz miesięcznie:</p>
                       <div className="flex items-baseline gap-2">
-                        <span className="text-4xl md:text-5xl font-black text-red-600">
+                        <span className="text-3xl sm:text-4xl md:text-5xl font-black text-red-600">
                           {formatNumber(monthlyLoss)}
                         </span>
-                        <span className="text-xl font-bold text-gray-700">zł</span>
+                        <span className="text-lg sm:text-xl font-bold text-gray-700">zł</span>
                       </div>
                     </div>
                     <div>
                       <p className="text-sm text-gray-600 mb-2">Tracisz rocznie:</p>
                       <div className="flex items-baseline gap-2">
-                        <span className="text-4xl md:text-5xl font-black text-red-600">
+                        <span className="text-3xl sm:text-4xl md:text-5xl font-black text-red-600">
                           {formatNumber(annualLoss)}
                         </span>
-                        <span className="text-xl font-bold text-gray-700">zł</span>
+                        <span className="text-lg sm:text-xl font-bold text-gray-700">zł</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-red-200">
+                  <div className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-red-200 mb-6">
                     <p className="text-sm text-gray-700 font-medium">
                       💡 Z AI Sekretarką możesz odzyskać nawet <span className="text-red-600 font-bold">80-90%</span> tych strat!
                     </p>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <a
+                      href={calendlyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1"
+                    >
+                      <Button
+                        size="lg"
+                        className="w-full bg-[#007BFF] hover:bg-[#0056b3] text-white text-base sm:text-lg px-6 py-5 sm:py-6 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
+                      >
+                        Zamów Demo Teraz
+                        <ArrowRight className="w-5 h-5 ml-2" />
+                      </Button>
+                    </a>
+                    <Link href="/ai-sekretarka" className="flex-1">
+                      <Button
+                        size="lg"
+                        variant="outline"
+                        className="w-full border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-base sm:text-lg px-6 py-5 sm:py-6 rounded-lg font-semibold transition-all"
+                      >
+                        Dowiedz Się Więcej
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-4">
-                <div className="text-center p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <div className="text-3xl font-black text-[#007BFF] mb-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                <div className="text-center p-3 sm:p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <div className="text-2xl sm:text-3xl font-black text-[#007BFF] mb-1 sm:mb-2">
                     {Math.round(successfulTransactions)}
                   </div>
                   <p className="text-xs text-gray-600 font-medium leading-tight">
                     Utraconych transakcji miesięcznie
                   </p>
                 </div>
-                <div className="text-center p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <div className="text-3xl font-black text-[#007BFF] mb-2">
+                <div className="text-center p-3 sm:p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <div className="text-2xl sm:text-3xl font-black text-[#007BFF] mb-1 sm:mb-2">
                     {Math.round(missedCallsPerMonth)}
                   </div>
                   <p className="text-xs text-gray-600 font-medium leading-tight">
                     Nieodebranych połączeń miesięcznie
                   </p>
                 </div>
-                <div className="text-center p-4 rounded-xl bg-gray-50 border border-gray-200">
-                  <div className="text-3xl font-black text-[#007BFF] mb-2">
+                <div className="text-center p-3 sm:p-4 rounded-xl bg-gray-50 border border-gray-200">
+                  <div className="text-2xl sm:text-3xl font-black text-[#007BFF] mb-1 sm:mb-2">
                     {noShowPercentage}%
                   </div>
                   <p className="text-xs text-gray-600 font-medium leading-tight">
@@ -270,45 +283,18 @@ export default function CalculatorPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4">
+      {/* Bottom CTA Section - Simplified on mobile */}
+      <section className="py-12 sm:py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-3xl p-12 text-center text-white shadow-2xl">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center text-white shadow-2xl">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
               Gotowy Zatrzymać Te Straty?
             </h2>
-            <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-blue-100 mb-6 sm:mb-8 max-w-2xl mx-auto">
               AI Sekretarka odbierze każde połączenie, umówi klienta i wyśle potwierdzenie SMS. Wszystko automatycznie, 24/7.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-              <a
-                href={calendlyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <Button
-                  size="lg"
-                  className="bg-white text-[#007BFF] hover:bg-gray-100 text-lg px-10 py-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all"
-                >
-                  Zamów Demo Teraz
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </a>
-
-              <Link href="/ai-sekretarka">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white text-black hover:bg-white/10 text-lg px-10 py-6 rounded-lg font-semibold transition-all"
-                >
-                  Dowiedz Się Więcej
-                </Button>
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-blue-100">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm text-blue-100 mb-6">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>Wdrożenie w kilka godzin</span>

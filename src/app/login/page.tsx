@@ -9,8 +9,8 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Sparkles, Mail, Lock, User, CheckCircle2 } from "lucide-react"
-import Image from "next/image"
+import { Mail, Lock, User, CheckCircle2 } from "lucide-react"
+import { Navbar } from "@/components/ui/navbar"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -91,28 +91,16 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white p-4 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 translate-x-1/2 translate-y-1/2"></div>
+    <div className="min-h-screen bg-white">
+      {/* Navigation Bar */}
+      <Navbar />
+
+      <div className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden pt-24">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50 translate-x-1/2 translate-y-1/2"></div>
 
       <div className="w-full max-w-md relative z-10">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <Image
-            src="/logo.png"
-            alt="Yieldo"
-            width={120}
-            height={40}
-            className="h-12 w-auto mx-auto mb-4"
-            priority
-          />
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-4 py-2 rounded-full text-sm font-medium">
-            <Sparkles className="w-4 h-4" />
-            AI dla Twojego Biznesu
-          </div>
-        </div>
-
         <Card className="border-2 border-gray-200 shadow-xl">
           <CardHeader className="space-y-3 pb-4">
             <CardTitle className="text-3xl font-bold text-center text-gray-900">
@@ -273,6 +261,7 @@ export default function LoginPage() {
           </p>
         </div>
       </div>
+    </div>
     </div>
   )
 }

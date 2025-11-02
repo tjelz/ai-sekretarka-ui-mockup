@@ -233,30 +233,17 @@ export default function AISekretarkaPage() {
                 priority
               />
             </Link>
-            <div className="flex items-center gap-4">
-              <Link href="/kalkulator" className="text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <Link href="/kalkulator" className="hidden sm:block text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
                 Kalkulator
               </Link>
-              <a href="#pricing" className="text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
+              <a href="#pricing" className="hidden sm:block text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
                 Cennik
-              </a>
-              <a
-                href="https://calendly.com/info-yieldo/ai-recepcjonistka"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-sm px-6 py-2 rounded-lg font-semibold transition-all"
-                >
-                  Zamów Demo
-                </Button>
               </a>
               <Link href="/login">
                 <Button
                   size="sm"
-                  className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-6 py-2 rounded-lg font-semibold transition-all"
+                  className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-4 sm:px-6 py-2 rounded-lg font-semibold transition-all"
                 >
                   Zaloguj
                 </Button>

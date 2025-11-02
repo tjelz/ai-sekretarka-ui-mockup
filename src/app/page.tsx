@@ -1,49 +1,20 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Phone, TrendingUp, Search, ArrowRight } from "lucide-react"
+import { Phone, Search, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { Navbar } from "@/components/ui/navbar"
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
-   
-      {/* Hero Section - Centered */}
-      <section className="flex-1 flex items-center justify-center py-8 px-4">
+      {/* Navigation Bar */}
+      <Navbar />
+
+      {/* Hero Section - Centered with top padding for fixed navbar */}
+      <section className="flex-1 flex items-center justify-center py-8 px-4 pt-24">
         <div className="container mx-auto max-w-6xl">
-          <div className="absolute top-4 right-4 flex gap-3">
-            <Link href="/kalkulator">
-              <Button
-                size="sm"
-                variant="outline"
-                className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-sm px-6 py-2 rounded-lg font-semibold transition-all"
-              >
-                Kalkulator
-              </Button>
-            </Link>
-            <a
-              href="https://calendly.com/info-yieldo/ai-recepcjonistka"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="sm"
-                variant="outline"
-                className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-sm px-6 py-2 rounded-lg font-semibold transition-all"
-              >
-                Zamów Demo
-              </Button>
-            </a>
-            <Link href="/login">
-              <Button
-                size="sm"
-                className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-6 py-2 rounded-lg font-semibold transition-all"
-              >
-                Zaloguj
-              </Button>
-            </Link>
-          </div>
           <div className="text-center mb-6">
           <Image
               src="/logo.png"

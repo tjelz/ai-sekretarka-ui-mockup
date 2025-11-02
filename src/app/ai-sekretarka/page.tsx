@@ -1,12 +1,184 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Phone, Calendar, MessageSquare, Shield, Clock, Zap, TrendingUp, CheckCircle2, Users, Settings, ArrowRight, Star, Sparkles } from "lucide-react"
+import { Phone, Calendar, MessageSquare, Shield, Clock, Zap, TrendingUp, CheckCircle2, Users, Settings, ArrowRight, Star, Sparkles, AlertCircle } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { toast } from "sonner"
 import Image from "next/image"
 import LostRevenueCalculator from "../components/LostRevenueCalculator"
+import { Slider } from "@/components/ui/slider"
+
+// Inline Calculator Component
+function InlineCalculator() {
+  const [missedCallsPerWeek, setMissedCallsPerWeek] = useState(20)
+  const [avgTransactionValue, setAvgTransactionValue] = useState(150)
+  const [noShowPercentage, setNoShowPercentage] = useState(15)
+
+  const missedCallsPerMonth = missedCallsPerWeek * (52 / 12)
+  const successfulTransactions = missedCallsPerMonth * (1 - noShowPercentage / 100)
+  const monthlyLoss = successfulTransactions * avgTransactionValue
+  const annualLoss = monthlyLoss * 12
+
+  const formatNumber = (num: number) => num.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+
+  return (
+    <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+      <h3 className="text-2xl font-bold text-gray-900 mb-6">Kalkulator Oszczędności</h3>
+
+      <div className="space-y-6">
+        {/* Missed Calls */}
+        <div className="bg-blue-50/30 rounded-xl p-4 space-y-3 border border-blue-100/50">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                <Phone className="w-4 h-4 text-[#007BFF]" />
+              </div>
+              <label className="text-sm font-semibold text-gray-900">
+                Nieodebrane telefony (tygodniowo)
+              </label>
+            </div>
+            <input
+              type="number"
+              value={missedCallsPerWeek}
+              onChange={(e) => setMissedCallsPerWeek(Math.max(0, Math.min(100, Number(e.target.value))))}
+              className="w-16 h-9 text-center text-base font-bold border-2 border-gray-200 focus:border-[#007BFF] rounded-lg transition-all bg-white"
+            />
+          </div>
+          <Slider
+            value={[missedCallsPerWeek]}
+            onValueChange={(val: number[]) => setMissedCallsPerWeek(val[0])}
+            max={100}
+            step={1}
+            className="cursor-pointer"
+          />
+        </div>
+
+        {/* Average Transaction */}
+        <div className="bg-green-50/30 rounded-xl p-4 space-y-3 border border-green-100/50">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0">
+                <TrendingUp className="w-4 h-4 text-green-600" />
+              </div>
+              <label className="text-sm font-semibold text-gray-900">
+                Średnia wartość transakcji
+              </label>
+            </div>
+            <div className="relative w-20">
+              <input
+                type="number"
+                value={avgTransactionValue}
+                onChange={(e) => setAvgTransactionValue(Math.max(0, Math.min(500, Number(e.target.value))))}
+                className="w-full h-9 text-center text-base font-bold border-2 border-gray-200 focus:border-[#007BFF] rounded-lg pr-8 transition-all bg-white"
+              />
+              <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-500 pointer-events-none">
+                zł
+              </span>
+            </div>
+          </div>
+          <Slider
+            value={[avgTransactionValue]}
+            onValueChange={(val: number[]) => setAvgTransactionValue(val[0])}
+            max={500}
+            step={5}
+            className="cursor-pointer"
+          />
+        </div>
+
+        {/* No-Show % */}
+        <div className="bg-orange-50/30 rounded-xl p-4 space-y-3 border border-orange-100/50">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center flex-shrink-0">
+                <Calendar className="w-4 h-4 text-orange-600" />
+              </div>
+              <label className="text-sm font-semibold text-gray-900">
+                Procent niestawiennictwa
+              </label>
+            </div>
+            <div className="relative w-16">
+              <input
+                type="number"
+                value={noShowPercentage}
+                onChange={(e) => setNoShowPercentage(Math.max(0, Math.min(50, Number(e.target.value))))}
+                className="w-full h-9 text-center text-base font-bold border-2 border-gray-200 focus:border-[#007BFF] rounded-lg pr-7 transition-all bg-white"
+              />
+              <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-500 pointer-events-none">%</span>
+            </div>
+          </div>
+          <Slider
+            value={[noShowPercentage]}
+            onValueChange={(val: number[]) => setNoShowPercentage(val[0])}
+            max={50}
+            step={1}
+            className="cursor-pointer"
+          />
+        </div>
+
+        {/* Results */}
+        <div className="bg-gradient-to-br from-blue-50 via-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-100 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-200/20 rounded-full blur-3xl" />
+          <div className="relative">
+            <div className="flex items-center gap-2 mb-4">
+              <AlertCircle className="w-4 h-4 text-[#007BFF]" />
+              <h4 className="text-xs font-semibold text-gray-700 uppercase tracking-wide">
+                Twoje straty finansowe
+              </h4>
+            </div>
+            <div className="mb-4">
+              <p className="text-xs text-gray-600 mb-1">Miesięcznie tracisz:</p>
+              <div className="flex items-baseline gap-2">
+                <span className="text-3xl font-black text-gray-900">
+                  {formatNumber(monthlyLoss)}
+                </span>
+                <span className="text-lg font-bold text-gray-600">zł</span>
+              </div>
+            </div>
+            <div className="pt-4 border-t-2 border-blue-200">
+              <p className="text-xs text-gray-600 mb-1">Rocznie tracisz:</p>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-black text-[#007BFF]">
+                  {formatNumber(annualLoss)}
+                </span>
+                <span className="text-base font-bold text-[#007BFF]">zł</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-3">
+          <div className="text-center p-3 rounded-xl bg-gray-50">
+            <div className="text-2xl font-black text-[#007BFF] mb-1">
+              {Math.round(successfulTransactions)}
+            </div>
+            <p className="text-xs text-gray-600 font-medium leading-tight">
+              Utraconych transakcji/m-c
+            </p>
+          </div>
+          <div className="text-center p-3 rounded-xl bg-gray-50">
+            <div className="text-2xl font-black text-[#007BFF] mb-1">
+              {missedCallsPerWeek}
+            </div>
+            <p className="text-xs text-gray-600 font-medium leading-tight">
+              Nieodebranych połączeń/tydz.
+            </p>
+          </div>
+          <div className="text-center p-3 rounded-xl bg-gray-50">
+            <div className="text-2xl font-black text-[#007BFF] mb-1">
+              {noShowPercentage}%
+            </div>
+            <p className="text-xs text-gray-600 font-medium leading-tight">
+              Niestawiennictwo
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
@@ -60,12 +232,20 @@ export default function AISekretarkaPage() {
               priority
             />
             <div className="flex items-center gap-4">
-              <a href="#contact" className="text-sm font-semibold text-[#007BFF] hover:text-[#0056b3] transition-colors">
+              <a href="#contact" className="text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
                 Kontakt
               </a>
               <a href="#pricing" className="text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
                 Cennik
               </a>
+              <Link href="/login">
+                <Button
+                  size="sm"
+                  className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-6 py-2 rounded-lg font-semibold transition-all"
+                >
+                  Zaloguj
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -568,87 +748,94 @@ export default function AISekretarkaPage() {
 
       {/* Footer CTA */}
       <section id="contact" className="py-20 px-4 bg-gray-50">
-        <div className="container mx-auto max-w-2xl">
-          <div className="bg-white rounded-2xl shadow-lg p-10 border border-gray-200">
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
-                <Phone className="w-4 h-4" />
-                Kontakt
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                Zamów Demo
-              </h2>
-              <p className="text-lg text-gray-600">
-                Wypełnij formularz, a skontaktujemy się z Tobą w ciągu kilku godzin
-              </p>
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
+              <Phone className="w-4 h-4" />
+              Kontakt & Kalkulator
             </div>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-black font-semibold mb-3 flex items-center gap-2">
-                  <Users className="w-4 h-4 text-[#007BFF]" />
-                  Imię
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-[#007BFF] focus:border-transparent transition-all"
-                  placeholder="Jan Kowalski"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-black font-semibold mb-3 flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-[#007BFF]" />
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-[#007BFF] focus:border-transparent transition-all"
-                  placeholder="jan@firma.pl"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-black font-semibold mb-3 flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-[#007BFF]" />
-                  Numer Telefonu
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-[#007BFF] focus:border-transparent transition-all"
-                  placeholder="+48 123 456 789"
-                  required
-                />
-              </div>
-              <Button
-                type="submit"
-                size="lg"
-                disabled={isSubmitting}
-                className="w-full bg-[#007BFF] hover:bg-[#0056b3] text-white text-lg py-6 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-              >
-                {isSubmitting ? "Wysyłanie..." : "Wyślij Zgłoszenie"}
-              </Button>
-            </form>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Zamów Demo i Oblicz Swoje Oszczędności
+            </h2>
+            <p className="text-lg text-gray-600">
+              Wypełnij formularz i zobacz ile możesz zaoszczędzić
+            </p>
+          </div>
 
-            <div className="text-center text-gray-600 mt-8 text-sm space-y-2">
-              <p className="flex items-center justify-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-green-500" />
-                Odpowiadamy w ciągu kilku godzin
-              </p>
-              <p className="flex items-center justify-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-green-500" />
-                24/7 wsparcie techniczne po wdrożeniu
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Contact Form */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Formularz Kontaktowy</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-black font-semibold mb-3 flex items-center gap-2">
+                    <Users className="w-4 h-4 text-[#007BFF]" />
+                    Imię
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-[#007BFF] focus:border-transparent transition-all"
+                    placeholder="Jan Kowalski"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-black font-semibold mb-3 flex items-center gap-2">
+                    <MessageSquare className="w-4 h-4 text-[#007BFF]" />
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-[#007BFF] focus:border-transparent transition-all"
+                    placeholder="jan@firma.pl"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-black font-semibold mb-3 flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-[#007BFF]" />
+                    Numer Telefonu
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-[#007BFF] focus:border-transparent transition-all"
+                    placeholder="+48 123 456 789"
+                    required
+                  />
+                </div>
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#007BFF] hover:bg-[#0056b3] text-white text-lg py-6 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                >
+                  {isSubmitting ? "Wysyłanie..." : "Wyślij Zgłoszenie"}
+                </Button>
+
+                <div className="text-center text-gray-600 text-sm space-y-2">
+                  <p className="flex items-center justify-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                    Odpowiadamy w ciągu kilku godzin
+                  </p>
+                  <p className="flex items-center justify-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                    24/7 wsparcie techniczne po wdrożeniu
+                  </p>
+                </div>
+              </form>
             </div>
+
+            {/* Calculator */}
+            <InlineCalculator />
           </div>
         </div>
       </section>

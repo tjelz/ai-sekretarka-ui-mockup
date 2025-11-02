@@ -12,6 +12,16 @@ export default function Home() {
       {/* Hero Section - Centered */}
       <section className="flex-1 flex items-center justify-center py-8 px-4">
         <div className="container mx-auto max-w-6xl">
+          <div className="absolute top-4 right-4">
+            <Link href="/login">
+              <Button
+                size="sm"
+                className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-6 py-2 rounded-lg font-semibold transition-all"
+              >
+                Zaloguj
+              </Button>
+            </Link>
+          </div>
           <div className="text-center mb-6">
           <Image
               src="/logo.png"

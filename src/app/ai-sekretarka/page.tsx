@@ -223,20 +223,35 @@ export default function AISekretarkaPage() {
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <Image
-              src="/logo.png"
-              alt="Yieldo"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
-              priority
-            />
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="Yieldo"
+                width={120}
+                height={40}
+                className="h-10 w-auto cursor-pointer"
+                priority
+              />
+            </Link>
             <div className="flex items-center gap-4">
-              <a href="#contact" className="text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
-                Kontakt
-              </a>
+              <Link href="/kalkulator" className="text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
+                Kalkulator
+              </Link>
               <a href="#pricing" className="text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
                 Cennik
+              </a>
+              <a
+                href="https://calendly.com/info-yieldo/ai-recepcjonistka"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-sm px-6 py-2 rounded-lg font-semibold transition-all"
+                >
+                  Zamów Demo
+                </Button>
               </a>
               <Link href="/login">
                 <Button
@@ -269,7 +284,11 @@ export default function AISekretarkaPage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-            <a href="#contact">
+            <a
+              href="https://calendly.com/info-yieldo/ai-recepcjonistka"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 size="lg"
                 className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-base px-8 py-6 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
@@ -484,7 +503,11 @@ export default function AISekretarkaPage() {
           </div>
 
           <div className="text-center">
-            <a href="#contact">
+            <a
+              href="https://calendly.com/info-yieldo/ai-recepcjonistka"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 size="lg"
                 className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-base px-10 py-6 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
@@ -626,13 +649,15 @@ export default function AISekretarkaPage() {
           </div>
 
           <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg px-12 py-7 rounded-full font-semibold"
-            >
-              <TrendingUp className="w-5 h-5 mr-2" />
-              Oblicz Swoje Oszczędności
-            </Button>
+            <Link href="/kalkulator">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg px-12 py-7 rounded-full font-semibold"
+              >
+                <TrendingUp className="w-5 h-5 mr-2" />
+                Oblicz Swoje Oszczędności
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -734,14 +759,20 @@ export default function AISekretarkaPage() {
               <span className="text-gray-400">•</span>
               Anuluj w każdej chwili
             </p>
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg px-12 py-7 rounded-full font-semibold group"
+            <a
+              href="https://calendly.com/info-yieldo/ai-recepcjonistka"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Sparkles className="w-5 h-5 mr-2" />
-              Rozpocznij
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg px-12 py-7 rounded-full font-semibold group"
+              >
+                <Sparkles className="w-5 h-5 mr-2" />
+                Rozpocznij Teraz
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -834,8 +865,37 @@ export default function AISekretarkaPage() {
               </form>
             </div>
 
-            {/* Calculator */}
-            <InlineCalculator />
+            {/* Calculator Link Card */}
+            <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-2xl shadow-lg p-8 border border-blue-600 text-white">
+              <h3 className="text-2xl font-bold mb-4">Kalkulator Oszczędności</h3>
+              <p className="text-blue-100 mb-6 leading-relaxed">
+                Oblicz ile pieniędzy tracisz przez nieodebrane telefony i zobacz jak AI Sekretarka może pomóc!
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-white flex-shrink-0" />
+                  <span className="text-blue-100">Zobacz miesięczne i roczne straty</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-white flex-shrink-0" />
+                  <span className="text-blue-100">Spersonalizowane wyliczenia</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-white flex-shrink-0" />
+                  <span className="text-blue-100">Porównanie z kosztami AI</span>
+                </div>
+              </div>
+              <Link href="/kalkulator">
+                <Button
+                  size="lg"
+                  className="w-full bg-white text-[#007BFF] hover:bg-gray-100 font-semibold py-6 text-lg group"
+                >
+                  <TrendingUp className="w-5 h-5 mr-2" />
+                  Przejdź do Kalkulatora
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

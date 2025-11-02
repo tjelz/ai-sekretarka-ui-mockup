@@ -1,11 +1,15 @@
 // Jest setup for authentication testing
-import '@testing-library/jest-dom';
+require('@testing-library/jest-dom');
 
 // Mock environment variables for testing
 process.env.NODE_ENV = 'test';
 process.env.NEXT_PUBLIC_APP_URL = 'http://localhost:3000';
 process.env.JWT_SECRET = 'test-secret-key-for-testing-only';
 process.env.SESSION_SECRET = 'test-session-secret-for-testing';
+process.env.POSTGRES_URL = 'postgresql://test:test@localhost:5432/test_db';
+process.env.NEXTAUTH_SECRET = 'test-secret-key-for-testing-only';
+process.env.NEXTAUTH_URL = 'http://localhost:3000';
+process.env.RESEND_API_KEY = 'test-resend-api-key';
 
 // Global test timeout
 jest.setTimeout(10000);

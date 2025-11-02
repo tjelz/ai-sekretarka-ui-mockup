@@ -12,7 +12,29 @@ export default function Home() {
       {/* Hero Section - Centered */}
       <section className="flex-1 flex items-center justify-center py-8 px-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-4 right-4 flex gap-3">
+            <Link href="/kalkulator">
+              <Button
+                size="sm"
+                variant="outline"
+                className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-sm px-6 py-2 rounded-lg font-semibold transition-all"
+              >
+                Kalkulator
+              </Button>
+            </Link>
+            <a
+              href="https://calendly.com/info-yieldo/ai-recepcjonistka"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                size="sm"
+                variant="outline"
+                className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-sm px-6 py-2 rounded-lg font-semibold transition-all"
+              >
+                Zamów Demo
+              </Button>
+            </a>
             <Link href="/login">
               <Button
                 size="sm"
@@ -86,15 +108,30 @@ export default function Home() {
 
           {/* CTA */}
           <div className="text-center mt-16">
-            <Link href="/ai-sekretarka">
-              <Button
-                size="lg"
-                className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-lg px-10 py-6 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="https://calendly.com/info-yieldo/ai-recepcjonistka"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Zacznij od AI Sekretarki
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
+                <Button
+                  size="lg"
+                  className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-lg px-10 py-6 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
+                >
+                  Zamów Demo AI Sekretarki
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </a>
+              <Link href="/ai-sekretarka">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-lg px-10 py-6 rounded-lg font-semibold transition-all"
+                >
+                  Dowiedz Się Więcej
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

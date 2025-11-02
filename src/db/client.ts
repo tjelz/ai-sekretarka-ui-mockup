@@ -1,11 +1,12 @@
-import { sql } from '@vercel/postgres';
+import { sql as pgSql } from '@vercel/postgres';
 import { kv } from '@vercel/kv';
 
 /**
  * Vercel Postgres client for database operations
  * Configured to use environment variables for connection
  */
-export const db = sql;
+export const db = pgSql;
+export const sql = pgSql;
 
 /**
  * Vercel KV client for session management and caching

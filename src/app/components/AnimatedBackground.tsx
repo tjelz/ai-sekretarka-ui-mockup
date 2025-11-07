@@ -1,9 +1,25 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function AnimatedBackground() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Detect mobile on mount
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Reduce particle count on mobile for better performance
+  const particleCount = isMobile ? 5 : 15;
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Gradient Background */}
@@ -17,55 +33,78 @@ export default function AnimatedBackground() {
         }}
       />
 
-      {/* Animated Blur Orbs */}
-      <motion.div
-        className="absolute w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"
-        animate={{
-          x: [0, 100, 0],
-          y: [0, -50, 0],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        style={{ top: '10%', left: '5%' }}
-      />
+      {/* Animated Blur Orbs - Simplified on mobile */}
+      {!isMobile && (
+        <>
+          <motion.div
+            className="absolute w-96 h-96 bg-blue-400/20 rounded-full blur-3xl"
+            animate={{
+              x: [0, 100, 0],
+              y: [0, -50, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            style={{
+              top: '10%',
+              left: '5%',
+              willChange: 'transform',
+            }}
+          />
 
-      <motion.div
-        className="absolute w-80 h-80 bg-purple-400/15 rounded-full blur-3xl"
-        animate={{
-          x: [0, -80, 0],
-          y: [0, 100, 0],
-        }}
-        transition={{
-          duration: 25,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        style={{ top: '40%', right: '10%' }}
-      />
+          <motion.div
+            className="absolute w-80 h-80 bg-purple-400/15 rounded-full blur-3xl"
+            animate={{
+              x: [0, -80, 0],
+              y: [0, 100, 0],
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            style={{
+              top: '40%',
+              right: '10%',
+              willChange: 'transform',
+            }}
+          />
 
-      <motion.div
-        className="absolute w-72 h-72 bg-indigo-400/20 rounded-full blur-3xl"
-        animate={{
-          x: [0, 60, 0],
-          y: [0, -80, 0],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        style={{ bottom: '15%', left: '30%' }}
-      />
+          <motion.div
+            className="absolute w-72 h-72 bg-indigo-400/20 rounded-full blur-3xl"
+            animate={{
+              x: [0, 60, 0],
+              y: [0, -80, 0],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            style={{
+              bottom: '15%',
+              left: '30%',
+              willChange: 'transform',
+            }}
+          />
+        </>
+      )}
 
-      {/* Floating Particles */}
-      {[...Array(15)].map((_, i) => {
-        // Use deterministic "random" values based on index to prevent hydration mismatch
-        const xPosition = ((i * 37 + 13) % 100); // Deterministic spread 0-100
-        const duration = 10 + ((i * 7) % 10); // Duration 10-20s
-        const delay = (i * 0.5) % 5; // Delay 0-5s
+      {/* Static blur orbs on mobile for minimal performance impact */}
+      {isMobile && (
+        <>
+          <div className="absolute w-64 h-64 bg-blue-400/20 rounded-full blur-3xl" style={{ top: '10%', left: '5%' }} />
+          <div className="absolute w-64 h-64 bg-purple-400/15 rounded-full blur-3xl" style={{ top: '40%', right: '10%' }} />
+        </>
+      )}
+
+      {/* Floating Particles - Reduced on mobile */}
+      {[...Array(particleCount)].map((_, i) => {
+        const xPosition = ((i * 37 + 13) % 100);
+        const duration = 10 + ((i * 7) % 10);
+        const delay = (i * 0.5) % 5;
 
         return (
           <motion.div
@@ -84,6 +123,7 @@ export default function AnimatedBackground() {
               repeat: Infinity,
               delay,
             }}
+            style={{ willChange: 'transform, opacity' }}
           />
         );
       })}

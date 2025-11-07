@@ -8,6 +8,7 @@ import { Clock, TrendingUp, Shield } from 'lucide-react';
 
 export default function HeroPhoneMockup() {
   const [currentStep, setCurrentStep] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Animation sequence
   const steps = [
@@ -21,11 +22,21 @@ export default function HeroPhoneMockup() {
   ];
 
   useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    // Slower animation on mobile for better performance
     const interval = setInterval(() => {
       setCurrentStep((prev) => (prev + 1) % steps.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
+    }, isMobile ? 3500 : 2500);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, [isMobile]);
 
   return (
     <div className="relative w-full h-[500px] flex items-center justify-center">
@@ -54,24 +65,25 @@ export default function HeroPhoneMockup() {
 
       {/* Phone Mockup */}
       <motion.div
-        className="relative w-[280px] h-[560px] bg-gray-900 rounded-[40px] shadow-2xl border-8 border-gray-800"
-        initial={{ opacity: 0, x: 100, rotateY: -20 }}
+        className="relative w-[280px] h-[560px] bg-gray-900 rounded-[40px] shadow-2xl border-8 border-gray-800 z-10"
+        initial={{ opacity: 0, x: isMobile ? 0 : 100, rotateY: isMobile ? 0 : -20 }}
         animate={{ opacity: 1, x: 0, rotateY: 0 }}
-        transition={{ duration: 0.8, delay: 0.9 }}
+        transition={{ duration: isMobile ? 0.5 : 0.8, delay: isMobile ? 0.3 : 0.9 }}
+        style={{ willChange: 'transform, opacity' }}
       >
         {/* Phone Notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl z-30" />
 
         {/* Phone Screen */}
-        <div className="absolute inset-2 bg-white rounded-[32px] overflow-hidden">
+        <div className="absolute inset-2 bg-white rounded-[32px] overflow-hidden z-20">
           {/* Status Bar */}
-          <div className="h-12 bg-gradient-to-r from-[#007BFF] to-[#0056b3] flex items-center justify-between px-4 text-white text-xs">
+          <div className="h-12 bg-gradient-to-r from-[#007BFF] to-[#0056b3] flex items-center justify-between px-4 text-white text-xs relative z-30">
             <span className="font-semibold">AI Sekretarka</span>
             <span>9:41</span>
           </div>
 
           {/* Chat Area */}
-          <div className="p-4 space-y-3 bg-gray-50 h-[calc(100%-3rem)] overflow-hidden">
+          <div className="p-4 space-y-3 bg-gray-50 h-[calc(100%-3rem)] overflow-hidden relative z-20">
             <AnimatePresence mode="wait">
               {currentStep === 0 && (
                 <motion.div
@@ -217,7 +229,7 @@ export default function HeroPhoneMockup() {
         </div>
 
         {/* Home Indicator */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/30 rounded-full" />
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/30 rounded-full z-30" />
       </motion.div>
     </div>
   );

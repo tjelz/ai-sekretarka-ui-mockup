@@ -26,7 +26,7 @@ export default function FloatingStatsCard({
 }: FloatingStatsCardProps) {
   return (
     <motion.div
-      className="absolute bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-3 min-w-[140px]"
+      className="absolute bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 p-3 min-w-[140px] hidden md:block"
       style={position}
       initial={{ opacity: 0, y: 20, scale: 0.8 }}
       animate={{

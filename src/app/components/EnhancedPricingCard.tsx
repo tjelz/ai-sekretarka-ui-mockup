@@ -6,30 +6,19 @@ import { CheckCircle2, Users, Sparkles, TrendingUp } from 'lucide-react';
 interface EnhancedPricingCardProps {
   name: string;
   price: number;
-  calls: number;
   description: string;
   features: string[];
   isPopular?: boolean;
-  avgPrice: number;
-  conversion: number;
 }
 
 export default function EnhancedPricingCard({
   name,
   price,
-  calls,
   description,
   features,
   isPopular = false,
-  avgPrice,
-  conversion,
 }: EnhancedPricingCardProps) {
   // Calculate profit metrics
-  const visits = Math.floor(calls * (conversion / 100));
-  const revenue = visits * avgPrice;
-  const profit = revenue - price;
-  const isProfitable = profit > 0;
-
   // Format PLN with no decimals
   const formatPLN = (num: number): string => {
     return Math.floor(num).toLocaleString('pl-PL');

@@ -20,7 +20,7 @@ export default function TypewriterText({ phrases, className = '' }: TypewriterTe
   }, [phrases.length]);
 
   return (
-    <div className={`relative inline-block ${className}`}>
+    <div className={`relative inline-block min-h-[2.2em] align-top ${className}`}>
       <AnimatePresence mode="wait">
         <motion.span
           key={currentPhraseIndex}

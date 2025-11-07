@@ -92,32 +92,15 @@ export default function AISekretarkaPage() {
       </nav>
 
       {/* Hero Section - Enhanced Split Layout */}
-      <section className="relative py-16 sm:py-24 px-4 overflow-hidden">
+      <section className="relative py-10 px-4 overflow-hidden">
         {/* Animated Background */}
         <AnimatedBackground />
 
         <div className="container mx-auto max-w-7xl relative z-10">
-          {/* Urgency Badge */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-6 py-3 rounded-full text-sm font-bold shadow-md border border-orange-200">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
-              </span>
-              🔥 Promocja: Pierwszy miesiąc -50% dla nowych klientów
-            </div>
-          </div>
-
           {/* Split Layout */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Content */}
             <div className="space-y-8">
-              {/* Eyebrow */}
-              <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium">
-                <Zap className="w-4 h-4" />
-                Ponad 50 firm już oszczędza czas
-              </div>
-
               {/* Headline with Typewriter */}
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.1]">
                 Nigdy Nie Trać Klienta przez{' '}

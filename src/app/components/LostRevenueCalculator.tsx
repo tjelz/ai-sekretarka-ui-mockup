@@ -4,17 +4,16 @@ import React, { useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, Phone, Calendar, AlertCircle } from 'lucide-react';
+import { TrendingUp, Phone, AlertCircle } from 'lucide-react';
 
 export default function LostRevenueCalculator() {
   const [missedCallsPerWeek, setMissedCallsPerWeek] = useState(20);
   const [avgTransactionValue, setAvgTransactionValue] = useState(150);
-  const [noShowPercentage, setNoShowPercentage] = useState(15);
 
   // Calculate lost revenue
   // More accurate: 52 weeks / 12 months = 4.33 weeks per month on average
   const missedCallsPerMonth = missedCallsPerWeek * (52 / 12);
-  const successfulTransactions = missedCallsPerMonth * (1 - noShowPercentage / 100);
+  const successfulTransactions = missedCallsPerMonth;
   const monthlyLoss = successfulTransactions * avgTransactionValue;
   const annualLoss = monthlyLoss * 12;
 
@@ -104,35 +103,6 @@ export default function LostRevenueCalculator() {
                 />
               </div>
 
-              {/* No-Show % */}
-              <div className="bg-orange-50/30 rounded-xl p-4 space-y-3 border border-orange-100/50 hover:border-orange-200 transition-all">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center flex-shrink-0">
-                      <Calendar className="w-4 h-4 text-orange-600" />
-                    </div>
-                    <label className="text-xs md:text-sm font-semibold text-gray-900">
-                      Procent niestawiennictwa
-                    </label>
-                  </div>
-                  <div className="relative w-16 sm:w-20">
-                    <input
-                      type="number"
-                      value={noShowPercentage}
-                      onChange={(e) => setNoShowPercentage(Math.max(0, Math.min(50, Number(e.target.value))))}
-                      className="w-full h-9 text-center text-base font-bold border-2 border-gray-200 focus:border-blue-500 rounded-lg pr-7 transition-all bg-white"
-                    />
-                    <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-500 pointer-events-none">%</span>
-                  </div>
-                </div>
-                <Slider
-                  value={[noShowPercentage]}
-                  onValueChange={(val: number[]) => setNoShowPercentage(val[0])}
-                  max={50}
-                  step={1}
-                  className="cursor-pointer"
-                />
-              </div>
             </div>
 
             {/* Results */}
@@ -175,7 +145,7 @@ export default function LostRevenueCalculator() {
 
           {/* Stats */}
           <div className="pt-4 md:pt-5 mt-4 md:mt-5 border-t-2 border-gray-100">
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
+            <div className="grid grid-cols-2 gap-3 md:gap-4">
               <div className="text-center p-2.5 md:p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
                 <div className="text-xl sm:text-2xl md:text-3xl font-black text-blue-600 mb-1">
                   {Math.round(successfulTransactions)}
@@ -190,14 +160,6 @@ export default function LostRevenueCalculator() {
                 </div>
                 <p className="text-[10px] sm:text-xs md:text-sm text-gray-600 font-medium leading-tight">
                   Nieodebranych <br className="sm:hidden" /> połączeń/tydz.
-                </p>
-              </div>
-              <div className="text-center p-2.5 md:p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                <div className="text-xl sm:text-2xl md:text-3xl font-black text-blue-600 mb-1">
-                  {noShowPercentage}%
-                </div>
-                <p className="text-[10px] sm:text-xs md:text-sm text-gray-600 font-medium leading-tight">
-                  Niestawiennictwo
                 </p>
               </div>
             </div>

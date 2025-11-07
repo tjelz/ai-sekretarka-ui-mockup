@@ -16,6 +16,20 @@ export const metadata: Metadata = {
     description: "Automatyczna obsługa połączeń, umawianie wizyt i SMS-y. Twój biznes nigdy nie śpi.",
     type: "website",
     locale: "pl_PL",
+    images: [
+      {
+        url: '/banner.png',
+        width: 1200,
+        height: 630,
+        alt: 'Yieldo - AI Sekretarka 24/7',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Yieldo - AI Sekretarka 24/7 dla Twojej Firmy",
+    description: "Automatyczna obsługa połączeń, umawianie wizyt i SMS-y. Twój biznes nigdy nie śpi.",
+    images: ['/banner.png'],
   },
 };
 

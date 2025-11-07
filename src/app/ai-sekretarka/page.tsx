@@ -13,7 +13,6 @@ import HeroPhoneMockup from "../components/HeroPhoneMockup"
 import TypewriterText from "../components/TypewriterText"
 import AnimatedStatCard from "../components/AnimatedStatCard"
 import ActivityFeed from "../components/ActivityFeed"
-import LiveIndicator from "../components/LiveIndicator"
 
 export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
@@ -147,7 +146,7 @@ export default function AISekretarkaPage() {
                     className="border-2 border-[#007BFF] text-[#007BFF] hover:bg-blue-50 text-xl px-10 py-8 rounded-xl font-semibold transition-all group"
                   >
                     <MessageSquare className="w-5 h-5 mr-2" />
-                    Zobacz 2-Min Demo
+                    Zobacz 15-Min Demo
                   </Button>
                 </a>
               </div>
@@ -191,16 +190,11 @@ export default function AISekretarkaPage() {
         }} />
 
         <div className="container mx-auto max-w-6xl relative z-10">
-          {/* Live Indicator */}
-          <div className="flex justify-center mb-12">
-            <LiveIndicator />
-          </div>
-
           {/* Animated Stats Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <AnimatedStatCard
               icon={Users}
-              value={142}
+              value={42}
               suffix="+"
               label="Aktywne sesje"
               sublabel="w tym momencie"
@@ -230,7 +224,7 @@ export default function AISekretarkaPage() {
             />
             <AnimatedStatCard
               icon={Star}
-              value={50}
+              value={20}
               suffix="+"
               label="Zadowolonych firm"
               sublabel="aktywnych klientów"

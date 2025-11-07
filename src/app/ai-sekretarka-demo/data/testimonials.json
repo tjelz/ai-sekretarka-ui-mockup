@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "name": "Anna Kowalska",
+    "business": "Salon Beauty",
+    "industry": "salon",
+    "type": "video",
+    "thumbnail": "/testimonials/anna.jpg",
+    "video": null,
+    "quote": "AI Sekretarka zwiększyła nasze rezerwacje o 40%! Teraz mogę się skupić na klientach, a nie na telefonie.",
+    "rating": 5,
+    "metric": "+40% rezerwacji, 15h oszczędzonego czasu/tydzień",
+    "location": "Kraków"
+  },
+  {
+    "id": 2,
+    "name": "Marek Pawlak",
+    "business": "Gabinet Zdrowie",
+    "industry": "gabinet",
+    "type": "text",
+    "quote": "Wcześniej traciłem 20 połączeń tygodniowo. Teraz? Zero. Każdy klient jest obsłużony, nawet w weekend.",
+    "rating": 5,
+    "metric": "0 utraconych połączeń, +2500 zł/miesiąc",
+    "location": "Warszawa"
+  },
+  {
+    "id": 3,
+    "name": "Kasia Michalska",
+    "business": "Studio Uroda",
+    "industry": "salon",
+    "type": "metric",
+    "quote": "Auto-SMS całkowicie rozwiązał problem no-show!",
+    "rating": 5,
+    "before": {
+      "label": "no-show",
+      "value": "15/mies"
+    },
+    "after": {
+      "label": "no-show",
+      "value": "2/mies"
+    },
+    "metric": "-87% no-show dzięki auto-SMS",
+    "location": "Poznań"
+  },
+  {
+    "id": 4,
+    "name": "Jan Wiśniewski",
+    "business": "Auto Serwis Pro",
+    "industry": "warsztat",
+    "type": "quote",
+    "quote": "Najlepsza inwestycja! Za 599 zł mam recepcjonistkę 24/7. Oszczędzam 1400 zł miesięcznie.",
+    "rating": 5,
+    "metric": "1400 zł oszczędności/miesiąc",
+    "location": "Gdańsk"
+  },
+  {
+    "id": 5,
+    "name": "Ewa Nowak",
+    "business": "Klinika Stomatologiczna",
+    "industry": "gabinet",
+    "type": "text",
+    "quote": "Moi pacjenci są zachwyceni. AI brzmi naturalnie i zawsze jest profesjonalna.",
+    "rating": 5,
+    "metric": "95% satysfakcji pacjentów",
+    "location": "Wrocław"
+  },
+  {
+    "id": 6,
+    "name": "Tomasz Zieliński",
+    "business": "Warsztat Sam",
+    "industry": "warsztat",
+    "type": "metric",
+    "quote": "Każdy telefon to potencjalny klient. Teraz nie tracimy żadnego.",
+    "rating": 5,
+    "before": {
+      "label": "rezerwacje",
+      "value": "8/dzień"
+    },
+    "after": {
+      "label": "rezerwacje",
+      "value": "14/dzień"
+    },
+    "metric": "+75% więcej rezerwacji",
+    "location": "Łódź"
+  },
+  {
+    "id": 7,
+    "name": "Monika Lewandowska",
+    "business": "Salon Piękna Bella",
+    "industry": "salon",
+    "type": "video",
+    "thumbnail": "/testimonials/monika.jpg",
+    "video": null,
+    "quote": "Klientki dzwonią o 22:00, a AI umawia je na następny dzień. Genialne!",
+    "rating": 5,
+    "metric": "+30% wieczornych rezerwacji",
+    "location": "Katowice"
+  },
+  {
+    "id": 8,
+    "name": "Piotr Kamiński",
+    "business": "Fizjoterapia Aktywni",
+    "industry": "gabinet",
+    "type": "quote",
+    "quote": "Setup zajął mi 5 minut. Tego samego dnia AI obsłużyła pierwsze połączenia. Zero problemów.",
+    "rating": 5,
+    "metric": "5 minut setup, 0 problemów",
+    "location": "Szczecin"
+  },
+  {
+    "id": 9,
+    "name": "Agnieszka Woźniak",
+    "business": "Gabinet Kosmetyczny Venus",
+    "industry": "salon",
+    "type": "text",
+    "quote": "Traciliśmy 3000 zł miesięcznie przez nieodebrane telefony. Teraz to historia.",
+    "rating": 5,
+    "metric": "3000 zł odzyskane/miesiąc",
+    "location": "Bydgoszcz"
+  },
+  {
+    "id": 10,
+    "name": "Robert Kowalczyk",
+    "business": "Moto Serwis",
+    "industry": "warsztat",
+    "type": "metric",
+    "quote": "Taniej, szybciej i bardziej niezawodnie niż zatrudnienie recepcjonistki.",
+    "rating": 5,
+    "before": {
+      "label": "koszt",
+      "value": "2000zł"
+    },
+    "after": {
+      "label": "koszt",
+      "value": "599zł"
+    },
+    "metric": "1401 zł oszczędności/miesiąc",
+    "location": "Lublin"
+  }
+]

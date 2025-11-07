@@ -179,7 +179,7 @@ export default function CalculatorPage() {
                   className="cursor-pointer"
                 />
                 <p className="text-sm text-gray-600 mt-2">
-                  Ile procent klientów nie przychodzi na umówione wizyty?
+                  Ile procent klientów nie przychodzi na umówione spotkania?
                 </p>
               </div>
 
@@ -301,7 +301,7 @@ export default function CalculatorPage() {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>Tylko 199 zł/miesiąc</span>
+                <span>Od 299 zł/miesiąc</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4" />

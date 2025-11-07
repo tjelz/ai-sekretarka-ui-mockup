@@ -15,23 +15,32 @@ const stripeEnvSchema = z.object({
 
 // Price definitions for subscription tiers
 export const SUBSCRIPTION_TIERS = {
-  BASIC: {
-    name: 'Basic',
-    priceId: process.env.STRIPE_BASIC_PRICE_ID,
-    features: ['1 AI Agent', '100 calls/month', 'Basic analytics', 'Email support'],
-    price: 29,
-  },
-  PRO: {
-    name: 'Pro',
-    priceId: process.env.STRIPE_PRO_PRICE_ID,
-    features: ['5 AI Agents', '1,000 calls/month', 'Advanced analytics', 'Priority support'],
-    price: 99,
-  },
-  ENTERPRISE: {
-    name: 'Enterprise',
-    priceId: process.env.STRIPE_ENTERPRISE_PRICE_ID,
-    features: ['Unlimited Agents', 'Unlimited calls', 'Custom analytics', 'Dedicated support'],
+  SOLO: {
+    name: 'Solo',
+    priceId: process.env.STRIPE_SOLO_PRICE_ID,
+    features: ['100 rozmów w cenie', '1,50 zł dodatkowa rozmowa', '24/7 obsługa połączeń', 'Integracja z kalendarzem', 'SMS potwierdzenia'],
     price: 299,
+    calls: 100,
+    extraCallPrice: 1.50,
+    description: '1 osoba / działalność jednoosobowa',
+  },
+  EKIPA: {
+    name: 'Ekipa',
+    priceId: process.env.STRIPE_EKIPA_PRICE_ID,
+    features: ['225 rozmów w cenie', '1,50 zł dodatkowa rozmowa', '24/7 obsługa połączeń', 'Integracja z kalendarzem', 'SMS potwierdzenia', 'Wsparcie priorytetowe'],
+    price: 599,
+    calls: 225,
+    extraCallPrice: 1.50,
+    description: '2–4 osoby w terenie',
+  },
+  FIRMA: {
+    name: 'Firma',
+    priceId: process.env.STRIPE_FIRMA_PRICE_ID,
+    features: ['500 rozmów w cenie', '1,50 zł dodatkowa rozmowa', '24/7 obsługa połączeń', 'Integracja z kalendarzem', 'SMS potwierdzenia', 'Dedykowane wsparcie', 'Zaawansowane raportowanie'],
+    price: 999,
+    calls: 500,
+    extraCallPrice: 1.50,
+    description: 'większa firma / kilka ekip / stały ruch',
   },
 } as const;
 

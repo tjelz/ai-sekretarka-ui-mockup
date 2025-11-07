@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Sekretarka - Yieldo
 
-## Getting Started
+AI-powered virtual receptionist for Polish businesses. Automated 24/7 phone answering, appointment scheduling, and customer communication.
 
-First, run the development server:
+## Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 24/7 AI phone receptionist
+- Automatic appointment booking (Google Calendar/Booksy)
+- SMS confirmations
+- Lost revenue calculator
+- Contact form integration
 
-## Learn More
+## Pages
 
-To learn more about Next.js, take a look at the following resources:
+- `/` - Homepage with module cards
+- `/ai-sekretarka` - Main AI Receptionist landing page
+- `/kalkulator` - Interactive revenue loss calculator
+- `/login` - Login page (currently disabled)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Email Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contact form sends to **info.yieldo@gmail.com**. Configure email service in `.env.local`:
 
-## Deploy on Vercel
+```env
+RESEND_API_KEY=your_key_here
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+See `EMAIL_SETUP.md` for detailed setup instructions (Resend, Gmail, or SendGrid).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Build & Deploy
+
+```bash
+npm run build    # Production build
+npm run lint     # Check code quality
+```
+
+Deploy to Vercel: Connect your repo and add environment variables in project settings.
+
+## Tech Stack
+
+- Next.js 15.3.5 (App Router)
+- TypeScript
+- Tailwind CSS
+- Shadcn UI components
+- Resend for emails
+
+## Documentation
+
+- `EMAIL_SETUP.md` - Email configuration guide
+- `PRODUCTION_CHANGES.md` - Production deployment notes
+- `CLAUDE.md` - Claude Code configuration (development)
+
+## License
+
+© 2025 Yieldo. All rights reserved.

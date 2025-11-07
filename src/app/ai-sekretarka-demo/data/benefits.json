@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title": "Nigdy Nie Przegap Klienta, Nawet o 3 Rano",
+    "subtitle": "24/7 dostępność bez dodatkowych kosztów",
+    "icon": "🌙",
+    "color": "blue",
+    "bgGradient": "from-blue-50 to-blue-100",
+    "description": "Twoi klienci dzwonią wieczorem, w weekend, w święta? AI Sekretarka odbiera każde połączenie, umawia wizyty i wysyła potwierdzenia SMS - nawet gdy śpisz.",
+    "calculator": {
+      "type": "evening_calls",
+      "question": "Ile połączeń wieczorem/weekend tracisz tygodniowo?",
+      "formula": "calls * avgValue * 0.6",
+      "result": "Dodatkowe {result} zł/miesiąc"
+    },
+    "caseStudy": {
+      "business": "Salon Beauty",
+      "stat": "+30% wieczornych rezerwacji"
+    },
+    "graph": {
+      "before": 15,
+      "after": 45,
+      "label": "rezerwacje/mies"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Zaoszczędź 15 Godzin Tygodniowo",
+    "subtitle": "Przestań być sekretarką, bądź właścicielem",
+    "icon": "⏰",
+    "color": "purple",
+    "bgGradient": "from-purple-50 to-purple-100",
+    "description": "Przeciętny właściciel małego biznesu spędza 15h/tydzień na odbieraniu telefonów. AI Sekretarka robi to za Ciebie - możesz skupić się na rozwoju firmy.",
+    "calculator": {
+      "type": "time_saved",
+      "question": "Ile godzin tygodniowo spędzasz na telefonie?",
+      "formula": "hours * 100",
+      "result": "Wartość Twojego czasu: {result} zł/miesiąc"
+    },
+    "caseStudy": {
+      "business": "Gabinet Zdrowie",
+      "stat": "15h oszczędzonego czasu tygodniowo"
+    },
+    "graph": {
+      "before": 15,
+      "after": 0,
+      "label": "godzin/tydzień"
+    }
+  },
+  {
+    "id": 3,
+    "title": "0% No-Show dzięki Auto-SMS",
+    "subtitle": "Automatyczne przypomnienia = więcej obecności",
+    "icon": "📱",
+    "color": "orange",
+    "bgGradient": "from-orange-50 to-orange-100",
+    "description": "AI Sekretarka automatycznie wysyła SMS-y z przypomnieniem 24h przed wizytą. Klienci potwierdzają jednym kliknięciem. No-show spada o 87%.",
+    "calculator": {
+      "type": "no_show",
+      "question": "Ile osób nie przychodzi na umówione wizyty miesięcznie?",
+      "formula": "no_shows * 200",
+      "result": "Odzyskujesz {result} zł/miesiąc"
+    },
+    "caseStudy": {
+      "business": "Studio Uroda",
+      "stat": "-87% no-show dzięki SMS"
+    },
+    "graph": {
+      "before": 15,
+      "after": 2,
+      "label": "no-show/mies"
+    }
+  },
+  {
+    "id": 4,
+    "title": "+20% Więcej Rezerwacji",
+    "subtitle": "Każde połączenie to potencjalny klient",
+    "icon": "📈",
+    "color": "green",
+    "bgGradient": "from-green-50 to-green-100",
+    "description": "Przeciętna firma traci 20-30% połączeń przez brak dostępności. AI Sekretarka odbiera wszystkie - nawet gdy obsługujesz klienta w salonie.",
+    "calculator": {
+      "type": "bookings",
+      "question": "Ile dodatkowych rezerwacji mogłoby zwiększyć Twój zysk?",
+      "formula": "bookings * 150",
+      "result": "Dodatkowy przychód: {result} zł/miesiąc"
+    },
+    "caseStudy": {
+      "business": "Warsztat Sam",
+      "stat": "+75% więcej rezerwacji"
+    },
+    "graph": {
+      "before": 8,
+      "after": 14,
+      "label": "rezerwacje/dzień"
+    }
+  }
+]

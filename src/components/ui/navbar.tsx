@@ -9,6 +9,11 @@ import { Menu, X, Calculator, LogIn } from "lucide-react"
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  // TEMPORARY: Feature flag to disable authentication UI
+  // Authentication code is preserved, just hidden from UI
+  // To re-enable: set NEXT_PUBLIC_DISABLE_AUTH=false in .env.local
+  const isAuthDisabled = process.env.NEXT_PUBLIC_DISABLE_AUTH === 'true'
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
   const closeMenu = () => setIsMenuOpen(false)
 
@@ -40,15 +45,18 @@ export function Navbar() {
                 Kalkulator
               </Button>
             </Link>
-            <Link href="/login">
-              <Button
-                size="sm"
-                className="bg-[#007BFF] hover:bg-[#0056b3] text-white px-6 py-2 rounded-lg font-semibold transition-all"
-              >
-                <LogIn className="w-4 h-4 mr-2" />
-                Zaloguj
-              </Button>
-            </Link>
+            {/* TEMPORARY: Auth button hidden via feature flag */}
+            {!isAuthDisabled && (
+              <Link href="/login">
+                <Button
+                  size="sm"
+                  className="bg-[#007BFF] hover:bg-[#0056b3] text-white px-6 py-2 rounded-lg font-semibold transition-all"
+                >
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Zaloguj
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -79,15 +87,18 @@ export function Navbar() {
                 Kalkulator
               </Button>
             </Link>
-            <Link href="/login" onClick={closeMenu} className="block">
-              <Button
-                size="lg"
-                className="w-full bg-[#007BFF] hover:bg-[#0056b3] text-white py-3 rounded-lg font-semibold transition-all justify-start"
-              >
-                <LogIn className="w-5 h-5 mr-3" />
-                Zaloguj
-              </Button>
-            </Link>
+            {/* TEMPORARY: Auth button hidden via feature flag */}
+            {!isAuthDisabled && (
+              <Link href="/login" onClick={closeMenu} className="block">
+                <Button
+                  size="lg"
+                  className="w-full bg-[#007BFF] hover:bg-[#0056b3] text-white py-3 rounded-lg font-semibold transition-all justify-start"
+                >
+                  <LogIn className="w-5 h-5 mr-3" />
+                  Zaloguj
+                </Button>
+              </Link>
+            )}
           </div>
         )}
       </div>

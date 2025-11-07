@@ -211,7 +211,7 @@ export default function LostRevenueCalculator() {
               Odzyskaj te pieniądze z naszą wirtualną recepcjonistką 24/7
             </h2>
             <p className="text-xs sm:text-sm md:text-base text-blue-100 mb-3 md:mb-4 leading-relaxed">
-              Zautomatyzuj swoją firmę i zwiększ przychody już dziś.
+              Zautomatyzuj swój biznes i zwiększ przychody już dziś.
 
             </p>
             <Button className="bg-white text-blue-600 font-bold py-2.5 md:py-3 px-5 md:px-6 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 text-xs sm:text-sm md:text-base">

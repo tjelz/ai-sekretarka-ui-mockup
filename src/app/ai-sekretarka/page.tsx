@@ -7,7 +7,16 @@ import { useState } from "react"
 import { toast } from "sonner"
 import Image from "next/image"
 import LostRevenueCalculator from "../components/LostRevenueCalculator"
+import PricingCalculatorInputs from "../components/PricingCalculatorInputs"
+import EnhancedPricingCard from "../components/EnhancedPricingCard"
 import { Slider } from "@/components/ui/slider"
+import AnimatedBackground from "../components/AnimatedBackground"
+import SocialProofBar from "../components/SocialProofBar"
+import HeroPhoneMockup from "../components/HeroPhoneMockup"
+import TypewriterText from "../components/TypewriterText"
+import AnimatedStatCard from "../components/AnimatedStatCard"
+import ActivityFeed from "../components/ActivityFeed"
+import LiveIndicator from "../components/LiveIndicator"
 
 // Inline Calculator Component
 function InlineCalculator() {
@@ -184,6 +193,10 @@ export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  // Profit Calculator state
+  const [avgPrice, setAvgPrice] = useState(125)
+  const [conversion, setConversion] = useState(40)
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -240,97 +253,196 @@ export default function AISekretarkaPage() {
               <a href="#pricing" className="hidden sm:block text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
                 Cennik
               </a>
-              <Link href="/login">
-                <Button
-                  size="sm"
-                  className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-4 sm:px-6 py-2 rounded-lg font-semibold transition-all"
-                >
-                  Zaloguj
-                </Button>
-              </Link>
+              {/* TEMPORARY: Auth button hidden via feature flag */}
+              {process.env.NEXT_PUBLIC_DISABLE_AUTH !== 'true' && (
+                <Link href="/login">
+                  <Button
+                    size="sm"
+                    className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-4 sm:px-6 py-2 rounded-lg font-semibold transition-all"
+                  >
+                    Zaloguj
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="py-16 sm:py-24 px-4 bg-white">
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-6">
-            <Zap className="w-4 h-4" />
-            Automatyczna AI Recepcjonistka
+      {/* Hero Section - Enhanced Split Layout */}
+      <section className="relative py-16 sm:py-24 px-4 overflow-hidden">
+        {/* Animated Background */}
+        <AnimatedBackground />
+
+        <div className="container mx-auto max-w-7xl relative z-10">
+          {/* Urgency Badge */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-6 py-3 rounded-full text-sm font-bold shadow-md border border-orange-200">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+              </span>
+              🔥 Promocja: Pierwszy miesiąc -50% dla nowych klientów
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            AI Sekretarka Odbiera Telefony
-            <span className="text-[#007BFF] block mt-2">24/7 i Umawia Klientów</span>
-          </h1>
+          {/* Split Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Content */}
+            <div className="space-y-8">
+              {/* Eyebrow */}
+              <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium">
+                <Zap className="w-4 h-4" />
+                Ponad 50 firm już oszczędza czas
+              </div>
 
-          <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Dla małych firm, salonów beauty i usług – rozmawia naturalnym głosem, pamięta klientów, automatycznie zapisuje terminy i wysyła SMS-y. Przełącza się między głosem a tekstem bezproblemowo.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-            <a
-              href="https://calendly.com/info-yieldo/ai-recepcjonistka"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-base px-8 py-6 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all"
-              >
-                Zamów Demo
-              </Button>
-            </a>
-            <a href="#pricing">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-base px-8 py-6 rounded-lg font-semibold transition-all"
-              >
-                Zobacz Cennik
-              </Button>
-            </a>
-          </div>
+              {/* Headline with Typewriter */}
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.1]">
+                Nigdy Nie Trać Klienta przez{' '}
+                <TypewriterText
+                  phrases={[
+                    'Nieodebrany Telefon',
+                    'Brak Czasu',
+                    'Brak Personelu',
+                    'Wieczorne Połączenia'
+                  ]}
+                />
+              </h1>
 
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-gray-400" />
-              <span>Bez kart kredytowych</span>
+              {/* Subheadline */}
+              <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
+                AI Sekretarka odbiera 24/7, umawia wizyty i wysyła SMS-y.{' '}
+                <span className="text-[#007BFF] font-semibold">Konfiguracja w 5 minut.</span>
+              </p>
+
+              {/* Social Proof */}
+              <div className="py-4">
+                <SocialProofBar />
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="https://forms.fillout.com/t/xityvM2L42us"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xl px-14 py-8 rounded-xl font-bold shadow-lg hover:shadow-2xl transition-all hover:scale-105 group"
+                  >
+                    <Zap className="w-6 h-6 mr-2 group-hover:animate-pulse" />
+                    Zacznij Oszczędzać Dziś
+                    <ArrowRight className="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
+                <a
+                  href="https://calendly.com/info-yieldo/ai-recepcjonistka"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-[#007BFF] text-[#007BFF] hover:bg-blue-50 text-xl px-10 py-8 rounded-xl font-semibold transition-all group"
+                  >
+                    <MessageSquare className="w-5 h-5 mr-2" />
+                    Zobacz 2-Min Demo
+                  </Button>
+                </a>
+              </div>
+
+              {/* Quick Value Props */}
+              <div className="flex flex-wrap gap-6 text-sm text-gray-600 pt-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
+                    <Zap className="w-3 h-3 text-green-600" />
+                  </div>
+                  <span className="font-medium">Setup w 5 minut</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center">
+                    <CheckCircle2 className="w-3 h-3 text-blue-600" />
+                  </div>
+                  <span className="font-medium">Bez karty kredytowej</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 bg-purple-100 rounded-full flex items-center justify-center">
+                    <Shield className="w-3 h-3 text-purple-600" />
+                  </div>
+                  <span className="font-medium">🇵🇱 Zgodne z RODO</span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-gray-400" />
-              <span>Szybkie wdrożenie</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-gray-400" />
-              <span>Zgodne z RODO</span>
+
+            {/* Right: Phone Mockup */}
+            <div className="relative flex justify-center lg:justify-end">
+              <HeroPhoneMockup />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-10 px-4 bg-[#007BFF] text-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold mb-1">99.9%</div>
-              <div className="text-blue-100 text-xs sm:text-sm">Dostępność</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold mb-1">&lt;3s</div>
-              <div className="text-blue-100 text-xs sm:text-sm">Czas odpowiedzi</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold mb-1">24/7</div>
-              <div className="text-blue-100 text-xs sm:text-sm">Wsparcie</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-bold mb-1">50+</div>
-              <div className="text-blue-100 text-xs sm:text-sm">Zadowolonych firm</div>
-            </div>
+      {/* Stats Section - Live Activity Dashboard */}
+      <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-blue-50/30 via-white to-blue-50/30">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23007BFF' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+        }} />
+
+        <div className="container mx-auto max-w-6xl relative z-10">
+          {/* Live Indicator */}
+          <div className="flex justify-center mb-12">
+            <LiveIndicator />
+          </div>
+
+          {/* Animated Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <AnimatedStatCard
+              icon={Users}
+              value={142}
+              suffix="+"
+              label="Aktywne sesje"
+              sublabel="w tym momencie"
+              trend="↗ +18% w tym tygodniu"
+              color="blue"
+              delay={0}
+            />
+            <AnimatedStatCard
+              icon={Clock}
+              value={2.8}
+              suffix="s"
+              label="Czas odpowiedzi"
+              sublabel="średnio"
+              trend="↘ -12% szybciej"
+              color="green"
+              delay={0.1}
+            />
+            <AnimatedStatCard
+              icon={TrendingUp}
+              value={99.9}
+              suffix="%"
+              label="Dostępność"
+              sublabel="ostatnie 30 dni"
+              trend="✓ 100% SLA"
+              color="purple"
+              delay={0.2}
+            />
+            <AnimatedStatCard
+              icon={Star}
+              value={50}
+              suffix="+"
+              label="Zadowolonych firm"
+              sublabel="aktywnych klientów"
+              trend="↗ +5 w tym miesiącu"
+              color="orange"
+              delay={0.3}
+            />
+          </div>
+
+          {/* Activity Feed */}
+          <div className="max-w-4xl mx-auto">
+            <ActivityFeed />
           </div>
         </div>
       </section>
@@ -339,7 +451,7 @@ export default function AISekretarkaPage() {
 
 
       {/* Features Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
@@ -411,7 +523,7 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Implementation Section */}
-      <section className="py-20 px-4 bg-gray-50">
+      <section className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
@@ -507,7 +619,7 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Call Example Section */}
-      <section className="py-24 px-4">
+      <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-[#007BFF] px-6 py-3 rounded-full text-sm font-semibold mb-6">
@@ -525,7 +637,7 @@ export default function AISekretarkaPage() {
                 <Users className="w-5 h-5 text-gray-600" />
               </div>
               <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-md flex-1">
-                <p className="text-black">Dzień dobry, chcę umówić strzyżenie na piątek.</p>
+                <p className="text-black">Dzień dobry, chcę umówić spotkanie na piątek.</p>
               </div>
             </div>
 
@@ -559,13 +671,13 @@ export default function AISekretarkaPage() {
           
           <p className="text-center text-gray-600 mt-8 text-lg flex items-center justify-center gap-2">
             <CheckCircle2 className="w-5 h-5 text-green-500" />
-            AI może ustalić termin wizyty, sprawdzić ceny, potwierdzić i wysłać SMS
+            AI może ustalić termin spotkania, sprawdzić ceny, potwierdzić i wysłać SMS
           </p>
         </div>
       </section>
 
       {/* Savings Section */}
-      <section className="py-24 px-4 bg-gradient-to-b from-blue-50/50 to-white">
+      <section className="py-16 px-4 bg-gradient-to-b from-blue-50/50 to-white">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-[#007BFF] px-6 py-3 rounded-full text-sm font-semibold mb-6">
@@ -614,7 +726,7 @@ export default function AISekretarkaPage() {
                 <div>
                   <h3 className="font-bold text-black mb-2">Koszt vs. Zysk</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Zamiast zatrudniać recepcjonistkę (<span className="text-[#007BFF] font-bold">2000 zł/mies.</span>), płacisz <span className="text-[#007BFF] font-bold">199 zł/mies.</span> – ROI w <span className="text-[#007BFF] font-bold">1 tydzień</span>
+                    Zamiast zatrudniać recepcjonistkę (<span className="text-[#007BFF] font-bold">2000 zł/mies.</span>), płacisz od <span className="text-[#007BFF] font-bold">299 zł/mies.</span> – ROI w <span className="text-[#007BFF] font-bold">1 tydzień</span>
                   </p>
                 </div>
               </div>
@@ -628,7 +740,7 @@ export default function AISekretarkaPage() {
                 <div>
                   <h3 className="font-bold mb-2">Kalkulator</h3>
                   <p className="leading-relaxed">
-                    Dla salonu z <span className="font-bold">20 tel/dzień</span>: Zaoszczędź <span className="font-bold text-2xl">3000 zł/mies.</span>
+                    Dla firmy z <span className="font-bold">20 tel/dzień</span>: Zaoszczędź <span className="font-bold text-2xl">3000 zł/mies.</span>
                   </p>
                 </div>
               </div>
@@ -650,93 +762,87 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-16">
+      <section id="pricing" className="py-12 px-4 bg-white relative">
+        <div className="container mx-auto max-w-7xl">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
               <Star className="w-4 h-4" />
-              Cennik
+              Cennik i Kalkulator
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Cennik AI Sekretarki
+              Cennik AI Sekretarki i Kalkulator Zysku
             </h2>
             <p className="text-lg text-gray-600">
-              Proste, przejrzyste ceny bez ukrytych kosztów
+              Proste, przejrzyste ceny bez ukrytych kosztów + oblicz swój potencjalny zysk
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
-            {/* Pricing Card 1 */}
-            <div className="bg-white border-2 border-gray-200 p-8 rounded-2xl hover:shadow-lg transition-shadow">
-              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                <Settings className="w-7 h-7 text-[#007BFF]" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Konfiguracja
-              </h3>
-              <div className="mb-6">
-                <span className="text-5xl font-bold text-[#007BFF]">499 zł</span>
-                <span className="text-gray-600 ml-2">jednorazowo</span>
-              </div>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Pełna personalizacja pod Twoje wymagania – gotowe do działania w kilka godzin
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-500" />
-                  Dostosowanie do Twoich potrzeb
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-500" />
-                  Integracja z kalendarzem
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-500" />
-                  Wdrożenie w kilka godzin
-                </li>
-                <li className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle2 className="w-5 h-5 text-green-500" />
-                  Pełne szkolenie
-                </li>
-              </ul>
-            </div>
+          {/* Global Calculator Inputs */}
+          <PricingCalculatorInputs
+            avgPrice={avgPrice}
+            setAvgPrice={setAvgPrice}
+            conversion={conversion}
+            setConversion={setConversion}
+          />
 
-            {/* Pricing Card 2 - Featured */}
-            <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] p-8 rounded-2xl shadow-xl text-white">
-              <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="w-7 h-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">
-                Miesięczny Abonament
-              </h3>
-              <div className="mb-6">
-                <span className="text-5xl font-bold">199 zł</span>
-                <span className="text-blue-100 ml-2">/miesiąc</span>
-              </div>
-              <p className="text-blue-100 leading-relaxed mb-6">
-                Pełna obsługa, wsparcie i nieograniczone rozmowy
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-white" />
-                  24/7 obsługa połączeń
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-white" />
-                  24/7 wsparcie techniczne
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-white" />
-                  Nieograniczone SMS-y
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-white" />
-                  Regularne aktualizacje
-                </li>
-              </ul>
-            </div>
+          {/* Enhanced Pricing Cards with Integrated Calculator */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {/* Solo Plan */}
+            <EnhancedPricingCard
+              name="Solo"
+              price={299}
+              calls={100}
+              description="1 osoba / działalność jednoosobowa"
+              features={[
+                "100 rozmów w cenie",
+                "1,50 zł dodatkowa rozmowa",
+                "24/7 obsługa połączeń",
+                "Integracja z kalendarzem",
+                "SMS potwierdzenia"
+              ]}
+              avgPrice={avgPrice}
+              conversion={conversion}
+            />
+
+            {/* Ekipa Plan - Popular */}
+            <EnhancedPricingCard
+              name="Ekipa"
+              price={599}
+              calls={225}
+              description="2–4 osoby w terenie"
+              features={[
+                "225 rozmów w cenie",
+                "1,50 zł dodatkowa rozmowa",
+                "24/7 obsługa połączeń",
+                "Integracja z kalendarzem",
+                "SMS potwierdzenia",
+                "Wsparcie priorytetowe"
+              ]}
+              isPopular={true}
+              avgPrice={avgPrice}
+              conversion={conversion}
+            />
+
+            {/* Firma Plan */}
+            <EnhancedPricingCard
+              name="Firma"
+              price={999}
+              calls={500}
+              description="większa firma / kilka ekip / stały ruch"
+              features={[
+                "500 rozmów w cenie",
+                "1,50 zł dodatkowa rozmowa",
+                "24/7 obsługa połączeń",
+                "Integracja z kalendarzem",
+                "SMS potwierdzenia",
+                "Dedykowane wsparcie",
+                "Zaawansowane raportowanie"
+              ]}
+              avgPrice={avgPrice}
+              conversion={conversion}
+            />
           </div>
-          
+
           <div className="text-center">
             <p className="text-gray-600 mb-6 flex items-center justify-center gap-2 flex-wrap">
               <CheckCircle2 className="w-5 h-5 text-green-500" />
@@ -746,26 +852,42 @@ export default function AISekretarkaPage() {
               <span className="text-gray-400">•</span>
               Anuluj w każdej chwili
             </p>
-            <a
-              href="https://calendly.com/info-yieldo/ai-recepcjonistka"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-[#007BFF] to-[#0056b3] text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg px-12 py-7 rounded-full font-semibold group"
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="https://forms.fillout.com/t/xityvM2L42us"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Sparkles className="w-5 h-5 mr-2" />
-                Rozpocznij Teraz
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </a>
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 text-lg px-12 py-7 rounded-full font-semibold group"
+                >
+                  <Zap className="w-5 h-5 mr-2" />
+                  START NOW
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+              <a
+                href="https://calendly.com/info-yieldo/ai-recepcjonistka"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-[#007BFF] text-[#007BFF] hover:bg-blue-50 text-lg px-12 py-7 rounded-full font-semibold transition-all group"
+                >
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Zamów Demo
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Footer CTA */}
-      <section id="contact" className="py-20 px-4 bg-gray-50">
+      <section id="contact" className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">

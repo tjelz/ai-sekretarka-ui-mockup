@@ -4,12 +4,12 @@ import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Yieldo - Agencja AI dla Nowoczesnych Firm | AI Sekretarka 24/7",
-  description: "Automatyzujemy procesy biznesowe za pomocą AI. Nasza AI Sekretarka odbiera telefony 24/7, umawia klientów i wysyła SMS-y. Oszczędź czas i zwiększ efektywność swojej firmy.",
-  keywords: "AI Sekretarka, automatyzacja biznesu, AI dla firm, asystent AI, obsługa telefonów AI, rezerwacje automatyczne",
+  description: "Automatyzujemy procesy biznesowe za pomocą AI. Nasza AI Sekretarka odbiera telefony 24/7, umawia spotkania i wysyła SMS-y. Oszczędź czas i zwiększ efektywność swojej firmy.",
+  keywords: "AI Sekretarka, automatyzacja biznesu, AI dla firm, asystent AI, obsługa telefonów AI, rezerwacje automatyczne, automatyzacja usług",
   icons: {
-    icon: '/favicon.jpeg',
-    shortcut: '/favicon.jpeg',
-    apple: '/favicon.jpeg',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
   openGraph: {
     title: "Yieldo - AI Sekretarka 24/7 dla Twojej Firmy",

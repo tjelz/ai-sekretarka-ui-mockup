@@ -1,0 +1,46 @@
+AI SECRETARY JOBS:
+
+1.Create a profit calculator beside the pricing table.
+
+Inputs:
+- avg_price (number, default 125)
+- conversion (number %, default 40)
+
+Plans:
+- Solo: price=299, calls=100
+- Team: price=599, calls=225
+- Studio: price=999, calls=500
+- overage_per_call = 1.5 (show only as note)
+
+Formula:
+conv_rate = conversion / 100
+visits = floor(calls * conv_rate)
+revenue = visits * avg_price
+profit = revenue - price
+
+UI:
+- Display each plan as a card with:
+  - price
+  - calls included
+  - visits
+  - revenue
+  - profit (highlight)
+
+- Recalculate on input change (no page refresh).
+- Format values in PLN with no decimals.
+
+____________________
+
+2. Delete deadspace between sections on website
+
+____________________
+
+3. Implement a CONFIGURE RECEPCTIONIST/START NOW -> Takes you to https://forms.fillout.com/t/xityvM2L42us
+
+____________________
+
+4. Temporarily disable login/registration (this will be developed more later)
+
+____________________
+
+5. Please compact and delete and clean up documentation to keep things structured, short and easy to navigate.

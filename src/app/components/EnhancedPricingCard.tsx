@@ -88,47 +88,6 @@ export default function EnhancedPricingCard({
           </li>
         ))}
       </ul>
-
-      {/* Profit Calculator Section */}
-      <div className={`mt-6 pt-6 border-t-2 ${isBlueCard ? 'border-white/20' : 'border-gray-200'}`}>
-        <div className="flex items-center gap-2 mb-4">
-          <Sparkles className={`w-5 h-5 ${isBlueCard ? 'text-white' : 'text-[#007BFF]'}`} />
-          <h4 className={`text-sm font-bold ${textColor} uppercase tracking-wide`}>
-            Twój Potencjalny Zysk
-          </h4>
-        </div>
-
-        <div className="space-y-3">
-          {/* Visits */}
-          <div className={`flex justify-between items-center ${isBlueCard ? 'text-blue-100' : 'text-gray-600'}`}>
-            <span className="text-sm">Wizyty miesięcznie:</span>
-            <span className={`text-lg font-bold ${textColor}`}>{visits}</span>
-          </div>
-
-          {/* Revenue */}
-          <div className={`flex justify-between items-center ${isBlueCard ? 'text-blue-100' : 'text-gray-600'}`}>
-            <span className="text-sm">Przychód:</span>
-            <span className={`text-lg font-bold ${isBlueCard ? 'text-white' : 'text-[#007BFF]'}`}>
-              {formatPLN(revenue)} zł
-            </span>
-          </div>
-
-          {/* Profit - Highlighted */}
-          <div className={`rounded-lg p-3 ${isBlueCard ? 'bg-white/10' : 'bg-green-50'} border-2 ${isBlueCard ? 'border-white/20' : 'border-green-200'}`}>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <TrendingUp className={`w-5 h-5 ${isBlueCard ? 'text-white' : 'text-green-600'}`} />
-                <span className={`text-sm font-semibold ${isBlueCard ? 'text-white' : 'text-gray-700'}`}>
-                  Zysk netto:
-                </span>
-              </div>
-              <span className={`text-2xl font-black ${isProfitable ? (isBlueCard ? 'text-white' : 'text-green-600') : 'text-red-600'}`}>
-                {isProfitable ? '+' : ''}{formatPLN(profit)} zł
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

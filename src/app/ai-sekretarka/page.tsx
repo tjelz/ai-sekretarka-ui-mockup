@@ -7,9 +7,7 @@ import { useState } from "react"
 import { toast } from "sonner"
 import Image from "next/image"
 import LostRevenueCalculator from "../components/LostRevenueCalculator"
-import PricingCalculatorInputs from "../components/PricingCalculatorInputs"
 import EnhancedPricingCard from "../components/EnhancedPricingCard"
-import { Slider } from "@/components/ui/slider"
 import AnimatedBackground from "../components/AnimatedBackground"
 import HeroPhoneMockup from "../components/HeroPhoneMockup"
 import TypewriterText from "../components/TypewriterText"
@@ -17,184 +15,9 @@ import AnimatedStatCard from "../components/AnimatedStatCard"
 import ActivityFeed from "../components/ActivityFeed"
 import LiveIndicator from "../components/LiveIndicator"
 
-// Inline Calculator Component
-function InlineCalculator() {
-  const [missedCallsPerWeek, setMissedCallsPerWeek] = useState(20)
-  const [avgTransactionValue, setAvgTransactionValue] = useState(150)
-  const [noShowPercentage, setNoShowPercentage] = useState(15)
-
-  const missedCallsPerMonth = missedCallsPerWeek * (52 / 12)
-  const successfulTransactions = missedCallsPerMonth * (1 - noShowPercentage / 100)
-  const monthlyLoss = successfulTransactions * avgTransactionValue
-  const annualLoss = monthlyLoss * 12
-
-  const formatNumber = (num: number) => num.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-
-  return (
-    <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-200">
-      <h3 className="text-2xl font-bold text-gray-900 mb-6">Kalkulator Oszczędności</h3>
-
-      <div className="space-y-6">
-        {/* Missed Calls */}
-        <div className="bg-blue-50/30 rounded-xl p-4 space-y-3 border border-blue-100/50">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                <Phone className="w-4 h-4 text-[#007BFF]" />
-              </div>
-              <label className="text-sm font-semibold text-gray-900">
-                Nieodebrane telefony (tygodniowo)
-              </label>
-            </div>
-            <input
-              type="number"
-              value={missedCallsPerWeek}
-              onChange={(e) => setMissedCallsPerWeek(Math.max(0, Math.min(100, Number(e.target.value))))}
-              className="w-16 h-9 text-center text-base font-bold border-2 border-gray-200 focus:border-[#007BFF] rounded-lg transition-all bg-white"
-            />
-          </div>
-          <Slider
-            value={[missedCallsPerWeek]}
-            onValueChange={(val: number[]) => setMissedCallsPerWeek(val[0])}
-            max={100}
-            step={1}
-            className="cursor-pointer"
-          />
-        </div>
-
-        {/* Average Transaction */}
-        <div className="bg-green-50/30 rounded-xl p-4 space-y-3 border border-green-100/50">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0">
-                <TrendingUp className="w-4 h-4 text-green-600" />
-              </div>
-              <label className="text-sm font-semibold text-gray-900">
-                Średnia wartość transakcji
-              </label>
-            </div>
-            <div className="relative w-20">
-              <input
-                type="number"
-                value={avgTransactionValue}
-                onChange={(e) => setAvgTransactionValue(Math.max(0, Math.min(500, Number(e.target.value))))}
-                className="w-full h-9 text-center text-base font-bold border-2 border-gray-200 focus:border-[#007BFF] rounded-lg pr-8 transition-all bg-white"
-              />
-              <span className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-500 pointer-events-none">
-                zł
-              </span>
-            </div>
-          </div>
-          <Slider
-            value={[avgTransactionValue]}
-            onValueChange={(val: number[]) => setAvgTransactionValue(val[0])}
-            max={500}
-            step={5}
-            className="cursor-pointer"
-          />
-        </div>
-
-        {/* No-Show % */}
-        <div className="bg-orange-50/30 rounded-xl p-4 space-y-3 border border-orange-100/50">
-          <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-orange-100 flex items-center justify-center flex-shrink-0">
-                <Calendar className="w-4 h-4 text-orange-600" />
-              </div>
-              <label className="text-sm font-semibold text-gray-900">
-                Procent niestawiennictwa
-              </label>
-            </div>
-            <div className="relative w-16">
-              <input
-                type="number"
-                value={noShowPercentage}
-                onChange={(e) => setNoShowPercentage(Math.max(0, Math.min(50, Number(e.target.value))))}
-                className="w-full h-9 text-center text-base font-bold border-2 border-gray-200 focus:border-[#007BFF] rounded-lg pr-7 transition-all bg-white"
-              />
-              <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs font-medium text-gray-500 pointer-events-none">%</span>
-            </div>
-          </div>
-          <Slider
-            value={[noShowPercentage]}
-            onValueChange={(val: number[]) => setNoShowPercentage(val[0])}
-            max={50}
-            step={1}
-            className="cursor-pointer"
-          />
-        </div>
-
-        {/* Results */}
-        <div className="bg-gradient-to-br from-blue-50 via-blue-50 to-indigo-50 rounded-xl p-6 border-2 border-blue-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-200/20 rounded-full blur-3xl" />
-          <div className="relative">
-            <div className="flex items-center gap-2 mb-4">
-              <AlertCircle className="w-4 h-4 text-[#007BFF]" />
-              <h4 className="text-xs font-semibold text-gray-700 uppercase tracking-wide">
-                Twoje straty finansowe
-              </h4>
-            </div>
-            <div className="mb-4">
-              <p className="text-xs text-gray-600 mb-1">Miesięcznie tracisz:</p>
-              <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-black text-gray-900">
-                  {formatNumber(monthlyLoss)}
-                </span>
-                <span className="text-lg font-bold text-gray-600">zł</span>
-              </div>
-            </div>
-            <div className="pt-4 border-t-2 border-blue-200">
-              <p className="text-xs text-gray-600 mb-1">Rocznie tracisz:</p>
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-black text-[#007BFF]">
-                  {formatNumber(annualLoss)}
-                </span>
-                <span className="text-base font-bold text-[#007BFF]">zł</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-3">
-          <div className="text-center p-3 rounded-xl bg-gray-50">
-            <div className="text-2xl font-black text-[#007BFF] mb-1">
-              {Math.round(successfulTransactions)}
-            </div>
-            <p className="text-xs text-gray-600 font-medium leading-tight">
-              Utraconych transakcji/m-c
-            </p>
-          </div>
-          <div className="text-center p-3 rounded-xl bg-gray-50">
-            <div className="text-2xl font-black text-[#007BFF] mb-1">
-              {missedCallsPerWeek}
-            </div>
-            <p className="text-xs text-gray-600 font-medium leading-tight">
-              Nieodebranych połączeń/tydz.
-            </p>
-          </div>
-          <div className="text-center p-3 rounded-xl bg-gray-50">
-            <div className="text-2xl font-black text-[#007BFF] mb-1">
-              {noShowPercentage}%
-            </div>
-            <p className="text-xs text-gray-600 font-medium leading-tight">
-              Niestawiennictwo
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
-
-  // Profit Calculator state
-  const [avgPrice, setAvgPrice] = useState(125)
-  const [conversion, setConversion] = useState(40)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -770,22 +593,12 @@ export default function AISekretarkaPage() {
               Proste, przejrzyste ceny bez ukrytych kosztów + oblicz swój potencjalny zysk
             </p>
           </div>
-
-          {/* Global Calculator Inputs */}
-          <PricingCalculatorInputs
-            avgPrice={avgPrice}
-            setAvgPrice={setAvgPrice}
-            conversion={conversion}
-            setConversion={setConversion}
-          />
-
           {/* Enhanced Pricing Cards with Integrated Calculator */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {/* Solo Plan */}
             <EnhancedPricingCard
               name="Solo"
               price={299}
-              calls={100}
               description="1 osoba / działalność jednoosobowa"
               features={[
                 "100 rozmów w cenie",
@@ -794,15 +607,12 @@ export default function AISekretarkaPage() {
                 "Integracja z kalendarzem",
                 "SMS potwierdzenia"
               ]}
-              avgPrice={avgPrice}
-              conversion={conversion}
             />
 
             {/* Ekipa Plan - Popular */}
             <EnhancedPricingCard
               name="Ekipa"
               price={599}
-              calls={225}
               description="2–4 osoby w terenie"
               features={[
                 "225 rozmów w cenie",
@@ -813,15 +623,12 @@ export default function AISekretarkaPage() {
                 "Wsparcie priorytetowe"
               ]}
               isPopular={true}
-              avgPrice={avgPrice}
-              conversion={conversion}
             />
 
             {/* Firma Plan */}
             <EnhancedPricingCard
               name="Firma"
               price={999}
-              calls={500}
               description="większa firma / kilka ekip / stały ruch"
               features={[
                 "500 rozmów w cenie",
@@ -832,8 +639,6 @@ export default function AISekretarkaPage() {
                 "Dedykowane wsparcie",
                 "Zaawansowane raportowanie"
               ]}
-              avgPrice={avgPrice}
-              conversion={conversion}
             />
           </div>
 

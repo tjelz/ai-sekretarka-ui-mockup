@@ -11,7 +11,6 @@ import Image from "next/image";
 
 // Existing components from main page
 import AnimatedBackground from "../components/AnimatedBackground";
-import SocialProofBar from "../components/SocialProofBar";
 import HeroPhoneMockup from "../components/HeroPhoneMockup";
 import TypewriterText from "../components/TypewriterText";
 
@@ -117,11 +116,6 @@ export default function AISekretarkaDemoPage() {
                 AI Sekretarka odbiera 24/7, umawia wizyty i wysyła SMS-y.{' '}
                 <span className="text-[#007BFF] font-semibold">Konfiguracja w 5 minut.</span>
               </p>
-
-              {/* Social Proof */}
-              <div className="py-4">
-                <SocialProofBar />
-              </div>
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">

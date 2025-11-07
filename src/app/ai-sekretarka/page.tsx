@@ -11,7 +11,6 @@ import PricingCalculatorInputs from "../components/PricingCalculatorInputs"
 import EnhancedPricingCard from "../components/EnhancedPricingCard"
 import { Slider } from "@/components/ui/slider"
 import AnimatedBackground from "../components/AnimatedBackground"
-import SocialProofBar from "../components/SocialProofBar"
 import HeroPhoneMockup from "../components/HeroPhoneMockup"
 import TypewriterText from "../components/TypewriterText"
 import AnimatedStatCard from "../components/AnimatedStatCard"
@@ -314,11 +313,6 @@ export default function AISekretarkaPage() {
                 AI Sekretarka odbiera 24/7, umawia wizyty i wysyła SMS-y.{' '}
                 <span className="text-[#007BFF] font-semibold">Konfiguracja w 5 minut.</span>
               </p>
-
-              {/* Social Proof */}
-              <div className="py-4">
-                <SocialProofBar />
-              </div>
 
               {/* CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">

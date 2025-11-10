@@ -60,65 +60,90 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Website Creation - NEW */}
-            <Link href="/website-creation" className="group">
-              <div className="bg-gradient-to-br from-purple-600 to-purple-800 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-white relative overflow-hidden">
+            {/* Complete Digital Presence Package - MERGED */}
+            <Link href="/digital-presence" className="group">
+              <div className="bg-gradient-to-br from-purple-600 via-indigo-700 to-blue-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-white relative overflow-hidden">
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-                <div className="absolute top-4 right-4 bg-yellow-400 text-purple-900 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-purple-900 px-4 py-1.5 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg">
                   <Sparkles className="w-3 h-3" />
-                  NOWOŚĆ
+                  KOMPLETNY PAKIET
                 </div>
                 <div className="relative">
-                  <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                    <Globe className="w-8 h-8 text-white" />
+                  <div className="flex gap-3 mb-6">
+                    <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center">
+                      <Globe className="w-7 h-7 text-white" />
+                    </div>
+                    <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center">
+                      <MapPin className="w-7 h-7 text-white" />
+                    </div>
                   </div>
                   <h3 className="text-2xl font-bold mb-3">
-                    Tworzenie Stron WWW
+                    Kompletna Obecność Online
                   </h3>
-                  <p className="text-purple-100 mb-6 text-sm leading-relaxed">
-                    Profesjonalna strona internetowa w 24h. Responsywna, szybka i gotowa do działania.
+                  <p className="text-purple-100 mb-4 text-sm leading-relaxed">
+                    Profesjonalna strona WWW + Optymalizacja Google Business Profile w jednym pakiecie.
                   </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
+                      ✓ Strona WWW
+                    </span>
+                    <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
+                      ✓ Google Business
+                    </span>
+                    <span className="bg-green-400/30 px-3 py-1 rounded-full text-xs font-semibold border border-green-400">
+                      Oszczędź 25%
+                    </span>
+                  </div>
                   <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-sm font-semibold mb-6">
                     <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
                     Dostępne Teraz
                   </div>
                   <div className="flex items-center text-white font-semibold group-hover:gap-3 transition-all">
-                    Odkryj Moduł
+                    Zobacz Pakiet
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
             </Link>
 
-            {/* Google Business Listings - NEW */}
-            <Link href="/google-business" className="group">
-              <div className="bg-gradient-to-br from-green-600 to-green-800 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 text-white relative overflow-hidden">
-                <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-                <div className="absolute top-4 right-4 bg-yellow-400 text-green-900 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" />
-                  NOWOŚĆ
-                </div>
-                <div className="relative">
-                  <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mb-6">
-                    <MapPin className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">
-                    Google Business Profile
-                  </h3>
-                  <p className="text-green-100 mb-6 text-sm leading-relaxed">
-                    Optymalizacja wizytówki Google. Zwiększ widoczność lokalną i przyciągnij więcej klientów.
-                  </p>
-                  <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                    <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                    Dostępne Teraz
-                  </div>
-                  <div className="flex items-center text-white font-semibold group-hover:gap-3 transition-all">
-                    Odkryj Moduł
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
+            {/* Grant Radar - Coming Soon */}
+            <div className="bg-white p-8 rounded-2xl shadow-md border-2 border-gray-200 relative hover:shadow-lg transition-all duration-300">
+              <div className="absolute top-4 right-4 bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-xs font-bold">
+                Wkrótce
               </div>
-            </Link>
+              <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-6">
+                <Search className="w-8 h-8 text-gray-400" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                Automatyzacja Dotacji
+              </h3>
+              <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                Znajdź idealne dotacje i granty dla swojej firmy automatycznie.
+              </p>
+              <div className="text-gray-400 font-medium">
+                W przygotowaniu
+              </div>
+            </div>
+          </div>
+
+          {/* Individual Services Note */}
+          <div className="text-center mt-8 p-6 bg-gray-50 rounded-xl max-w-3xl mx-auto">
+            <p className="text-gray-600 text-sm mb-3">
+              <strong>Możesz też wybrać usługi osobno:</strong>
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link href="/website-creation" className="text-purple-600 hover:text-purple-800 font-semibold text-sm underline">
+                Tylko Strona WWW
+              </Link>
+              <span className="text-gray-400">•</span>
+              <Link href="/google-business" className="text-green-600 hover:text-green-800 font-semibold text-sm underline">
+                Tylko Google Business
+              </Link>
+            </div>
+          </div>
+
+          {/* Grant Radar - Moved below note */}
+          <div className="hidden">
 
             {/* Grant Radar - Coming Soon */}
             <div className="bg-white p-8 rounded-2xl shadow-md border-2 border-gray-200 relative hover:shadow-lg transition-all duration-300">

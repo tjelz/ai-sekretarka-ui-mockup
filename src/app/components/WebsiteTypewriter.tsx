@@ -35,7 +35,11 @@ export default function WebsiteTypewriter({ phrases }: WebsiteTypewriterProps) {
   }, [currentText, isDeleting, currentPhrase, phrases]);
 
   return (
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-800 relative">
+    <span
+      className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-800 relative whitespace-nowrap min-w-[280px] sm:min-w-[350px] lg:min-w-[450px] notranslate"
+      translate="no"
+      data-notranslate="true"
+    >
       {currentText}
       <span className="animate-pulse">|</span>
     </span>

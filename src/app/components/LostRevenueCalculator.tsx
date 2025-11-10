@@ -6,7 +6,12 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, Phone, AlertCircle } from 'lucide-react';
 
-export default function LostRevenueCalculator() {
+interface LostRevenueCalculatorProps {
+  showCta?: boolean;
+  compact?: boolean;
+}
+
+export default function LostRevenueCalculator({ showCta = true, compact = false }: LostRevenueCalculatorProps) {
   const [missedCallsPerWeek, setMissedCallsPerWeek] = useState(20);
   const [avgTransactionValue, setAvgTransactionValue] = useState(150);
 
@@ -21,10 +26,10 @@ export default function LostRevenueCalculator() {
   const formatNumber = (num: number) => num.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 
   return (
-    <section className="w-full min-h-screen bg-gradient-to-b from-white to-gray-50 py-4 md:py-8 px-3 sm:px-4 lg:px-6 flex items-center">
+    <section className={`w-full bg-gradient-to-b from-white to-gray-50 px-3 sm:px-4 lg:px-6 ${compact ? 'py-10' : 'min-h-screen py-4 md:py-8 flex items-center'}`}>
       <div className="max-w-6xl mx-auto w-full">
         {/* Header */}
-        <div className="text-center mb-4 md:mb-6">
+        <div className={`text-center ${compact ? 'mb-3' : 'mb-4 md:mb-6'}`}>
           <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-3 py-1.5 rounded-full text-xs font-medium mb-3">
             <TrendingUp className="w-3.5 h-3.5" />
             Kalkulator Przychodów
@@ -40,7 +45,7 @@ export default function LostRevenueCalculator() {
         </div>
 
         {/* Calculator Card */}
-        <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 p-4 sm:p-5 md:p-6 lg:p-8 mb-4">
+        <div className={`bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 ${compact ? 'p-4 sm:p-5 md:p-6 mb-3' : 'p-4 sm:p-5 md:p-6 lg:p-8 mb-4'}`}>
           <div className="grid lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
             {/* Inputs */}
             <div className="lg:col-span-3 space-y-6 md:space-y-8">
@@ -143,33 +148,37 @@ export default function LostRevenueCalculator() {
                   </div>
                 </div>
               </div>
-              <a
-                href="https://forms.fillout.com/t/xityvM2L42us"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="mt-3 md:mt-4 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 md:py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base">
-                  Odzyskaj Utracone Przychody →
-                </Button>
-              </a>
+              {showCta && (
+                <a
+                  href="https://forms.fillout.com/t/xityvM2L42us"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="mt-3 md:mt-4 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 md:py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base">
+                    Odzyskaj Utracone Przychody →
+                  </Button>
+                </a>
+              )}
             </div>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center max-w-4xl mx-auto px-2">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-4 md:p-6 text-white shadow-xl">
-            <h2 className="text-base sm:text-lg md:text-xl font-bold mb-2">
-              Odzyskaj te pieniądze z naszą wirtualną recepcjonistką 24/7
-            </h2>
-            <p className="text-xs sm:text-sm md:text-base text-blue-100 mb-3 md:mb-4 leading-relaxed">
-              Zautomatyzuj swój biznes i zwiększ przychody już dziś.
+        {showCta && (
+          <div className="text-center max-w-4xl mx-auto px-2">
+            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-4 md:p-6 text-white shadow-xl">
+              <h2 className="text-base sm:text-lg md:text-xl font-bold mb-2">
+                Odzyskaj te pieniądze z naszą wirtualną recepcjonistką 24/7
+              </h2>
+              <p className="text-xs sm:text-sm md:text-base text-blue-100 mb-3 md:mb-4 leading-relaxed">
+                Zautomatyzuj swój biznes i zwiększ przychody już dziś.
 
-            </p>
-            <Button className="bg-white text-blue-600 font-bold py-2.5 md:py-3 px-5 md:px-6 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 text-xs sm:text-sm md:text-base">
-              Umów się na darmową prezentację            </Button>
+              </p>
+              <Button className="bg-white text-blue-600 font-bold py-2.5 md:py-3 px-5 md:px-6 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 text-xs sm:text-sm md:text-base">
+                Umów się na darmową prezentację            </Button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

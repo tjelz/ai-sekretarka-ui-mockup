@@ -71,7 +71,8 @@ export default function AnimatedStatCard({
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ duration: 0.6, delay, ease: 'easeOut' }}
-      className="bg-white/80 backdrop-blur-lg border border-white/50 shadow-xl rounded-2xl p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 group relative overflow-hidden"
+      className="bg-white/80 backdrop-blur-lg border border-white/50 shadow-xl rounded-2xl p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 group relative overflow-hidden notranslate"
+      translate="no"
     >
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -1,35 +1,80 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
-  title: "Yieldo - Agencja AI dla Nowoczesnych Firm | AI Sekretarka 24/7",
-  description: "Automatyzujemy procesy biznesowe za pomocą AI. Nasza AI Sekretarka odbiera telefony 24/7, umawia spotkania i wysyła SMS-y. Oszczędź czas i zwiększ efektywność swojej firmy.",
-  keywords: "AI Sekretarka, automatyzacja biznesu, AI dla firm, asystent AI, obsługa telefonów AI, rezerwacje automatyczne, automatyzacja usług",
+  metadataBase: new URL('https://yieldo.com'),
+  title: {
+    default: 'Yieldo - AI Sekretarka | Automatyczna Obsługa Telefonów 24/7',
+    template: '%s | Yieldo'
+  },
+  description: 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczna obsługa telefonów 24/7, umawianie wizyt i zarządzanie klientami. Oszczędź czas i zwiększ przychody.',
+  keywords: [
+    'AI Sekretarka',
+    'automatyczna obsługa telefonów',
+    'wirtualna sekretarka',
+    'AI dla biznesu',
+    'automatyzacja biznesu',
+    'Yieldo',
+    'obsługa klienta AI',
+    'rezerwacje online',
+    'umówienie wizyty',
+    'asystent AI',
+    'sekretarka 24/7'
+  ],
+  authors: [{ name: 'Yieldo' }],
+  creator: 'Yieldo',
+  publisher: 'Yieldo',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',
     apple: '/favicon.png',
   },
   openGraph: {
-    title: "Yieldo - AI Sekretarka 24/7 dla Twojej Firmy",
-    description: "Automatyczna obsługa połączeń, umawianie wizyt i SMS-y. Twój biznes nigdy nie śpi.",
-    type: "website",
-    locale: "pl_PL",
+    type: 'website',
+    locale: 'pl_PL',
+    url: 'https://yieldo.com',
+    siteName: 'Yieldo',
+    title: 'Yieldo - AI Sekretarka | Automatyczna Obsługa Telefonów 24/7',
+    description: 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczna obsługa telefonów 24/7, umawianie wizyt i zarządzanie klientami.',
     images: [
       {
-        url: '/banner.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Yieldo - AI Sekretarka 24/7',
-      },
+        alt: 'Yieldo - AI Sekretarka',
+      }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Yieldo - AI Sekretarka 24/7 dla Twojej Firmy",
-    description: "Automatyczna obsługa połączeń, umawianie wizyt i SMS-y. Twój biznes nigdy nie śpi.",
-    images: ['/banner.png'],
+    title: 'Yieldo - AI Sekretarka | Automatyczna Obsługa Telefonów 24/7',
+    description: 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczna obsługa telefonów 24/7, umawianie wizyt i zarządzanie klientami.',
+    images: ['/og-image.jpg'],
+    creator: '@yieldo',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
+  alternates: {
+    canonical: 'https://yieldo.com',
   },
 };
 
@@ -43,6 +88,7 @@ export default function RootLayout({
       <body className="antialiased">
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );

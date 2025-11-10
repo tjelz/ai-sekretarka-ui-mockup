@@ -1,5 +1,6 @@
 "use client"
 
+import { OrganizationSchema, ProductSchema, FAQSchema, BreadcrumbSchema } from "@/components/seo"
 import { Button } from "@/components/ui/button"
 import { Phone, Calendar, MessageSquare, Shield, Clock, Zap, TrendingUp, CheckCircle2, Users, Settings, ArrowRight, Star, Sparkles, AlertCircle } from "lucide-react"
 import Link from "next/link"
@@ -52,6 +53,35 @@ export default function AISekretarkaPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* JSON-LD Structured Data */}
+      <OrganizationSchema />
+      <ProductSchema />
+      <FAQSchema faqs={[
+        {
+          question: 'Jak szybko mogę wdrożyć AI Sekretarkę?',
+          answer: 'AI Sekretarka może być gotowa do pracy w ciągu kilku godzin po wypełnieniu formularza. System automatycznie konfiguruje AI, numer telefonu i integracje.'
+        },
+        {
+          question: 'Czy AI Sekretarka rozumie po polsku?',
+          answer: 'Tak! AI Sekretarka jest w pełni dostosowana do języka polskiego i rozumie kontekst rozmowy, odpowiada na pytania o ceny, terminy i usługi.'
+        },
+        {
+          question: 'Ile kosztuje AI Sekretarka?',
+          answer: 'Mamy trzy plany: Solo (299 zł/mies., 100 rozmów), Ekipa (599 zł/mies., 225 rozmów) i Firma (999 zł/mies., 500 rozmów). Dodatkowe rozmowy to 1,50 zł każda.'
+        },
+        {
+          question: 'Czy AI Sekretarka może umawiać wizyty?',
+          answer: 'Tak! AI Sekretarka automatycznie zapisuje terminy do kalendarza (Google Calendar lub Booksy) i wysyła SMS-y potwierdzające zarówno do klienta jak i właściciela firmy.'
+        },
+        {
+          question: 'Czy mogę anulować w każdej chwili?',
+          answer: 'Tak, możesz anulować subskrypcję w dowolnym momencie bez ukrytych kosztów. Nie ma żadnych kar ani długoterminowych zobowiązań.'
+        }
+      ]} />
+      <BreadcrumbSchema items={[
+        { name: 'Strona Główna', url: 'https://yieldo.com' },
+        { name: 'AI Sekretarka', url: 'https://yieldo.com/ai-sekretarka' }
+      ]} />
       {/* Modern Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

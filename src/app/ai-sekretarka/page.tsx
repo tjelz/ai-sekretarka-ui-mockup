@@ -12,7 +12,6 @@ import AnimatedBackground from "../components/AnimatedBackground"
 import HeroPhoneMockup from "../components/HeroPhoneMockup"
 import TypewriterText from "../components/TypewriterText"
 import AnimatedStatCard from "../components/AnimatedStatCard"
-import ActivityFeed from "../components/ActivityFeed"
 
 export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
@@ -232,11 +231,6 @@ export default function AISekretarkaPage() {
               color="orange"
               delay={0.3}
             />
-          </div>
-
-          {/* Activity Feed */}
-          <div className="max-w-4xl mx-auto">
-            <ActivityFeed />
           </div>
         </div>
       </section>

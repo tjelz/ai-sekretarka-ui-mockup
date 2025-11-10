@@ -31,7 +31,7 @@ export default function LostRevenueCalculator() {
           </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-2 md:mb-3 leading-tight px-2">
             Ile pieniędzy tracisz co miesiąc
-            <br/>
+            <br />
             <span className="text-blue-600">przez nieodebrane telefony?</span>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-2">
@@ -69,6 +69,9 @@ export default function LostRevenueCalculator() {
                   step={1}
                   className="cursor-pointer"
                 />
+                <p className="text-xs md:text-sm text-gray-600 mt-2">
+                  Średnio ile połączeń tygodniowo nie odbierasz?
+                </p>
               </div>
 
               {/* Average Transaction */}
@@ -101,6 +104,9 @@ export default function LostRevenueCalculator() {
                   step={5}
                   className="cursor-pointer"
                 />
+                <p className="text-xs md:text-sm text-gray-600 mt-2">
+                  Ile wynosi średnia wartość usługi/produktu?
+                </p>
               </div>
 
             </div>
@@ -137,31 +143,15 @@ export default function LostRevenueCalculator() {
                   </div>
                 </div>
               </div>
-              <Button className="mt-3 md:mt-4 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 md:py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base">
-                Odzyskaj Utracone Przychody →
-              </Button>
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="pt-4 md:pt-5 mt-4 md:mt-5 border-t-2 border-gray-100">
-            <div className="grid grid-cols-2 gap-3 md:gap-4">
-              <div className="text-center p-2.5 md:p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                <div className="text-xl sm:text-2xl md:text-3xl font-black text-blue-600 mb-1">
-                  {Math.round(successfulTransactions)}
-                </div>
-                <p className="text-[10px] sm:text-xs md:text-sm text-gray-600 font-medium leading-tight">
-                  Utraconych <br className="sm:hidden" /> transakcji/m-c
-                </p>
-              </div>
-              <div className="text-center p-2.5 md:p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                <div className="text-xl sm:text-2xl md:text-3xl font-black text-blue-600 mb-1">
-                  {missedCallsPerWeek}
-                </div>
-                <p className="text-[10px] sm:text-xs md:text-sm text-gray-600 font-medium leading-tight">
-                  Nieodebranych <br className="sm:hidden" /> połączeń/tydz.
-                </p>
-              </div>
+              <a
+                href="https://forms.fillout.com/t/xityvM2L42us"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="mt-3 md:mt-4 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 md:py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base">
+                  Odzyskaj Utracone Przychody →
+                </Button>
+              </a>
             </div>
           </div>
         </div>

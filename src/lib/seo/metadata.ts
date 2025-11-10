@@ -58,7 +58,7 @@ export function generateMetadata(config: PageMetadataConfig): Metadata {
       title: fullTitle,
       description,
       images: [ogImage],
-      creator: '@yieldo'
+      creator: '@yieldo_pl'
     },
     viewport: {
       width: 'device-width',

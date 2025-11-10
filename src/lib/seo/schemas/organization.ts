@@ -20,17 +20,10 @@ export function getOrganizationSchema(): WithContext<Organization> {
     "contactPoint": [
       {
         "@type": "ContactPoint",
-        "telephone": "+48-XXX-XXX-XXX",
+        "email": "info.yieldo@gmail.com",
         "contactType": "customer service",
         "areaServed": "PL",
         "availableLanguage": ["Polish", "English"]
-      },
-      {
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "email": "info@yieldo.io",
-        "areaServed": "PL",
-        "availableLanguage": ["Polish"]
       }
     ],
     "address": {
@@ -40,9 +33,9 @@ export function getOrganizationSchema(): WithContext<Organization> {
       "addressRegion": "Mazowieckie"
     },
     "sameAs": [
-      "https://www.linkedin.com/company/yieldo",
-      "https://www.facebook.com/yieldo",
-      "https://twitter.com/yieldo_io"
+      "https://www.linkedin.com/company/yieldopl/",
+      "https://instagram.com/yieldo_pl",
+      "https://x.com/yieldo_pl"
     ],
     "areaServed": {
       "@type": "Country",

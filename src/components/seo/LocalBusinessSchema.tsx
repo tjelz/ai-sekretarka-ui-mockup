@@ -24,7 +24,7 @@ export default function LocalBusinessSchema({
   name = 'Yieldo',
   description = 'Profesjonalna AI Sekretarka dla Twojej firmy',
   image = 'https://yieldo.com/logo.png',
-  telephone = '+48-123-456-789',
+  telephone,
   email = 'info.yieldo@gmail.com',
   address = {
     addressLocality: 'Warszawa',
@@ -40,7 +40,7 @@ export default function LocalBusinessSchema({
     name,
     image,
     description,
-    telephone,
+    ...(telephone && { telephone }),
     email,
     address: {
       '@type': 'PostalAddress',

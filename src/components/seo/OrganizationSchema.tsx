@@ -22,15 +22,15 @@ export default function OrganizationSchema({
   logo = 'https://yieldo.com/logo.png',
   description = 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczna obsługa telefonów 24/7, umawianie wizyt i zarządzanie klientami.',
   email = 'info.yieldo@gmail.com',
-  telephone = '+48-123-456-789',
+  telephone,
   address = {
     addressLocality: 'Warszawa',
     addressCountry: 'PL'
   },
   sameAs = [
-    'https://www.facebook.com/yieldo',
-    'https://www.linkedin.com/company/yieldo',
-    'https://twitter.com/yieldo'
+    'https://www.linkedin.com/company/yieldopl/',
+    'https://instagram.com/yieldo_pl',
+    'https://x.com/yieldo_pl'
   ]
 }: OrganizationSchemaProps) {
   const schema = {
@@ -44,7 +44,7 @@ export default function OrganizationSchema({
     },
     description,
     email,
-    telephone,
+    ...(telephone && { telephone }),
     address: {
       '@type': 'PostalAddress',
       ...address
@@ -52,7 +52,8 @@ export default function OrganizationSchema({
     sameAs,
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone,
+      ...(telephone && { telephone }),
+      email,
       contactType: 'customer service',
       areaServed: 'PL',
       availableLanguage: ['Polish']

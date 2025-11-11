@@ -1,4 +1,1 @@
-'/Users/thomasfebry/ai-sekretarka-ui-mockup/docs/policies'\
-  Please add all these policy pages to the webite and include in the footer of
-  the pages. make sure any existing link that need to go to such places link to
-  these new pages properly. 
+For now we dont have a working dashboard after a user logs in, so the dashboard should just say that its under maintenance.

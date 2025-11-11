@@ -38,7 +38,7 @@ import { OrganizationSchema } from '@/components/seo'
 
 <OrganizationSchema
   name="Yieldo"
-  url="https://yieldo.pl"
+  url="https://www.yieldo.pl"
   email="info.yieldo@gmail.com"
   telephone="+48-123-456-789"
 />
@@ -87,8 +87,8 @@ import { BreadcrumbSchema } from '@/components/seo'
 
 <BreadcrumbSchema
   items={[
-    { name: "Strona główna", url: "https://yieldo.pl" },
-    { name: "AI Sekretarka", url: "https://yieldo.pl/ai-sekretarka" }
+    { name: "Strona główna", url: "https://www.yieldo.pl" },
+    { name: "AI Sekretarka", url: "https://www.yieldo.pl/ai-sekretarka" }
   ]}
 />
 ```
@@ -116,10 +116,10 @@ import { WebPageSchema } from '@/components/seo'
 <WebPageSchema
   name="AI Sekretarka - Automatyczna Obsługa"
   description="Profesjonalna obsługa telefonów 24/7"
-  url="https://yieldo.pl/ai-sekretarka"
+  url="https://www.yieldo.pl/ai-sekretarka"
   breadcrumbs={[
-    { name: "Home", url: "https://yieldo.pl" },
-    { name: "AI Sekretarka", url: "https://yieldo.pl/ai-sekretarka" }
+    { name: "Home", url: "https://www.yieldo.pl" },
+    { name: "AI Sekretarka", url: "https://www.yieldo.pl/ai-sekretarka" }
   ]}
 />
 ```

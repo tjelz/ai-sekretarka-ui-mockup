@@ -58,7 +58,7 @@ export default function Home() {
       <WebPageSchema
         name="Yieldo - Wszystko, Czego Potrzebujesz Do Rozwoju Firmy"
         description="Kompleksowe rozwiązania AI dla nowoczesnych firm"
-        url="https://yieldo.pl"
+        url="https://www.yieldo.pl"
       />
     </div>
   )
@@ -117,8 +117,8 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema'
 
 <BreadcrumbSchema
   items={[
-    { name: "Strona główna", url: "https://yieldo.pl" },
-    { name: "AI Sekretarka", url: "https://yieldo.pl/ai-sekretarka" }
+    { name: "Strona główna", url: "https://www.yieldo.pl" },
+    { name: "AI Sekretarka", url: "https://www.yieldo.pl/ai-sekretarka" }
   ]}
 />
 ```
@@ -133,13 +133,13 @@ import WebPageSchema from '@/components/seo/WebPageSchema'
 <WebPageSchema
   name="Kalkulator Oszczędności - Ile Tracisz Przez Nieodebrane Telefony?"
   description="Oblicz straty wynikające z nieodebranych połączeń"
-  url="https://yieldo.pl/kalkulator"
+  url="https://www.yieldo.pl/kalkulator"
 />
 
 <BreadcrumbSchema
   items={[
-    { name: "Strona główna", url: "https://yieldo.pl" },
-    { name: "Kalkulator", url: "https://yieldo.pl/kalkulator" }
+    { name: "Strona główna", url: "https://www.yieldo.pl" },
+    { name: "Kalkulator", url: "https://www.yieldo.pl/kalkulator" }
   ]}
 />
 ```

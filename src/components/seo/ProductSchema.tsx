@@ -23,7 +23,7 @@ export interface ProductSchemaProps {
 export default function ProductSchema({
   name,
   description,
-  image = 'https://yieldo.pl/og-image.jpg',
+  image = 'https://www.yieldo.pl/og-image.jpg',
   brand = 'Yieldo',
   offers = [],
   aggregateRating
@@ -44,7 +44,7 @@ export default function ProductSchema({
       price: offer.price,
       priceCurrency: offer.priceCurrency || offer.currency || 'PLN',
       availability: 'https://schema.org/InStock',
-      url: 'https://yieldo.pl/ai-sekretarka',
+      url: 'https://www.yieldo.pl/ai-sekretarka',
       priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]
     })),
     ...(aggregateRating && {

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: 'Kalkulator Oszczędności - Ile Tracisz Przez Nieodebrane Telefony?',
     description: 'Oblicz ile pieniędzy tracisz przez nieodebrane telefony. Interaktywny kalkulator oszczędności pokazuje ROI AI Sekretarki dla Twojej firmy.',
     type: 'website',
-    url: 'https://yieldo.pl/kalkulator',
+    url: 'https://www.yieldo.pl/kalkulator',
     images: [
       {
         url: '/og-image.jpg',
@@ -34,6 +34,6 @@ export const metadata: Metadata = {
     images: ['/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://yieldo.pl/kalkulator',
+    canonical: 'https://www.yieldo.pl/kalkulator',
   },
 };

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-const baseUrl = 'https://yieldo.pl';
+const baseUrl = 'https://www.yieldo.pl';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();

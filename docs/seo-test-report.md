@@ -120,8 +120,8 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Yieldo",
-  "url": "https://yieldo.pl",
-  "logo": "https://yieldo.pl/logo.png",
+  "url": "https://www.yieldo.pl",
+  "logo": "https://www.yieldo.pl/logo.png",
   "description": "Agencja AI dla Nowoczesnych Firm",
   "address": {
     "@type": "PostalAddress",
@@ -189,7 +189,7 @@ const productSchema = {
 **Priority:** ✅ Proper hierarchy (1.0 for home, descending for others)
 
 **Base URL Configuration:**
-- ✅ Using production URL: `https://yieldo.pl`
+- ✅ Using production URL: `https://www.yieldo.pl`
 - ✅ Protocol: HTTPS
 - ✅ No trailing slashes
 
@@ -231,10 +231,10 @@ Disallow:
 - ✅ Googlebot-News: Allow all with crawl delay 1
 
 **Sitemap Reference:**
-- ✅ Includes: `Sitemap: https://yieldo.pl/sitemap.xml`
+- ✅ Includes: `Sitemap: https://www.yieldo.pl/sitemap.xml`
 
 **Host Declaration:**
-- ✅ `Host: https://yieldo.pl`
+- ✅ `Host: https://www.yieldo.pl`
 
 **Syntax:** ✅ Valid robots.txt format
 **Conflicts:** ⚠️ Dashboard pages are in sitemap but blocked in robots.txt (contradictory)
@@ -257,7 +257,7 @@ Disallow:
 export const metadata: Metadata = {
   // ... other metadata
   alternates: {
-    canonical: 'https://yieldo.pl/ai-sekretarka',
+    canonical: 'https://www.yieldo.pl/ai-sekretarka',
   },
 }
 ```
@@ -286,7 +286,7 @@ export const metadata: Metadata = {
    ```typescript
    // In src/app/layout.tsx
    export const metadata: Metadata = {
-     metadataBase: new URL('https://yieldo.pl'),
+     metadataBase: new URL('https://www.yieldo.pl'),
      // ... rest of metadata
    }
    ```
@@ -365,7 +365,7 @@ export const metadata: Metadata = {
 - ℹ️ Build errors ignored (for development, should fix for production)
 
 **HTTPS:**
-- ✅ Base URL uses `https://yieldo.pl`
+- ✅ Base URL uses `https://www.yieldo.pl`
 - ℹ️ Actual HTTPS enforcement depends on hosting provider
 
 **Security Headers:** ℹ️ Not visible in code (typically configured at hosting level)
@@ -407,7 +407,7 @@ export const metadata: Metadata = {
 1. **Add metadataBase to root layout:**
    ```typescript
    export const metadata: Metadata = {
-     metadataBase: new URL('https://yieldo.pl'),
+     metadataBase: new URL('https://www.yieldo.pl'),
      // ... existing metadata
    }
    ```
@@ -597,7 +597,7 @@ The root layout (`/src/app/layout.tsx`) has been **updated with comprehensive SE
 
 1. ✅ **metadataBase added:**
    ```typescript
-   metadataBase: new URL('https://yieldo.pl')
+   metadataBase: new URL('https://www.yieldo.pl')
    ```
    - **Note:** Domain changed from `yieldo.pl` to `yieldo.pl`
    - This may require updating sitemap.ts and robots.ts to match
@@ -631,7 +631,7 @@ The root layout (`/src/app/layout.tsx`) has been **updated with comprehensive SE
 6. ✅ **Added canonical URL:**
    ```typescript
    alternates: {
-     canonical: 'https://yieldo.pl'
+     canonical: 'https://www.yieldo.pl'
    }
    ```
 
@@ -659,9 +659,9 @@ The root layout (`/src/app/layout.tsx`) has been **updated with comprehensive SE
 ### New Issues Detected
 
 1. **Domain Inconsistency:**
-   - Root layout uses: `https://yieldo.pl`
-   - Sitemap uses: `https://yieldo.pl`
-   - Robots.txt uses: `https://yieldo.pl`
+   - Root layout uses: `https://www.yieldo.pl`
+   - Sitemap uses: `https://www.yieldo.pl`
+   - Robots.txt uses: `https://www.yieldo.pl`
    - **Action:** Update sitemap.ts and robots.ts to use `yieldo.pl`
 
 2. **Missing OG image verification:**

@@ -4,7 +4,7 @@ export function getAISekretrkaProductSchema(): WithContext<Product> {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": "https://yieldo.pl/ai-sekretarka/#product",
+    "@id": "https://www.yieldo.pl/ai-sekretarka/#product",
     "name": "AI Sekretarka Yieldo",
     "description": "Profesjonalna AI Sekretarka, która automatycznie odbiera telefony 24/7, umawia spotkania, odpowiada na pytania klientów i wysyła SMS-y z potwierdzeniami. Rozmawia naturalnie jak człowiek.",
     "brand": {
@@ -12,13 +12,13 @@ export function getAISekretrkaProductSchema(): WithContext<Product> {
       "name": "Yieldo"
     },
     "image": [
-      "https://yieldo.pl/product-ai-sekretarka-1.png",
-      "https://yieldo.pl/product-ai-sekretarka-2.png",
-      "https://yieldo.pl/product-ai-sekretarka-3.png"
+      "https://www.yieldo.pl/product-ai-sekretarka-1.png",
+      "https://www.yieldo.pl/product-ai-sekretarka-2.png",
+      "https://www.yieldo.pl/product-ai-sekretarka-3.png"
     ],
     "offers": {
       "@type": "Offer",
-      "url": "https://yieldo.pl/ai-sekretarka/",
+      "url": "https://www.yieldo.pl/ai-sekretarka/",
       "priceCurrency": "PLN",
       "price": "399.00",
       "priceValidUntil": "2025-12-31",

@@ -32,7 +32,7 @@ import { getOrganizationSchema } from "@/lib/seo/schemas/organization";
 import { WebVitalsReporter } from "@/components/seo/WebVitalsReporter";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yieldo.pl'),
+  metadataBase: new URL('https://www.yieldo.pl'),
 
   title: {
     default: "AI Sekretarka 24/7 | Yieldo - Automatyzacja Obsługi Klienta",
@@ -170,7 +170,7 @@ curl http://localhost:3000/robots.txt
 
 ## Critical URLs to Update
 
-**Current base URL in code:** `https://yieldo.pl`
+**Current base URL in code:** `https://www.yieldo.pl`
 
 **Files to update when domain is finalized:**
 1. `/src/app/layout.tsx` - metadataBase
@@ -207,13 +207,13 @@ grep -r "yieldo.pl" src/ docs/
 **3. Accessibility**
 ```bash
 # Test sitemap
-curl https://yieldo.pl/sitemap.xml | head -20
+curl https://www.yieldo.pl/sitemap.xml | head -20
 
 # Test robots.txt
-curl https://yieldo.pl/robots.txt
+curl https://www.yieldo.pl/robots.txt
 
 # Test structured data
-curl https://yieldo.pl/ | grep -o '@type'
+curl https://www.yieldo.pl/ | grep -o '@type'
 ```
 
 ---

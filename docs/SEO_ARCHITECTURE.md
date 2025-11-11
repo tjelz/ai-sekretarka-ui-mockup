@@ -90,14 +90,14 @@ export async function generateMetadata({ params }): Promise<Metadata> { ... }
 **Decision:** Implement strict canonical URL structure
 
 **Rules:**
-1. Always use absolute URLs: `https://yieldo.pl/path`
+1. Always use absolute URLs: `https://www.yieldo.pl/path`
 2. Trailing slash consistency: Always include trailing slash
 3. HTTPS enforcement: Redirect all HTTP to HTTPS
 4. WWW canonicalization: Choose non-www as canonical
 
 **Implementation:**
 ```typescript
-const baseUrl = 'https://yieldo.pl';
+const baseUrl = 'https://www.yieldo.pl';
 const canonicalUrl = `${baseUrl}${pathname}/`;
 ```
 
@@ -170,7 +170,7 @@ const canonicalUrl = `${baseUrl}${pathname}/`;
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yieldo.pl'),
+  metadataBase: new URL('https://www.yieldo.pl'),
 
   title: {
     default: "AI Sekretarka 24/7 | Yieldo - Automatyzacja Obsługi Klienta",
@@ -223,7 +223,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pl_PL',
-    url: 'https://yieldo.pl/',
+    url: 'https://www.yieldo.pl/',
     siteName: 'AI Sekretarka Yieldo',
     title: 'AI Sekretarka 24/7 dla Twojej Firmy | Yieldo',
     description: 'Automatyczna obsługa połączeń, umawianie wizyt i SMS-y. Twój biznes nigdy nie śpi. Profesjonalna AI Sekretarka dla polskich firm.',
@@ -247,9 +247,9 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: 'https://yieldo.pl/',
+    canonical: 'https://www.yieldo.pl/',
     languages: {
-      'pl': 'https://yieldo.pl/',
+      'pl': 'https://www.yieldo.pl/',
     },
   },
 
@@ -277,7 +277,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Sekretarka i Rozwiązania AI dla Firm | Yieldo",
     description: "Kompleksowe rozwiązania AI - od obsługi klientów, przez tworzenie stron, po automatyzację dotacji.",
-    url: "https://yieldo.pl/",
+    url: "https://www.yieldo.pl/",
     images: [
       {
         url: "/og-homepage.png",
@@ -308,7 +308,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Sekretarka 24/7 - Nigdy Nie Przegap Klienta",
     description: "Twoja AI Sekretarka rozmawia jak człowiek, umawia wizyty i obsługuje klientów 24 godziny na dobę, 7 dni w tygodniu.",
-    url: "https://yieldo.pl/ai-sekretarka/",
+    url: "https://www.yieldo.pl/ai-sekretarka/",
     images: [
       {
         url: "/og-ai-sekretarka.png",
@@ -330,7 +330,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ile Tracisz na Nieodebranych Połączeniach? | Kalkulator AI Sekretarka",
     description: "Oblicz swoje roczne straty z nieodebranych telefonów i zobacz jak AI Sekretarka może zwiększyć Twoje przychody.",
-    url: "https://yieldo.pl/kalkulator/",
+    url: "https://www.yieldo.pl/kalkulator/",
     images: [
       {
         url: "/og-kalkulator.png",
@@ -358,17 +358,17 @@ export function getOrganizationSchema(): WithContext<Organization> {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://yieldo.pl/#organization",
+    "@id": "https://www.yieldo.pl/#organization",
     "name": "Yieldo",
     "legalName": "Yieldo Sp. z o.o.",
-    "url": "https://yieldo.pl",
+    "url": "https://www.yieldo.pl",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://yieldo.pl/logo.png",
+      "url": "https://www.yieldo.pl/logo.png",
       "width": 250,
       "height": 60
     },
-    "image": "https://yieldo.pl/og-image.png",
+    "image": "https://www.yieldo.pl/og-image.png",
     "description": "Yieldo to agencja AI specjalizująca się w automatyzacji procesów biznesowych. Oferujemy AI Sekretarkę 24/7, tworzenie stron internetowych i automatyzację dotacji dla polskich firm.",
     "foundingDate": "2024",
     "contactPoint": [
@@ -419,7 +419,7 @@ export function getAISekretrkaProductSchema(): WithContext<Product> {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": "https://yieldo.pl/ai-sekretarka/#product",
+    "@id": "https://www.yieldo.pl/ai-sekretarka/#product",
     "name": "AI Sekretarka Yieldo",
     "description": "Profesjonalna AI Sekretarka, która automatycznie odbiera telefony 24/7, umawia spotkania, odpowiada na pytania klientów i wysyła SMS-y z potwierdzeniami. Rozmawia naturalnie jak człowiek.",
     "brand": {
@@ -427,13 +427,13 @@ export function getAISekretrkaProductSchema(): WithContext<Product> {
       "name": "Yieldo"
     },
     "image": [
-      "https://yieldo.pl/product-ai-sekretarka-1.png",
-      "https://yieldo.pl/product-ai-sekretarka-2.png",
-      "https://yieldo.pl/product-ai-sekretarka-3.png"
+      "https://www.yieldo.pl/product-ai-sekretarka-1.png",
+      "https://www.yieldo.pl/product-ai-sekretarka-2.png",
+      "https://www.yieldo.pl/product-ai-sekretarka-3.png"
     ],
     "offers": {
       "@type": "Offer",
-      "url": "https://yieldo.pl/ai-sekretarka/",
+      "url": "https://www.yieldo.pl/ai-sekretarka/",
       "priceCurrency": "PLN",
       "price": "399.00",
       "priceValidUntil": "2025-12-31",
@@ -559,7 +559,7 @@ export function getBreadcrumbSchema(
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://yieldo.pl${item.url}`
+      "item": `https://www.yieldo.pl${item.url}`
     }))
   };
 }
@@ -631,7 +631,7 @@ export default function RootLayout({ children }) {
 ```typescript
 import { MetadataRoute } from 'next';
 
-const baseUrl = 'https://yieldo.pl';
+const baseUrl = 'https://www.yieldo.pl';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
@@ -728,7 +728,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://yieldo.pl';
+  const baseUrl = 'https://www.yieldo.pl';
 
   return {
     rules: [
@@ -795,7 +795,7 @@ export default function robots(): MetadataRoute.Robots {
 
 import { usePathname } from 'next/navigation';
 
-const BASE_URL = 'https://yieldo.pl';
+const BASE_URL = 'https://www.yieldo.pl';
 
 export function CanonicalLink() {
   const pathname = usePathname();
@@ -1302,10 +1302,10 @@ export function WebVitalsReporter() {
 ```typescript
 // In metadata
 alternates: {
-  canonical: 'https://yieldo.pl/',
+  canonical: 'https://www.yieldo.pl/',
   languages: {
-    'pl': 'https://yieldo.pl/',
-    'en': 'https://yieldo.pl/en/', // Future
+    'pl': 'https://www.yieldo.pl/',
+    'en': 'https://www.yieldo.pl/en/', // Future
   },
 }
 ```
@@ -1322,7 +1322,7 @@ export function getLocalBusinessSchema(): WithContext<LocalBusiness> {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Yieldo - AI Sekretarka",
-    "image": "https://yieldo.pl/og-image.png",
+    "image": "https://www.yieldo.pl/og-image.png",
     "telephone": "+48-XXX-XXX-XXX",
     "address": {
       "@type": "PostalAddress",
@@ -1337,7 +1337,7 @@ export function getLocalBusinessSchema(): WithContext<LocalBusiness> {
       "latitude": 52.2297,
       "longitude": 21.0122
     },
-    "url": "https://yieldo.pl",
+    "url": "https://www.yieldo.pl",
     "priceRange": "399 PLN - 1499 PLN",
     "openingHoursSpecification": [
       {

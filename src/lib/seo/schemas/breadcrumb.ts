@@ -10,7 +10,7 @@ export function getBreadcrumbSchema(
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://yieldo.pl${item.url}`
+      "item": `https://www.yieldo.pl${item.url}`
     }))
   };
 }

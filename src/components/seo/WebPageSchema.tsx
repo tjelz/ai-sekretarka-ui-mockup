@@ -24,7 +24,7 @@ export default function WebPageSchema({
       name: 'Yieldo',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://yieldo.pl/logo.png'
+        url: 'https://www.yieldo.pl/logo.png'
       }
     },
     ...(breadcrumbs.length > 0 && {

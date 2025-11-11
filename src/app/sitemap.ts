@@ -79,43 +79,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // Dashboard routes (authenticated, lower priority)
-  const dashboardRoutes: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}/dashboard`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/dashboard/analytics`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/dashboard/agents`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/dashboard/billing`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/dashboard/settings`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.3,
-    },
-  ];
+  // Dashboard routes removed - authenticated pages should not be in public sitemap
+  // They are blocked in robots.txt and require login
 
   return [
     ...staticRoutes,
     ...policyRoutes,
-    ...dashboardRoutes,
   ];
 }

@@ -11,11 +11,14 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/dashboard/',
+          '/login/',
           '/_next/',
           '/admin/',
           '/private/',
-          '/*.json$',
-          '/*?*utm_*',
+          '/*.json',
+          '/*?utm_',
+          '/.env*',
+          '/.git*',
         ],
       },
       {
@@ -24,16 +27,17 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/dashboard/',
+          '/login/',
           '/_next/',
           '/admin/',
         ],
-        crawlDelay: 0,
       },
       {
         userAgent: 'Googlebot-Image',
         allow: '/',
         disallow: [
           '/private/',
+          '/dashboard/',
         ],
       },
       {

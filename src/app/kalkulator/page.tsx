@@ -2,6 +2,7 @@
 
 import { BreadcrumbSchema } from "@/components/seo"
 import { Button } from "@/components/ui/button"
+import { Footer } from "@/components/ui/footer"
 import Link from "next/link"
 import Image from "next/image"
 import LostRevenueCalculator from "../components/LostRevenueCalculator"
@@ -119,25 +120,7 @@ export default function CalculatorPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-8 bg-white">
-        <div className="container mx-auto px-4 text-center">
-          <Link href="/">
-            <Image
-              src="/logo.png"
-              alt="Yieldo"
-              width={120}
-              height={40}
-              className="h-10 w-auto mx-auto mb-3"
-            />
-          </Link>
-          <p className="text-gray-600 mb-2">
-            Agencja AI dla Nowoczesnych Firm
-          </p>
-          <p className="text-sm text-gray-500">
-            © 2025 Yieldo. Wszystkie prawa zastrzeżone.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

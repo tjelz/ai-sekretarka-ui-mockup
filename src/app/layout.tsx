@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from '@vercel/analytics/react';
+import { AnalyticsProvider } from '@/components/analytics';
+
+// Export viewport separately (Next.js 15 requirement)
+export { viewport } from './viewport';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.yieldo.pl'),
@@ -65,11 +69,6 @@ export const metadata: Metadata = {
     images: ['/og-image.jpg'],
     creator: '@yieldo_pl',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
   verification: {
     google: 'your-google-verification-code',
   },
@@ -89,6 +88,7 @@ export default function RootLayout({
         {children}
         <Toaster />
         <Analytics />
+        <AnalyticsProvider showCookieConsent />
       </body>
     </html>
   );

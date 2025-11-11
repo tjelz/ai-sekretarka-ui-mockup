@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { Footer } from "@/components/ui/footer"
 import { MapPin, Search, Star, TrendingUp, CheckCircle2, Users, Clock, Zap, ArrowRight, Shield, Sparkles, Phone, MessageSquare, Target, BarChart3, Globe, Award, AlertCircle, ChevronDown, Wrench } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
@@ -1330,25 +1331,7 @@ export default function GoogleBusinessPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-12 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Image
-              src="/logo.png"
-              alt="Yieldo"
-              width={120}
-              height={40}
-              className="h-10 w-auto mx-auto mb-4"
-            />
-            <p className="text-gray-600 mb-6">
-              Agencja AI dla Nowoczesnych Firm
-            </p>
-            <p className="text-sm text-gray-500">
-              © 2025 Yieldo. Wszystkie prawa zastrzeżone.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

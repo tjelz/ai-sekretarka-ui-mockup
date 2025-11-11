@@ -2,10 +2,13 @@ import type { Metadata } from 'next'
 import { generateMetadata, defaultKeywords } from '@/lib/seo/metadata'
 
 export const homeMetadata: Metadata = generateMetadata({
-  title: 'Yieldo - Wszystko, Czego Potrzebujesz Do Rozwoju Firmy',
-  description: 'Kompleksowe rozwiązania AI dla nowoczesnych firm - od obsługi klientów przez AI Sekretarkę 24/7, tworzenie stron internetowych, po automatyzację dotacji. Rozwijaj swoją firmę z Yieldo.',
+  title: 'Yieldo - Rozwiązania AI dla Firm, Które Chcą Więcej',
+  description: 'Kompleksowe rozwiązania AI dla firm: AI Sekretarka 24/7, strony internetowe, Google Business. Yieldo pomaga firmom, które chcą rozwijać się szybciej i osiągać więcej.',
   keywords: [
     ...defaultKeywords,
+    'rozwiązania dla firm',
+    'yieldo',
+    'firm które chcą więcej',
     'rozwój firmy',
     'kompleksowe rozwiązania AI',
     'tworzenie stron www',

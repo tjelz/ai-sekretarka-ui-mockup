@@ -1,2 +1,4 @@
-- Please add in https://llmstxt.org/ for SEO.
-- Please redesign the current root landing page with the AI receptionist product as the main feature and showing off our coming soon features, because at the moment its a boring webpage and its the 1st thing people see. This page is the main page for Yieldo and its vision to provide solutions for helping improving companies etc...Make sure its great for SEO too.
+'/Users/thomasfebry/ai-sekretarka-ui-mockup/docs/policies'\
+  Please add all these policy pages to the webite and include in the footer of
+  the pages. make sure any existing link that need to go to such places link to
+  these new pages properly. 

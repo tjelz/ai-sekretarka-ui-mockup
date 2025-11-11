@@ -1,0 +1,119 @@
+Polityka Zwrotów
+
+Obowiązuje od: 21.10.2025
+Ostatnia aktualizacja: 21.10.2025
+
+Niniejsza Polityka Zwrotów określa zasady odstąpienia od umowy, anulowania subskrypcji i zwrotów płatności za usługi oferowane przez Yieldo sp. z o.o. („Yieldo”, „my”, „nas”) poprzez platformę online i stronę internetową.
+Dokument stanowi uzupełnienie Regulaminu Świadczenia Usług oraz Polityki Prywatności.
+
+⸻
+
+1. Informacje ogólne
+
+1.1. Celem Yieldo jest świadczenie usług o wysokiej jakości i pełnej przejrzystości zasad rozliczeń.
+1.2. Ze względu na cyfrowy i doradczy charakter usług, nie wszystkie płatności mogą być objęte zwrotem.
+1.3. Zwroty realizowane są wyłącznie w przypadkach przewidzianych w niniejszej Polityce oraz w obowiązujących przepisach prawa.
+
+⸻
+
+2. Pakiet „Start a Business” (B2C – klienci indywidualni)
+
+Opis usługi:
+Jednorazowy pakiet obejmujący:
+	•	opracowanie biznesplanu na podstawie danych użytkownika,
+	•	analizę i dopasowanie potencjalnych źródeł finansowania,
+	•	rekomendacje programów dotacyjnych dostępnych w Polsce.
+
+Warunki zwrotu:
+	•	Jeśli jesteś konsumentem (osobą fizyczną korzystającą z usługi niezwiązanej z działalnością gospodarczą) i usługa nie została rozpoczęta, masz prawo odstąpić od umowy w ciągu 14 dni od daty zakupu, bez podania przyczyny – zgodnie z art. 27 Ustawy z dnia 30 maja 2014 r. o prawach konsumenta.
+	•	Jeśli rozpoczęliśmy świadczenie usługi (np. przesłano ankietę, rozpoczęto analizę lub przygotowanie dokumentów), prawo odstąpienia wygasa, zgodnie z art. 38 ust. 1 pkt 1 ww. ustawy.
+	•	Po rozpoczęciu świadczenia usługi zwrot nie przysługuje.
+
+Jak zgłosić zwrot:
+Wyślij wiadomość na adres e-mail: info.yieldo@gmail.com
+W tytule wpisz: „Zwrot – Start a Business”, a w treści podaj:
+	•	imię i nazwisko,
+	•	adres e-mail użyty przy zakupie,
+	•	datę zakupu,
+	•	krótkie wyjaśnienie lub numer zamówienia (jeśli posiadasz).
+
+Po pozytywnej weryfikacji, zwrot zostanie zrealizowany w terminie określonym w §5.
+
+⸻
+
+3. Pakiet „Grant Automation” (B2B – subskrypcja)
+
+Opis usługi:
+Miesięczna subskrypcja dla firm obejmująca:
+	•	automatyczne dopasowanie dotacji do profilu firmy,
+	•	dostęp do panelu użytkownika (dashboard),
+	•	monitoring i powiadomienia o nowych programach,
+	•	opcjonalne wsparcie eksperta przy wniosku (jeśli dotyczy planu).
+
+Warunki zwrotu:
+	•	Subskrypcję można anulować w dowolnym momencie poprzez panel użytkownika lub kontakt e-mail.
+	•	Anulowanie subskrypcji jest skuteczne na koniec bieżącego okresu rozliczeniowego.
+	•	Opłata za rozpoczęty okres subskrypcji nie podlega zwrotowi, nawet jeśli użytkownik nie korzystał z platformy.
+	•	Subskrypcja funkcjonuje w modelu pre-paid – płatność pobierana jest z góry za miesiąc świadczenia usług.
+	•	W przypadku nieuiszczenia płatności subskrypcja może zostać zawieszona do momentu jej opłacenia.
+
+⸻
+
+4. Success Fee (B2B – opłata za sukces)
+
+Opis:
+Opłata w wysokości 3% wartości przyznanej dotacji brutto, należna wyłącznie po faktycznym uzyskaniu środków przez firmę-klienta.
+
+Warunki zwrotu:
+	•	Success fee jest naliczane dopiero po potwierdzeniu przyznania dotacji (decyzja, komunikat instytucji, podpisana umowa dotacyjna).
+	•	Po wystawieniu faktury i potwierdzeniu przyznania środków, opłata jest bezzwrotna.
+	•	Jeśli dotacja nie zostanie przyznana lub klient zrezygnuje przed uzyskaniem decyzji, Yieldo nie pobiera success fee.
+
+⸻
+
+5. Terminy i sposób zwrotu
+	•	Zwroty realizowane są tą samą metodą płatności, którą dokonano transakcji (np. karta, przelew, Stripe).
+	•	W przypadku niemożności technicznej zwrot może być wykonany przelewem bankowym.
+	•	Czas realizacji zwrotu zależy od operatora płatności – zazwyczaj 5–10 dni roboczych od zatwierdzenia.
+	•	Zwroty realizowane są wyłącznie w polskich złotych (PLN).
+	•	Yieldo nie ponosi odpowiedzialności za różnice kursowe ani opłaty pośredników finansowych.
+
+⸻
+
+6. Odmowa zwrotu
+
+Yieldo zastrzega sobie prawo do odmowy zwrotu w przypadku:
+	•	rozpoczęcia realizacji usługi lub przekazania materiałów klientowi,
+	•	nadużycia prawa do odstąpienia lub fałszywego zgłoszenia,
+	•	naruszenia postanowień Regulaminu Świadczenia Usług,
+	•	podania nieprawdziwych danych w procesie rejestracji lub wniosku,
+	•	zgłoszenia zwrotu po upływie ustawowych terminów.
+
+⸻
+
+7. Procedura reklamacyjna (opcjonalna ścieżka)
+
+W przypadku niezadowolenia z jakości usługi lub błędu technicznego, zamiast żądania zwrotu możesz złożyć reklamację, wysyłając wiadomość na: info.yieldo@gmail.com
+W treści podaj:
+	•	nazwę firmy lub imię i nazwisko,
+	•	e-mail konta,
+	•	opis problemu i oczekiwany sposób rozwiązania.
+
+Reklamacje rozpatrujemy w ciągu 14 dni roboczych, zgodnie z zasadami opisanymi w Regulaminie (§16).
+
+⸻
+
+8. Kontakt
+
+W sprawach związanych ze zwrotami, odstąpieniem lub reklamacjami skontaktuj się z nami:
+
+Yieldo Sp. z o.o.
+ul. Drukarska 3, 30-348 Kraków, Polska
+E-mail: info.yieldo@gmail.com
+
+⸻
+
+9. Postanowienia końcowe
+	•	Yieldo zastrzega sobie prawo do aktualizacji niniejszej Polityki Zwrotów, szczególnie w przypadku zmiany przepisów prawa lub zasad działania platformy.
+	•	Aktualna wersja dokumentu zawsze znajduje się na stronie yieldo.pl/refund-policy z datą obowiązywania.
+	•	W sprawach nieuregulowanych w niniejszej Polityce zastosowanie mają przepisy prawa polskiego, w tym Kodeksu cywilnego i Ustawy o prawach konsumenta.

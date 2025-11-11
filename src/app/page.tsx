@@ -2,6 +2,7 @@
 
 import { OrganizationSchema, BreadcrumbSchema, ProductSchema, WebPageSchema } from "@/components/seo"
 import { Navbar } from "@/components/ui/navbar"
+import { Footer } from "@/components/ui/footer"
 import ProductShowcaseHero from "@/components/landing/ProductShowcaseHero"
 import VisionMission from "@/components/landing/VisionMission"
 
@@ -37,16 +38,7 @@ export default function Home() {
       <VisionMission />
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-12 bg-white mt-auto">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-600 mb-4 font-medium">
-            Yieldo - Agencja AI dla Nowoczesnych Firm
-          </p>
-          <p className="text-sm text-gray-500">
-            © 2025 Yieldo. Wszystkie prawa zastrzeżone.
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

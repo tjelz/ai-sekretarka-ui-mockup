@@ -1,0 +1,195 @@
+Regulamin Świadczenia Usług
+
+Obowiązuje od: 21.10.2025
+Ostatnia aktualizacja: 21.10.2025
+
+1. Informacje ogólne
+
+1.1. Niniejszy regulamin (dalej: „Regulamin”) określa zasady świadczenia usług drogą elektroniczną przez:
+Yieldo spółka z ograniczoną odpowiedzialnością z siedzibą w Krakowie,
+ul. Drukarska 3, 30-348 Kraków, Polska,
+wpisaną do Krajowego Rejestru Sądowego pod numerem KRS [do uzupełnienia],
+NIP [do uzupełnienia], REGON [do uzupełnienia]
+(dalej: „Yieldo”, „Usługodawca”, „my”, „nas”).
+
+1.2. Regulamin ma zastosowanie do wszystkich użytkowników korzystających z serwisu online Yieldo (dalej: „Serwis”) – zarówno klientów biznesowych (B2B), jak i konsumentów (B2C) w pakiecie „Start a Business”.
+
+1.3. Kontakt z nami: info.yieldo@gmail.com.
+
+⸻
+
+2. Definicje
+	•	Użytkownik – osoba fizyczna, prawna lub jednostka organizacyjna korzystająca z Serwisu.
+	•	Konsument – osoba fizyczna dokonująca czynności prawnej niezwiązanej bezpośrednio z jej działalnością gospodarczą lub zawodową.
+	•	Konto – panel Użytkownika w Serwisie po rejestracji/logowaniu.
+	•	Usługi – usługi cyfrowe świadczone przez Yieldo, w tym: „Grant Automation” (SaaS B2B) oraz „Start a Business” (B2C).
+	•	Success fee – wynagrodzenie płatne po pozytywnym przyznaniu dotacji Użytkownikowi na podstawie złożonego wniosku przygotowanego/przygotowanego z pomocą Yieldo, liczone jako 3% wartości przyznanego dofinansowania brutto (o szczegółach w §7).
+	•	Okres rozliczeniowy – miesięczny okres subskrypcji (30 dni, o ile nie wskazano inaczej).
+	•	Dzień Roboczy – dzień od poniedziałku do piątku, z wyłączeniem dni ustawowo wolnych od pracy w Polsce.
+
+⸻
+
+3. Zakres świadczonych usług
+
+3.1. Grant Automation (B2B, subskrypcja)
+	•	Automatyczne dopasowanie dostępnych dotacji do profilu firmy (monitoring + rekomendacje).
+	•	Dostęp do dashboardu (Konto), zapisy dopasowań, powiadomienia.
+	•	Wsparcie w przygotowaniu wniosku (zakres rośnie wraz z rozwojem produktu; szczegóły w ofercie).
+	•	Opłata: 299 zł brutto/mies. (z góry, za każdy Okres rozliczeniowy) + 3% success fee po przyznaniu dotacji.
+
+3.2. Start a Business (B2C, jednorazowe)
+	•	Przygotowanie zarysu biznesplanu na podstawie danych Użytkownika.
+	•	Wyszukanie dostępnych programów na start działalności i wskazanie możliwych kierunków działania.
+	•	Opłata: 499 zł brutto (z góry, jednorazowo).
+
+3.3. Szczegółowy opis usług, aktualne funkcje oraz ograniczenia wersji beta/pre-launch opisane są na stronie yieldo.pl (gdy dostępna publicznie) lub przekazywane e-mailem/na Koncie.
+
+⸻
+
+4. Wymagania techniczne i rejestracja
+
+4.1. Do korzystania z Serwisu potrzebne są: urządzenie z dostępem do Internetu, aktualna przeglądarka (Chrome/Firefox/Safari/Edge), aktywny e-mail.
+4.2. Rejestracja Konta wymaga podania prawdziwych danych; Użytkownik odpowiada za poufność hasła.
+4.3. Yieldo może zawiesić/ograniczyć dostęp do Konta w razie naruszenia Regulaminu, prawa lub bezpieczeństwa.
+
+⸻
+
+5. Zawarcie umowy i świadczenie usług
+
+5.1. Umowa między Użytkownikiem a Yieldo zostaje zawarta z chwilą:
+	•	akceptacji Regulaminu i aktywacji subskrypcji (B2B), lub
+	•	potwierdzenia zamówienia opcji jednorazowej (B2C).
+5.2. Umowa jest zawarta na czas nieoznaczony (B2B) lub do pełnej realizacji świadczenia (B2C).
+5.3. Część funkcji może znajdować się w etapie beta/pre-launch; specyficzne ograniczenia komunikujemy w Serwisie lub e-mailowo.
+
+⸻
+
+6. Płatności, faktury, rozliczenia
+
+6.1. Ceny są podawane w PLN i zawierają podatek VAT.
+6.2. Płatności realizowane są przez operatora płatności online (Stripe).
+6.3. Subskrypcje (B2B) opłacane są z góry, co miesiąc (automatyczne obciążenie karty/rachunku).
+6.4. „Start a Business” (B2C) – opłata jednorazowa z góry.
+6.5. Faktury VAT są wystawiane w formie elektronicznej i dostępne z poziomu Konta lub przesyłane e-mailem.
+6.6. Brak płatności w terminie może skutkować zawieszeniem dostępu do Usług do czasu uregulowania należności.
+
+⸻
+
+7. Success fee (dotacje)
+
+7.1. W przypadku przyznania dotacji na podstawie wniosku przygotowanego z udziałem/usługą Yieldo, należne jest success fee = 3% kwoty przyznanego dofinansowania brutto.
+7.2. Obowiązek zapłaty success fee powstaje z chwilą przedstawienia przez Użytkownika oficjalnego potwierdzenia przyznania dotacji (decyzja/umowa, komunikat instytucji). Użytkownik zobowiązuje się niezwłocznie przekazać stosowny dokument.
+7.3. Success fee jest fakturowane i płatne na podstawie faktury, w terminie wskazanym na fakturze (standardowo 7–14 dni).
+7.4. Success fee nie podlega zwrotowi po wystawieniu faktury (z uwagi na wynikowy charakter świadczenia).
+
+⸻
+
+8. Rezygnacja, odstąpienie, zwroty
+
+8.1. B2B (Grant Automation)
+	•	Użytkownik może w każdej chwili anulować subskrypcję; działa to ze skutkiem na koniec bieżącego Okresu rozliczeniowego.
+	•	Opłata za rozpoczęty Okres rozliczeniowy nie podlega zwrotowi.
+
+8.2. B2C (Start a Business)
+	•	Konsument ma prawo odstąpić od umowy w ciągu 14 dni od zawarcia, o ile Usługa nie została rozpoczęta (art. 38 ustawy o prawach konsumenta).
+	•	Jeśli, na wyraźne żądanie Konsumenta, rozpoczniemy świadczenie przed upływem 14 dni, Konsument traci prawo odstąpienia lub ponosi proporcjonalny koszt za wykonaną część usługi.
+	•	Aby odstąpić, Konsument przesyła oświadczenie na info.yieldo@gmail.com. Potwierdzimy jego otrzymanie.
+
+8.3. Szczegółowe zasady zwrotów mogą być doprecyzowane w Polityce Zwrotów publikowanej na stronie.
+
+⸻
+
+9. Charakter usług, odpowiedzialność
+
+9.1. Usługi Yieldo mają charakter informacyjno-wspierający. Yieldo nie gwarantuje przyznania dotacji, gdyż decyzje należą do instytucji finansujących.
+9.2. Użytkownik odpowiada za rzetelność danych wprowadzanych do Serwisu oraz przekazywanych do wniosków/dokumentów.
+9.3. W najszerszym zakresie dozwolonym przez prawo, łączna odpowiedzialność Yieldo z tytułu świadczenia Usług jest ograniczona do wysokości opłat faktycznie zapłaconych przez Użytkownika na naszą rzecz w ostatnich 6 miesiącach poprzedzających zdarzenie wywołujące odpowiedzialność.
+9.4. Yieldo nie odpowiada za: (i) decyzje instytucji, (ii) szkody pośrednie/utracone korzyści, (iii) przerwy niezawinione (siła wyższa, awarie zewnętrznych dostawców).
+
+⸻
+
+10. Wykorzystanie AI i automatyzacji
+
+10.1. W Serwisie wykorzystujemy rozwiązania AI (m.in. OpenAI API) do dopasowania dotacji i wspierania przygotowania materiałów (np. drafty treści).
+10.2. Rekomendacje mają charakter pomocniczy i mogą wymagać weryfikacji przez eksperta/człowieka.
+10.3. Szczegóły dotyczące danych osobowych i profilowania znajdują się w Polityce Prywatności.
+
+⸻
+
+11. Zasady korzystania z Serwisu (fair use)
+
+11.1. Zabronione jest:
+	•	dostarczanie treści bezprawnych lub naruszających prawa osób trzecich,
+	•	próby obejścia zabezpieczeń, skanowanie podatności, reverse engineering (poza zakresem dozwolonym prawem),
+	•	korzystanie w sposób zagrażający stabilności Serwisu lub naruszający dobre obyczaje.
+11.2. Yieldo może blokować/zawieszać Konta łamiące Regulamin lub zagrażające bezpieczeństwu.
+
+⸻
+
+12. Wsparcie, SLA, przerwy techniczne
+
+12.1. Podstawowe wsparcie świadczone jest e-mailowo: info.yieldo@gmail.com (Dni Robocze).
+12.2. Możliwe są przerwy konserwacyjne; o planowanych przerwach istotnych dla dostępności będziemy informować.
+
+⸻
+
+13. Prawa autorskie i licencja
+
+13.1. Serwis, treści, UX, bazy danych, oprogramowanie i materiały są chronione prawem autorskim i należą do Yieldo lub naszych licencjodawców.
+13.2. Użytkownik otrzymuje niewyłączną, niezbywalną licencję na korzystanie z Serwisu zgodnie z Regulaminem, wyłącznie na własne potrzeby biznesowe (B2B) lub prywatne (B2C).
+13.3. Zakazane jest kopiowanie, modyfikowanie, rozpowszechnianie elementów Serwisu poza zakresem dozwolonym prawem lub Umową.
+
+⸻
+
+14. Dane osobowe i cookies
+
+14.1. Zasady przetwarzania danych osobowych reguluje Polityka Prywatności dostępna w Serwisie.
+14.2. Zasady korzystania z plików cookies reguluje Polityka Cookies.
+
+⸻
+
+15. Ceny, zmiany funkcji i Regulaminu
+
+15.1. Ceny mogą ulec zmianie; zmiany cen subskrypcji obowiązują od kolejnego Okresu rozliczeniowego po wcześniejszym poinformowaniu Użytkownika (e-mail/Komunikat w Serwisie, z odpowiednim wyprzedzeniem).
+15.2. Możemy wprowadzać nowe funkcje/zmiany w Serwisie (rozwój produktu).
+15.3. Możemy zmienić Regulamin – o istotnych zmianach poinformujemy z wyprzedzeniem. Jeśli Użytkownik nie akceptuje zmian, może wypowiedzieć umowę ze skutkiem na koniec okresu rozliczeniowego.
+
+⸻
+
+16. Reklamacje
+
+16.1. Reklamacje dotyczące Usług można składać na adres: info.yieldo@gmail.com (temat: „Reklamacja”).
+16.2. W treści podaj: dane identyfikujące, opis problemu, datę zdarzenia, oczekiwany sposób rozwiązania.
+16.3. Rozpatrujemy reklamacje w ciągu 14 dni od otrzymania kompletnego zgłoszenia; w sprawach złożonych – niezwłocznie, informując o wydłużeniu terminu i przyczynach.
+
+⸻
+
+17. Odstąpienie od umowy (Konsument B2C)
+
+17.1. Informacja o prawie odstąpienia została opisana w §8.2.
+17.2. Wzór formularza odstąpienia udostępniamy na życzenie lub publikujemy w Serwisie.
+17.3. Konsument może skorzystać również z platformy ODR (rozwiązywanie sporów online): https://ec.europa.eu/consumers/odr.
+
+⸻
+
+18. Prawo właściwe i jurysdykcja
+
+18.1. Regulamin podlega prawu Rzeczypospolitej Polskiej.
+18.2. Spory z Użytkownikiem niebędącym Konsumentem rozstrzygane będą przez sąd właściwy dla siedziby Yieldo.
+18.3. W przypadku Konsumenta – właściwość sądu określają przepisy powszechnie obowiązujące (sąd miejsca zamieszkania Konsumenta).
+
+⸻
+
+19. Postanowienia końcowe
+
+19.1. Nieważność któregokolwiek postanowienia Regulaminu (orzeczenie sądu/zmiana prawa) nie wpływa na ważność pozostałych.
+19.2. Użytkownik nie może przenieść praw/obowiązków z umowy na osoby trzecie bez zgody Yieldo; Yieldo może posługiwać się podwykonawcami.
+19.3. Językiem Regulaminu jest język polski. Wersje informacyjne w innych językach mają charakter pomocniczy.
+
+⸻
+
+20. Kontakt
+
+Yieldo sp. z o.o.
+ul. Drukarska 3, 30-348 Kraków, Polska
+e-mail: info.yieldo@gmail.com

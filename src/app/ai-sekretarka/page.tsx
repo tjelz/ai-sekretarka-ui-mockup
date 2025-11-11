@@ -2,12 +2,12 @@
 
 import { OrganizationSchema, ProductSchema, FAQSchema, BreadcrumbSchema } from "@/components/seo"
 import { Navbar } from "@/components/ui/navbar"
+import { Footer } from "@/components/ui/footer"
 import { Button } from "@/components/ui/button"
 import { Phone, Calendar, MessageSquare, Shield, Clock, Zap, TrendingUp, CheckCircle2, Users, Settings, ArrowRight, Star, Sparkles, AlertCircle } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { toast } from "sonner"
-import Image from "next/image"
 import LostRevenueCalculator from "../components/LostRevenueCalculator"
 import EnhancedPricingCard from "../components/EnhancedPricingCard"
 import AnimatedBackground from "../components/AnimatedBackground"
@@ -778,25 +778,7 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-12 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Image
-              src="/logo.png"
-              alt="Yieldo"
-              width={120}
-              height={40}
-              className="h-10 w-auto mx-auto mb-4"
-            />
-            <p className="text-gray-600 mb-6">
-              Agencja AI dla Nowoczesnych Firm
-            </p>
-            <p className="text-sm text-gray-500">
-              © 2025 Yieldo. Wszystkie prawa zastrzeżone.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

@@ -1,0 +1,198 @@
+Polityka Ochrony Danych Osobowych (Data Protection Policy)
+
+Obowiązuje od: 21.10.2025
+Ostatnia aktualizacja: 21.10.2025
+
+⸻
+
+1. Cel dokumentu
+
+Celem niniejszej Polityki Ochrony Danych Osobowych („Polityka”) jest określenie zasad,
+na jakich Yieldo sp. z o.o. („Yieldo”, „Spółka”, „my”) przetwarza, chroni i zabezpiecza dane osobowe użytkowników, klientów, pracowników i partnerów,
+zgodnie z obowiązującymi przepisami, w tym Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO / GDPR).
+
+Polityka ma na celu zapewnienie, że dane osobowe są:
+	•	przetwarzane zgodnie z prawem, rzetelnie i w sposób przejrzysty,
+	•	zbierane w konkretnych, prawnie uzasadnionych celach,
+	•	ograniczone do niezbędnego minimum,
+	•	przechowywane nie dłużej, niż to konieczne,
+	•	zabezpieczone przed utratą, dostępem osób nieuprawnionych lub ujawnieniem.
+
+⸻
+
+2. Zakres stosowania
+
+Polityka dotyczy wszystkich działań związanych z przetwarzaniem danych osobowych prowadzonych przez Yieldo,
+w tym:
+	•	danych użytkowników platformy i klientów (B2B i B2C),
+	•	danych kontaktowych osób reprezentujących firmy,
+	•	danych współpracowników, wykonawców, partnerów,
+	•	danych generowanych automatycznie przez systemy analityczne i AI.
+
+Obejmuje również wszystkie systemy IT, dokumentację papierową i elektroniczną,
+oraz podmioty współpracujące na podstawie umów powierzenia przetwarzania danych.
+
+⸻
+
+3. Administrator danych
+
+Administratorem danych osobowych jest:
+Yieldo sp. z o.o.
+ul. Drukarska 3, 30-348 Kraków, Polska
+E-mail: info.yieldo@gmail.com
+
+Administrator odpowiada za zgodność przetwarzania danych z obowiązującym prawem i niniejszą Polityką.
+
+⸻
+
+4. Podstawy prawne przetwarzania danych
+
+Yieldo przetwarza dane osobowe wyłącznie wtedy, gdy zachodzi co najmniej jedna z poniższych podstaw:
+	1.	zgoda osoby, której dane dotyczą (art. 6 ust. 1 lit. a RODO),
+	2.	wykonanie umowy lub podjęcie działań przed jej zawarciem (lit. b),
+	3.	wypełnienie obowiązku prawnego (lit. c),
+	4.	realizacja prawnie uzasadnionego interesu administratora (lit. f),
+	5.	w przypadku danych szczególnych kategorii – wyłącznie w przypadkach przewidzianych w art. 9 ust. 2 RODO.
+
+⸻
+
+5. Kategorie przetwarzanych danych
+
+Yieldo może przetwarzać następujące dane:
+	•	dane identyfikacyjne (imię, nazwisko, nazwa firmy, NIP),
+	•	dane kontaktowe (adres e-mail, numer telefonu, adres siedziby),
+	•	dane dotyczące projektów, finansowania i dotacji,
+	•	dane logowania i aktywności użytkownika w serwisie (IP, przeglądarka, urządzenie),
+	•	dane płatnicze (tylko tokeny transakcyjne, bez przechowywania numerów kart),
+	•	dane analityczne i behawioralne (za zgodą użytkownika).
+
+⸻
+
+6. Cele przetwarzania danych
+
+Dane są przetwarzane w następujących celach:
+	•	świadczenie usług w ramach platformy Yieldo (SaaS),
+	•	dopasowywanie dotacji i obsługa procesów aplikacyjnych,
+	•	komunikacja z klientami i partnerami,
+	•	rozliczenia finansowe, fakturowanie i obsługa płatności,
+	•	realizacja obowiązków księgowych i podatkowych,
+	•	działania marketingowe, remarketingowe i newsletter (za zgodą),
+	•	analiza statystyk i optymalizacja działania systemu,
+	•	zapewnienie bezpieczeństwa systemów IT i użytkowników.
+
+⸻
+
+7. Zasady ochrony danych (RODO principles)
+
+Yieldo stosuje się do 7 kluczowych zasad RODO:
+	1.	Zgodność z prawem, rzetelność, przejrzystość – przetwarzamy dane w sposób zgodny z przepisami, jasno informując użytkowników.
+	2.	Ograniczenie celu – dane są zbierane wyłącznie w określonych celach.
+	3.	Minimalizacja danych – gromadzimy wyłącznie dane niezbędne do realizacji danego celu.
+	4.	Prawidłowość – dokładamy starań, aby dane były aktualne i poprawne.
+	5.	Ograniczenie przechowywania – dane przechowujemy tylko przez okres niezbędny do realizacji celów.
+	6.	Integralność i poufność – stosujemy środki techniczne i organizacyjne chroniące dane.
+	7.	Rozliczalność – dokumentujemy sposób przetwarzania danych, aby wykazać zgodność z RODO.
+
+⸻
+
+8. Środki bezpieczeństwa
+
+Yieldo stosuje:
+	•	szyfrowanie transmisji danych (SSL/TLS),
+	•	ograniczenia dostępu (upoważnienia, hasła, 2FA),
+	•	regularne kopie zapasowe danych,
+	•	audyty bezpieczeństwa systemów,
+	•	monitorowanie incydentów bezpieczeństwa,
+	•	szkolenia pracowników z ochrony danych,
+	•	przechowywanie danych wyłącznie na serwerach spełniających normy RODO (UE / EOG).
+
+Współpracujemy wyłącznie z dostawcami spełniającymi wymogi RODO (np. Google Cloud, Stripe, OpenAI, Notion, Meta, Hotjar).
+
+⸻
+
+9. Powierzenie przetwarzania danych
+
+Dane osobowe mogą być przekazywane zewnętrznym podmiotom (procesorom) na podstawie umów powierzenia przetwarzania, w tym:
+	•	Stripe Payments Europe Ltd. – obsługa płatności,
+	•	Google Ireland Ltd. – analityka i chmura,
+	•	OpenAI, Inc. – przetwarzanie treści przez API (AI),
+	•	Hotjar Ltd. – analiza zachowań użytkowników,
+	•	Meta Platforms / LinkedIn / TikTok – działania reklamowe,
+	•	dostawcy hostingu i zabezpieczeń (np. Cloudflare).
+
+Każdy z tych podmiotów gwarantuje odpowiedni poziom ochrony danych zgodny z RODO.
+
+Dane mogą być przekazywane poza EOG wyłącznie, gdy stosowane są Standardowe Klauzule Umowne (SCC) lub decyzja o adekwatności KE.
+
+⸻
+
+10. Okres przechowywania danych
+	•	dane klientów i firm: do 6 lat od zakończenia współpracy (obowiązki księgowe i podatkowe),
+	•	dane marketingowe: do momentu wycofania zgody,
+	•	dane techniczne i analityczne: do 24 miesięcy,
+	•	dane systemowe i logi bezpieczeństwa: do 12 miesięcy.
+
+Po upływie tych okresów dane są usuwane lub anonimizowane.
+
+⸻
+
+11. Prawa osób, których dane dotyczą
+
+Każda osoba ma prawo do:
+	•	dostępu do swoich danych,
+	•	sprostowania danych,
+	•	usunięcia danych („prawo do bycia zapomnianym”),
+	•	ograniczenia przetwarzania,
+	•	przeniesienia danych,
+	•	sprzeciwu wobec przetwarzania,
+	•	cofnięcia zgody w dowolnym momencie,
+	•	złożenia skargi do Prezesa Urzędu Ochrony Danych Osobowych (UODO).
+
+W celu realizacji swoich praw napisz na: info.yieldo@gmail.com
+
+⸻
+
+12. Naruszenia ochrony danych (Data Breach Response)
+
+W przypadku naruszenia bezpieczeństwa danych (np. nieautoryzowany dostęp, utrata danych, wyciek), Yieldo:
+	1.	niezwłocznie identyfikuje i ogranicza skutki naruszenia,
+	2.	dokumentuje incydent w Rejestrze Naruszeń,
+	3.	w razie potrzeby zgłasza incydent do UODO w ciągu 72 godzin,
+	4.	jeśli naruszenie może powodować wysokie ryzyko dla użytkowników – informuje osoby, których dane dotyczą, bez zbędnej zwłoki.
+
+⸻
+
+13. Szkolenia i świadomość
+
+Wszyscy pracownicy i współpracownicy Yieldo są szkoleni z zasad RODO i bezpieczeństwa informacji.
+Nowi pracownicy muszą zapoznać się z niniejszą Polityką przed uzyskaniem dostępu do danych.
+
+⸻
+
+14. Odpowiedzialność i nadzór
+
+Za wdrożenie i nadzór nad przestrzeganiem niniejszej Polityki odpowiada:
+Zarząd Yieldo sp. z o.o.
+lub wyznaczony Inspektor Ochrony Danych (IOD) – w przypadku jego powołania.
+
+Aktualny kontakt do IOD (jeśli dotyczy) publikowany jest na stronie: yieldo.pl/rodo
+
+⸻
+
+15. Aktualizacje Polityki
+
+Yieldo może aktualizować niniejszą Politykę w przypadku:
+	•	zmian w przepisach prawa,
+	•	wprowadzenia nowych procesów lub technologii,
+	•	zaleceń UODO lub zmian organizacyjnych.
+
+Aktualna wersja Polityki Ochrony Danych Osobowych zawsze znajduje się na stronie yieldo.pl/data-protection z datą obowiązywania.
+
+⸻
+
+16. Kontakt
+
+W sprawach dotyczących ochrony danych osobowych:
+Yieldo sp. z o.o.
+ul. Drukarska 3, 30-348 Kraków, Polska
+E-mail: info.yieldo@gmail.com

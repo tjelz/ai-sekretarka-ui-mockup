@@ -13,11 +13,10 @@ export default function VisionMission() {
             Nasza Misja
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            Tworzymy Przyszłość Obsługi Klienta
+            Yieldo - Rozwiązania dla Firm, Które Chcą Więcej
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            W Yieldo wierzymy, że każda firma zasługuje na profesjonalną obsługę klienta 24/7 –
-            bez ogromnych kosztów i komplikacji.
+            Dostarczamy kompleksowe rozwiązania AI dla firm, które pragną rozwoju. Yieldo pomaga firmom osiągać więcej – automatyzacja, oszczędność czasu i wzrost przychodów.
           </p>
         </div>
 
@@ -28,10 +27,9 @@ export default function VisionMission() {
             <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mb-6">
               <Target className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold mb-4">Nasza Wizja</h3>
+            <h3 className="text-2xl font-bold mb-4">Yieldo - Rozwiązania AI dla Firm</h3>
             <p className="text-blue-100 leading-relaxed text-lg">
-              Każda firma, niezależnie od wielkości, ma dostęp do zaawansowanych rozwiązań AI,
-              które pozwalają im rosnąć i konkurować na równych zasadach z dużymi korporacjami.
+              Każda firma, niezależnie od wielkości, zasługuje na dostęp do zaawansowanych rozwiązań AI od Yieldo. Nasze rozwiązania pomagają firmom rosnąć i osiągać więcej.
             </p>
           </div>
 

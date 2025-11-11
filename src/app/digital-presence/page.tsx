@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
+import { Footer } from "@/components/ui/footer";
 import {
   Globe, Zap, Code, Palette, Smartphone, TrendingUp,
   CheckCircle2, Shield, Clock, ArrowRight, Sparkles,
@@ -1404,41 +1405,7 @@ export default function DigitalPresencePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 py-12 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Image
-              src="/logo.png"
-              alt="Yieldo"
-              width={120}
-              height={40}
-              className="h-10 w-auto mx-auto mb-4"
-            />
-            <p className="text-gray-600 mb-6">
-              Agencja AI - Kompleksowa Obecność Online
-            </p>
-            <div className="flex justify-center gap-8 mb-6 text-sm text-gray-600">
-              <Link href="/" className="hover:text-[#007BFF] transition-colors">
-                Strona główna
-              </Link>
-              <Link href="/ai-sekretarka" className="hover:text-[#007BFF] transition-colors">
-                AI Sekretarka
-              </Link>
-              <a
-                href="https://forms.fillout.com/t/xityvM2L42us"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[#007BFF] transition-colors"
-              >
-                Kontakt
-              </a>
-            </div>
-            <p className="text-sm text-gray-500">
-              © 2025 Yieldo. Wszystkie prawa zastrzeżone.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

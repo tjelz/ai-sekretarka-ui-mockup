@@ -177,9 +177,9 @@ export default function ProductShowcaseHero() {
 
           {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-[1.1] max-w-5xl mx-auto">
-            Rozwiązania, Które{' '}
+            Yieldo - Rozwiązania AI dla Firm, Które Chcą{' '}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-              Rozwijają Twój Biznes
+              Więcej
             </span>
           </h1>
 

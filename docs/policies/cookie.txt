@@ -1,0 +1,171 @@
+Polityka Plików Cookies
+
+Obowiązuje od: 21.10.2025
+Ostatnia aktualizacja: 21.10.2025
+
+⸻
+
+1. Informacje ogólne
+
+Strona internetowa i platforma Yieldo sp. z o.o. („Yieldo”, „my”, „nasz serwis”) wykorzystują pliki cookies oraz podobne technologie (np. local storage, tagi pikselowe) w celu zapewnienia poprawnego działania, analizy ruchu, personalizacji treści i dopasowania reklam.
+
+Niniejsza Polityka określa, czym są pliki cookies, w jakim celu ich używamy, oraz jak możesz nimi zarządzać.
+
+Administratorem danych osobowych jest:
+Yieldo sp. z o.o.,
+ul. Drukarska 3, 30-348 Kraków, Polska
+E-mail: info.yieldo@gmail.com
+
+⸻
+
+2. Czym są pliki cookies?
+
+Pliki cookies to niewielkie pliki tekstowe zapisywane na Twoim urządzeniu (komputerze, smartfonie, tablecie) w momencie odwiedzenia naszej strony.
+Cookies umożliwiają m.in.:
+	•	prawidłowe działanie strony i logowanie,
+	•	zapamiętywanie ustawień użytkownika (np. języka, trybu quizu),
+	•	analizowanie zachowań odwiedzających (statystyki, UX),
+	•	prowadzenie działań marketingowych i remarketingowych,
+	•	integrację z narzędziami analitycznymi i płatniczymi (Stripe, Google Analytics).
+
+Cookies nie zawierają danych umożliwiających bezpośrednią identyfikację użytkownika, ale mogą łączyć się z danymi przetwarzanymi w ramach naszego systemu (np. ID konta).
+
+⸻
+
+3. Jakich plików cookies używamy?
+
+A. Cookies niezbędne (techniczne)
+	•	Zapewniają podstawowe funkcje działania serwisu (np. logowanie, quiz, zapis formularzy).
+	•	Włączone domyślnie i nie wymagają zgody użytkownika.
+	•	Ich wyłączenie może uniemożliwić korzystanie z platformy.
+
+Przykłady:
+	•	session_id – identyfikator sesji użytkownika,
+	•	csrf_token – zabezpieczenie formularzy,
+	•	cookie_consent – zapamiętanie decyzji o zgodzie,
+	•	language_pref – wybór języka interfejsu.
+
+⸻
+
+B. Cookies analityczne i statystyczne
+	•	Służą do zbierania anonimowych danych o tym, jak użytkownicy korzystają z serwisu (np. czas wizyty, odwiedzane sekcje).
+	•	Pomagają nam optymalizować działanie strony i produkt (UX, wydajność).
+	•	Są aktywowane dopiero po uzyskaniu zgody.
+
+Przykładowi dostawcy:
+	•	Google Analytics (Google Ireland Ltd.)
+	•	Hotjar Ltd. – analiza zachowań użytkowników (mapy ciepła, nagrania sesji)
+	•	Microsoft Clarity – analiza użyteczności i ruchu
+	•	Własne narzędzia trackingowe Yieldo
+
+⸻
+
+C. Cookies funkcjonalne
+	•	Ułatwiają korzystanie z platformy i zapamiętują ustawienia użytkownika.
+	•	Mogą dotyczyć np. postępu w quizie lub preferencji dotyczących języka.
+	•	Część z nich może wymagać zgody, jeśli nie są absolutnie niezbędne do działania usługi.
+
+Przykłady:
+	•	quiz_progress,
+	•	ui_theme,
+	•	remember_me.
+
+⸻
+
+D. Cookies marketingowe (reklamowe)
+	•	Używane do tworzenia spersonalizowanych reklam i mierzenia ich skuteczności (remarketing).
+	•	Pomagają nam docierać do użytkowników zainteresowanych tematyką dotacji i rozwoju firm.
+	•	Zawsze wymagają zgody użytkownika.
+
+Przykładowi dostawcy:
+	•	Meta Platforms (Facebook / Instagram Pixel)
+	•	Google Ads / DoubleClick
+	•	LinkedIn Insight Tag
+	•	TikTok Ads Pixel
+
+Cele:
+	•	mierzenie konwersji (np. po przejściu z reklamy),
+	•	tworzenie grup odbiorców (tzw. lookalike audiences),
+	•	dopasowanie treści reklamowych.
+
+⸻
+
+4. Zgoda na cookies
+
+Podczas pierwszej wizyty w naszym serwisie wyświetlamy baner cookies, który:
+	•	informuje o użyciu plików cookies,
+	•	umożliwia wyrażenie lub odrzucenie zgody na poszczególne kategorie,
+	•	pozwala w każdej chwili zmienić decyzję (link „Zarządzaj cookies” w stopce).
+
+Twoja decyzja zapisywana jest w pliku cookie_consent i przechowywana maksymalnie 12 miesięcy.
+Po tym czasie ponownie poprosimy Cię o wybór.
+
+⸻
+
+5. Jak zarządzać cookies?
+
+A. Przez przeglądarkę
+
+Większość przeglądarek pozwala na kontrolę nad plikami cookies (blokowanie, usuwanie).
+Instrukcje znajdziesz na stronach:
+	•	Chrome
+	•	Firefox
+	•	Safari
+	•	Edge
+
+Wyłączenie cookies może wpłynąć na prawidłowe działanie niektórych funkcji (np. quiz, logowanie).
+
+B. Przez baner cookies
+
+Jeśli korzystamy z systemu zarządzania zgodami (np. CookieYes, Cookiebot, iubenda), możesz w każdej chwili zmienić swoje ustawienia, klikając w przycisk „Zarządzaj cookies” w stopce strony.
+
+⸻
+
+6. Cookies podmiotów trzecich (third-party cookies)
+
+W naszym serwisie mogą być stosowane pliki cookies podmiotów trzecich.
+Zazwyczaj są one używane do celów analitycznych lub marketingowych.
+
+Zewnętrzni dostawcy i ich polityki:
+	•	Google Ireland Ltd. – Polityka prywatności Google
+	•	Meta Platforms Ireland Ltd. – Polityka prywatności Meta
+	•	LinkedIn Ireland Unlimited Company – Polityka prywatności LinkedIn
+	•	TikTok Technology Limited – Polityka prywatności TikTok
+	•	Hotjar Ltd. – Polityka prywatności Hotjar
+
+Każdy z tych dostawców odpowiada za swoje cookies zgodnie z własną polityką.
+
+⸻
+
+7. Okres przechowywania cookies
+	•	Cookies sesyjne – usuwane automatycznie po zamknięciu przeglądarki.
+	•	Cookies trwałe – pozostają na urządzeniu do momentu ich wygaśnięcia lub ręcznego usunięcia.
+Czas przechowywania zależy od rodzaju cookies i może wynosić od kilku minut do maksymalnie 24 miesięcy (np. cookies analityczne Google Analytics).
+
+⸻
+
+8. Bezpieczeństwo
+
+Pliki cookies używane przez nasz serwis nie są używane do przechowywania poufnych danych (np. haseł, danych finansowych).
+Dostęp do danych cookies mają wyłącznie upoważnione systemy i integracje, zgodnie z naszą Polityką Prywatności.
+
+⸻
+
+9. Zmiany w Polityce Cookies
+
+Zastrzegamy sobie prawo do aktualizacji niniejszej polityki w przypadku:
+	•	zmiany przepisów prawa,
+	•	dodania nowych integracji lub narzędzi,
+	•	modyfikacji systemu zarządzania zgodami.
+
+Nowa wersja Polityki Cookies będzie publikowana na stronie yieldo.pl/cookies z aktualną datą.
+
+⸻
+
+10. Kontakt
+
+W sprawach związanych z plikami cookies lub danymi analitycznymi prosimy o kontakt:
+
+Yieldo sp. z o.o.
+ul. Drukarska 3, 30-348 Kraków, Polska
+E-mail: info.yieldo@gmail.com

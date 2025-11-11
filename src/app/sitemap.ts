@@ -39,6 +39,46 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Policy pages (legal, important for compliance)
+  const policyRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/polityki`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/polityki/prywatnosc`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/polityki/regulamin`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/polityki/cookies`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/polityki/ochrona-danych`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/polityki/zwroty`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+  ];
+
   // Dashboard routes (authenticated, lower priority)
   const dashboardRoutes: MetadataRoute.Sitemap = [
     {
@@ -75,6 +115,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
+    ...policyRoutes,
     ...dashboardRoutes,
   ];
 }

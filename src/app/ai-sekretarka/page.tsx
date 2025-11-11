@@ -1,6 +1,7 @@
 "use client"
 
 import { OrganizationSchema, ProductSchema, FAQSchema, BreadcrumbSchema } from "@/components/seo"
+import { Navbar } from "@/components/ui/navbar"
 import { Button } from "@/components/ui/button"
 import { Phone, Calendar, MessageSquare, Shield, Clock, Zap, TrendingUp, CheckCircle2, Users, Settings, ArrowRight, Star, Sparkles, AlertCircle } from "lucide-react"
 import Link from "next/link"
@@ -82,45 +83,12 @@ export default function AISekretarkaPage() {
         { name: 'Strona Główna', url: 'https://www.yieldo.pl' },
         { name: 'AI Sekretarka', url: 'https://www.yieldo.pl/ai-sekretarka' }
       ]} />
-      {/* Modern Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <Link href="/">
-              <Image
-                src="/logo.png"
-                alt="Yieldo"
-                width={120}
-                height={40}
-                className="h-10 w-auto cursor-pointer"
-                priority
-              />
-            </Link>
-            <div className="flex items-center gap-3 sm:gap-4">
-              <Link href="/kalkulator" className="hidden sm:block text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
-                Kalkulator
-              </Link>
-              <a href="#pricing" className="hidden sm:block text-sm font-semibold text-gray-700 hover:text-[#007BFF] transition-colors">
-                Cennik
-              </a>
-              {/* TEMPORARY: Auth button hidden via feature flag */}
-              {process.env.NEXT_PUBLIC_DISABLE_AUTH !== 'true' && (
-                <Link href="/login">
-                  <Button
-                    size="sm"
-                    className="bg-[#007BFF] hover:bg-[#0056b3] text-white text-sm px-4 sm:px-6 py-2 rounded-lg font-semibold transition-all"
-                  >
-                    Zaloguj
-                  </Button>
-                </Link>
-              )}
-            </div>
-          </div>
-        </div>
-      </nav>
+
+      {/* Navigation Bar - Shared Component */}
+      <Navbar />
 
       {/* Hero Section - Enhanced Split Layout */}
-      <section className="relative py-10 px-4 overflow-hidden">
+      <section className="relative py-10 px-4 overflow-hidden mt-12">
         {/* Animated Background */}
         <AnimatedBackground />
 

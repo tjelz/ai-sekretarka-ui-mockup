@@ -1,0 +1,645 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "created": "2025-11-11",
+    "language": "pl",
+    "target_market": "Polish B2B SMEs",
+    "seo_focus": "AI receptionist, business automation"
+  },
+  "homepage": {
+    "hero": {
+      "headline": "Rozwiązania AI, Które Naprawdę Rozwijają Twój Biznes",
+      "subheadline": "Od automatycznej obsługi telefonów 24/7, przez profesjonalną obecność online, po inteligentne wyszukiwanie dotacji – wszystko w jednym miejscu",
+      "cta_primary": {
+        "text": "Rozpocznij z AI Sekretarką",
+        "link": "/ai-sekretarka",
+        "variant": "primary"
+      },
+      "cta_secondary": {
+        "text": "Zobacz Nasze Rozwiązania",
+        "link": "#products",
+        "variant": "outline"
+      },
+      "trust_signals": [
+        "⚡ Setup w 5 minut",
+        "✓ Bez zobowiązań",
+        "🇵🇱 Zgodne z RODO",
+        "💰 ROI w pierwszy tydzień"
+      ]
+    },
+    "vision": {
+      "headline": "Wizja Yieldo: Wzmacnianie Polskich Firm Poprzez AI",
+      "mission": "W Yieldo wierzymy, że każda firma – od jednoosobowych działalności po rozwijające się przedsiębiorstwa – zasługuje na dostęp do technologii, które wcześniej były zarezerwowane dla korporacji.",
+      "goal": "Nasz cel: Pomóc 10,000 polskim firmom zaoszczędzić 100,000 godzin rocznie do 2026 roku.",
+      "value_pillars": [
+        {
+          "icon": "⚡",
+          "title": "Prostota",
+          "description": "Konfiguracja w minuty, nie dni"
+        },
+        {
+          "icon": "💰",
+          "title": "Przystępność",
+          "description": "ROI w pierwszy tydzień, nie miesiące"
+        },
+        {
+          "icon": "🤝",
+          "title": "Wsparcie",
+          "description": "Całodobowa pomoc w języku polskim"
+        },
+        {
+          "icon": "🔒",
+          "title": "Bezpieczeństwo",
+          "description": "RODO-compliant, dane w Polsce"
+        }
+      ]
+    },
+    "products": {
+      "headline": "Nasze Rozwiązania",
+      "subheadline": "Kompleksowy ekosystem narzędzi AI dla rozwoju Twojej firmy",
+      "product_cards": [
+        {
+          "id": "ai-sekretarka",
+          "status": "available",
+          "name": "AI Sekretarka",
+          "tagline": "Nigdy nie trać klienta przez nieodebrany telefon",
+          "description": "Automatyczna obsługa telefonów 24/7. Rozmawia po polsku, umawia wizyty, wysyła potwierdzenia SMS.",
+          "icon": "phone",
+          "badge": {
+            "text": "Dostępne Teraz",
+            "color": "green"
+          },
+          "features": [
+            "Odbieranie 24/7",
+            "Automatyczne rezerwacje",
+            "SMS potwierdzenia",
+            "Integracja z kalendarzem"
+          ],
+          "cta": {
+            "text": "Odkryj AI Sekretarkę",
+            "link": "/ai-sekretarka"
+          },
+          "stats": {
+            "setup_time": "5 minut",
+            "starting_price": "299 zł/mies",
+            "roi": "Tydzień"
+          }
+        },
+        {
+          "id": "digital-presence",
+          "status": "coming_soon",
+          "name": "Kompletna Obecność Online",
+          "tagline": "Profesjonalna strona + Google Business w jednym pakiecie",
+          "description": "Responsywna strona WWW zintegrowana z Google Business Profile. Wszystko co potrzebujesz, aby być widocznym online.",
+          "icon": "globe",
+          "badge": {
+            "text": "Wkrótce Q2 2025",
+            "color": "yellow"
+          },
+          "features": [
+            "Strona WWW (SEO-optimized)",
+            "Google Business Profile",
+            "Integracja z AI Sekretarką",
+            "System recenzji"
+          ],
+          "cta": {
+            "text": "Powiadom Mnie o Starcie",
+            "link": "#notify"
+          },
+          "early_bird": {
+            "discount": "30%",
+            "slots": "100",
+            "message": "Pierwsze 100 firm: -30% rabatu"
+          }
+        },
+        {
+          "id": "grant-automation",
+          "status": "coming_soon",
+          "name": "Automatyzacja Dotacji",
+          "tagline": "AI znajduje i aplikuje o dotacje za Ciebie",
+          "description": "Automatyczne skanowanie baz dotacji, inteligentny matching, generowanie dokumentacji aplikacyjnej.",
+          "icon": "search",
+          "badge": {
+            "text": "Wkrótce Q3 2025",
+            "color": "yellow"
+          },
+          "features": [
+            "Skanowanie PARP, NFOŚiGW, UE",
+            "Inteligentny matching",
+            "Generowanie dokumentacji",
+            "Tracking statusu"
+          ],
+          "cta": {
+            "text": "Zapisz Się na Listę Oczekujących",
+            "link": "#waitlist"
+          },
+          "pricing_model": "Prowizja od otrzymanej dotacji (no cure, no pay)",
+          "potential": "Średnia dotacja SME: 50,000-200,000 zł"
+        }
+      ]
+    },
+    "social_proof": {
+      "headline": "Zaufali Nam",
+      "stats": [
+        {
+          "value": "20+",
+          "label": "Aktywnych Firm",
+          "sublabel": "w Polsce"
+        },
+        {
+          "value": "99.9%",
+          "label": "Dostępność",
+          "sublabel": "ostatnie 30 dni"
+        },
+        {
+          "value": "2.8s",
+          "label": "Czas Odpowiedzi",
+          "sublabel": "średnio"
+        },
+        {
+          "value": "2600%+",
+          "label": "Średnie ROI",
+          "sublabel": "pierwszy miesiąc"
+        }
+      ]
+    },
+    "final_cta": {
+      "headline": "Gotowy Na Rozwój Firmy?",
+      "subheadline": "Zacznij od AI Sekretarki i odkryj jak automatyzacja zmienia biznes",
+      "cta_primary": {
+        "text": "Zamów Bezpłatną Konsultację",
+        "link": "https://calendly.com/info-yieldo/ai-recepcjonistka"
+      },
+      "cta_secondary": {
+        "text": "Dowiedz Się Więcej",
+        "link": "/ai-sekretarka"
+      }
+    }
+  },
+  "ai_sekretarka_page": {
+    "hero": {
+      "headline": "Nigdy Nie Trać Klienta przez Nieodebrany Telefon",
+      "typewriter_phrases": [
+        "Nieodebrany Telefon",
+        "Brak Czasu",
+        "Brak Personelu",
+        "Wieczorne Połączenia"
+      ],
+      "subheadline": "AI Sekretarka odbiera 24/7, umawia wizyty i wysyła SMS-y. Konfiguracja w 5 minut.",
+      "highlight": "Konfiguracja w 5 minut",
+      "cta_primary": {
+        "text": "🚀 Zacznij Oszczędzać Dziś",
+        "link": "https://forms.fillout.com/t/xityvM2L42us",
+        "variant": "primary-green"
+      },
+      "cta_secondary": {
+        "text": "📞 Zobacz 15-Min Demo",
+        "link": "https://calendly.com/info-yieldo/ai-recepcjonistka",
+        "variant": "outline"
+      },
+      "trust_badges": [
+        {
+          "icon": "⚡",
+          "text": "Setup w 5 minut"
+        },
+        {
+          "icon": "✓",
+          "text": "Bez karty kredytowej"
+        },
+        {
+          "icon": "🔒",
+          "text": "Zgodne z RODO"
+        }
+      ]
+    },
+    "stats": {
+      "headline": "AI Sekretarka w Liczbach",
+      "live_stats": [
+        {
+          "icon": "users",
+          "value": 42,
+          "suffix": "+",
+          "label": "Aktywne sesje",
+          "sublabel": "w tym momencie",
+          "trend": "↗ +18% w tym tygodniu",
+          "color": "blue"
+        },
+        {
+          "icon": "clock",
+          "value": 2.8,
+          "suffix": "s",
+          "label": "Czas odpowiedzi",
+          "sublabel": "średnio",
+          "trend": "↘ -12% szybciej",
+          "color": "green"
+        },
+        {
+          "icon": "trending-up",
+          "value": 99.9,
+          "suffix": "%",
+          "label": "Dostępność",
+          "sublabel": "ostatnie 30 dni",
+          "trend": "✓ 100% SLA",
+          "color": "purple"
+        },
+        {
+          "icon": "star",
+          "value": 20,
+          "suffix": "+",
+          "label": "Zadowolonych firm",
+          "sublabel": "aktywnych klientów",
+          "trend": "↗ +5 w tym miesiącu",
+          "color": "orange"
+        }
+      ]
+    },
+    "features": {
+      "headline": "Funkcje AI Sekretarki",
+      "subheadline": "Wszystko czego potrzebujesz, aby nigdy nie stracić żadnego klienta",
+      "feature_cards": [
+        {
+          "icon": "phone",
+          "color": "blue",
+          "title": "Odbieranie 24/7",
+          "description": "AI rozumie po polsku, odpowiada na pytania o ceny, terminy i usługi",
+          "details": [
+            "99.9% rozpoznawalność mowy po polsku",
+            "Średni czas odpowiedzi: 2.8 sekundy",
+            "Naturalne rozmowy z kontekstem",
+            "Obsługa zapytań o dostępność, ceny, lokalizację"
+          ]
+        },
+        {
+          "icon": "calendar",
+          "color": "green",
+          "title": "Automatyczne Rezerwacje",
+          "description": "Wpisywanie terminów do kalendarza (Google Calendar lub Booksy)",
+          "details": [
+            "Integracja z Google Calendar",
+            "Wsparcie dla Booksy",
+            "Synchronizacja dwustronna",
+            "Automatyczne blokowanie terminów",
+            "12 sekund od telefonu do rezerwacji"
+          ]
+        },
+        {
+          "icon": "message-square",
+          "color": "purple",
+          "title": "SMS Podsumowania",
+          "description": "Wysyła skrót rozmowy do właściciela, np. 'Klient Anna, wizyta pt 15:00'",
+          "details": [
+            "Natychmiastowe powiadomienia SMS",
+            "Podsumowanie każdej rozmowy",
+            "Dane kontaktowe klienta",
+            "Szacowana wartość wizyty",
+            "Automatyczne przypomnienia 24h przed"
+          ]
+        },
+        {
+          "icon": "shield",
+          "color": "orange",
+          "title": "Bezpieczne i Proste",
+          "description": "Zgodne z RODO, łatwa konfiguracja w kilka minut",
+          "details": [
+            "Serwery w Polsce (Warszawa)",
+            "Pełna zgodność z RODO",
+            "Szyfrowanie TLS 1.3",
+            "Regularne audyty bezpieczeństwa",
+            "Codzienne backupy"
+          ]
+        }
+      ]
+    },
+    "implementation": {
+      "headline": "Jak Wygląda Wdrożenie AI Sekretarki",
+      "subheadline": "Prosty proces w 4 krokach – gotowe w kilka godzin",
+      "timeline_note": "⚡ Wszystko gotowe w kilka godzin po wypełnieniu formularza",
+      "steps": [
+        {
+          "number": 1,
+          "icon": "users",
+          "title": "Wypełnij Formularz",
+          "description": "Podajesz dane firmy: usługi, ceny, godziny pracy i preferencje",
+          "badge": null
+        },
+        {
+          "number": 2,
+          "icon": "settings",
+          "title": "Automatyczna Konfiguracja",
+          "description": "System automatycznie konfiguruje AI, numer telefonu i integracje",
+          "badge": "AUTO"
+        },
+        {
+          "number": 3,
+          "icon": "check-circle",
+          "title": "Testy i Weryfikacja",
+          "description": "System automatycznie testuje połączenia i gotowość do pracy",
+          "badge": "AUTO"
+        },
+        {
+          "number": 4,
+          "icon": "zap",
+          "title": "Start w Kilka Godzin!",
+          "description": "AI gotowa do pracy – Twój biznes nigdy nie śpi!",
+          "badge": null,
+          "featured": true
+        }
+      ]
+    },
+    "conversation_example": {
+      "headline": "Przykładowa Rozmowa z AI Sekretarką",
+      "messages": [
+        {
+          "speaker": "customer",
+          "text": "Dzień dobry, chcę umówić spotkanie na piątek."
+        },
+        {
+          "speaker": "ai",
+          "text": "Dzień dobry! Wolny termin na piątek o 15:00. Czy pasuje?"
+        },
+        {
+          "speaker": "customer",
+          "text": "Tak, na imię Anna."
+        },
+        {
+          "speaker": "ai",
+          "text": "Zarezerwowano! Wysyłam SMS potwierdzenie. Dziękujemy!"
+        }
+      ],
+      "footer_note": "AI może ustalić termin spotkania, sprawdzić ceny, potwierdzić i wysłać SMS"
+    },
+    "savings": {
+      "headline": "Ile Zaoszczędzisz z AI Sekretarką",
+      "benefit_cards": [
+        {
+          "icon": "clock",
+          "color": "blue",
+          "title": "Oszczędność czasu",
+          "description": "2-3 godziny dziennie na odbieranie tel (wartość: 100-200 zł/dzień)",
+          "calculation": {
+            "daily_hours": "2-3h",
+            "hourly_rate": "50-100 zł/h",
+            "daily_value": "100-200 zł",
+            "monthly_value": "3,000-6,000 zł"
+          }
+        },
+        {
+          "icon": "trending-up",
+          "color": "green",
+          "title": "Więcej klientów",
+          "description": "Mniej straconych połączeń = +10-20% rezerwacji (dodatkowe 500-1000 zł/mies.)",
+          "calculation": {
+            "conversion_increase": "10-20%",
+            "monthly_revenue": "500-1,000 zł",
+            "annual_revenue": "6,000-12,000 zł"
+          }
+        },
+        {
+          "icon": "check-circle",
+          "color": "purple",
+          "title": "Koszt vs. Zysk",
+          "description": "Zamiast zatrudniać recepcjonistkę (2000 zł/mies.), płacisz od 299 zł/mies. – ROI w 1 tydzień",
+          "calculation": {
+            "receptionist_cost": "2,000 zł/mies",
+            "ai_cost": "299-999 zł/mies",
+            "savings": "1,001-1,701 zł/mies",
+            "roi_period": "1 tydzień"
+          }
+        },
+        {
+          "icon": "sparkles",
+          "color": "gradient",
+          "title": "Kalkulator",
+          "description": "Dla firmy z 20 tel/dzień: Zaoszczędź 3000 zł/mies.",
+          "cta": {
+            "text": "Oblicz Swoje Oszczędności",
+            "link": "/kalkulator"
+          },
+          "featured": true
+        }
+      ]
+    },
+    "pricing": {
+      "headline": "Cennik AI Sekretarki i Kalkulator Zysku",
+      "subheadline": "Proste, przejrzyste ceny bez ukrytych kosztów + oblicz swój potencjalny zysk",
+      "plans": [
+        {
+          "id": "solo",
+          "name": "Solo",
+          "price": 299,
+          "currency": "zł",
+          "period": "mies",
+          "description": "1 osoba / działalność jednoosobowa",
+          "included_calls": 100,
+          "overage_price": 1.50,
+          "features": [
+            "100 rozmów w cenie",
+            "1,50 zł dodatkowa rozmowa",
+            "24/7 obsługa połączeń",
+            "Integracja z kalendarzem",
+            "SMS potwierdzenia"
+          ],
+          "is_popular": false
+        },
+        {
+          "id": "ekipa",
+          "name": "Ekipa",
+          "price": 599,
+          "currency": "zł",
+          "period": "mies",
+          "description": "2–4 osoby w terenie",
+          "included_calls": 225,
+          "overage_price": 1.50,
+          "features": [
+            "225 rozmów w cenie",
+            "1,50 zł dodatkowa rozmowa",
+            "24/7 obsługa połączeń",
+            "Integracja z kalendarzem",
+            "SMS potwierdzenia",
+            "Wsparcie priorytetowe"
+          ],
+          "is_popular": true,
+          "badge": "Najpopularniejszy"
+        },
+        {
+          "id": "firma",
+          "name": "Firma",
+          "price": 999,
+          "currency": "zł",
+          "period": "mies",
+          "description": "większa firma / kilka ekip / stały ruch",
+          "included_calls": 500,
+          "overage_price": 1.50,
+          "features": [
+            "500 rozmów w cenie",
+            "1,50 zł dodatkowa rozmowa",
+            "24/7 obsługa połączeń",
+            "Integracja z kalendarzem",
+            "SMS potwierdzenia",
+            "Dedykowane wsparcie",
+            "Zaawansowane raportowanie"
+          ],
+          "is_popular": false
+        }
+      ],
+      "trust_signals": [
+        "Bez ukrytych kosztów",
+        "Szybki start",
+        "Anuluj w każdej chwili"
+      ],
+      "cta": {
+        "primary": {
+          "text": "START NOW",
+          "link": "https://forms.fillout.com/t/xityvM2L42us",
+          "variant": "primary-green"
+        },
+        "secondary": {
+          "text": "Zamów Demo",
+          "link": "https://calendly.com/info-yieldo/ai-recepcjonistka",
+          "variant": "outline"
+        }
+      }
+    },
+    "contact": {
+      "headline": "Zamów Demo i Oblicz Swoje Oszczędności",
+      "subheadline": "Wypełnij formularz i zobacz ile możesz zaoszczędzić",
+      "form": {
+        "fields": [
+          {
+            "id": "name",
+            "type": "text",
+            "label": "Imię",
+            "placeholder": "Jan Kowalski",
+            "required": true,
+            "icon": "users"
+          },
+          {
+            "id": "email",
+            "type": "email",
+            "label": "Email",
+            "placeholder": "jan@firma.pl",
+            "required": true,
+            "icon": "message-square"
+          },
+          {
+            "id": "phone",
+            "type": "tel",
+            "label": "Numer Telefonu",
+            "placeholder": "+48 123 456 789",
+            "required": true,
+            "icon": "phone"
+          }
+        ],
+        "submit_text": "Wyślij Zgłoszenie",
+        "success_message": "Zgłoszenie wysłane! Email wysłany do info.yieldo@gmail.com. Skontaktujemy się wkrótce!",
+        "trust_signals": [
+          "Odpowiadamy w ciągu kilku godzin",
+          "24/7 wsparcie techniczne po wdrożeniu"
+        ]
+      },
+      "calculator_card": {
+        "headline": "Kalkulator Oszczędności",
+        "description": "Oblicz ile pieniędzy tracisz przez nieodebrane telefony i zobacz jak AI Sekretarka może pomóc!",
+        "benefits": [
+          "Zobacz miesięczne i roczne straty",
+          "Spersonalizowane wyliczenia",
+          "Porównanie z kosztami AI"
+        ],
+        "cta": {
+          "text": "Przejdź do Kalkulatora",
+          "link": "/kalkulator"
+        }
+      }
+    }
+  },
+  "seo": {
+    "meta_tags": {
+      "homepage": {
+        "title": "Yieldo - Rozwiązania AI dla Rozwoju Firm | Automatyzacja, Obecność Online, Dotacje",
+        "description": "Yieldo pomaga polskim firmom rosnąć dzięki AI. AI Sekretarka 24/7, profesjonalne strony WWW, automatyzacja dotacji. Oszczędzaj czas i zwiększaj przychody od 299 zł/mies.",
+        "keywords": "ai dla firm, automatyzacja biznesu, ai sekretarka, rozwój firmy, narzędzia dla przedsiębiorców"
+      },
+      "ai_sekretarka": {
+        "title": "AI Sekretarka 24/7 - Odbiera, Umawia, Potwierdzca | Yieldo",
+        "description": "AI Sekretarka Yieldo odbiera telefony 24/7, automatycznie umawia wizyty i wysyła SMS potwierdzenia. Setup w 5 minut, od 299 zł/mies. RODO-compliant. Oszczędzaj 2-3h dziennie!",
+        "keywords": "ai sekretarka, automatyczna recepcjonistka, wirtualna sekretarka, odbieranie telefonów 24/7, automatyczne umawianie wizyt"
+      }
+    },
+    "primary_keywords": {
+      "tier_1": [
+        "ai sekretarka",
+        "automatyczna sekretarka",
+        "wirtualna recepcjonistka",
+        "ai do obsługi klientów"
+      ],
+      "tier_2": [
+        "automatyczne umawianie wizyt",
+        "system rezerwacji online",
+        "odbieranie telefonów dla firm"
+      ],
+      "tier_3": [
+        "jak nie tracić klientów przez telefony",
+        "automatyczna rezerwacja dla salonu",
+        "ai sekretarka po polsku"
+      ]
+    },
+    "structured_data": {
+      "organization": {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Yieldo",
+        "url": "https://www.yieldo.pl",
+        "logo": "https://www.yieldo.pl/logo.png",
+        "description": "AI-powered business automation tools for Polish SMEs",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "PL"
+        }
+      },
+      "product": {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Yieldo AI Sekretarka",
+        "description": "AI-powered receptionist that answers calls 24/7, books appointments automatically, and sends SMS confirmations for Polish businesses.",
+        "brand": {
+          "@type": "Brand",
+          "name": "Yieldo"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "lowPrice": "299",
+          "highPrice": "999",
+          "priceCurrency": "PLN",
+          "offerCount": "3"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "47"
+        }
+      }
+    }
+  },
+  "tone_of_voice": {
+    "attributes": [
+      "Professional but approachable",
+      "Results-focused with specific numbers",
+      "Empathetic to SME pain points",
+      "Action-oriented with clear next steps"
+    ],
+    "style_guide": {
+      "preferred": [
+        "Active voice over passive",
+        "Specific numbers over vague claims",
+        "Polish business context",
+        "Technical accuracy without jargon"
+      ],
+      "forbidden": [
+        "Rewolucyjny (overused)",
+        "Game-changer (anglicism)",
+        "Najlepszy na rynku (unverifiable)",
+        "Gwarancja 100% (legal issues)"
+      ]
+    }
+  }
+}

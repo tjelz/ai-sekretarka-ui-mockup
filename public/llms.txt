@@ -1,0 +1,58 @@
+# Yieldo - AI Solutions for Polish Businesses
+
+## About Yieldo
+Yieldo provides AI-powered business automation tools for Polish SMEs, starting with our flagship AI Receptionist (AI Sekretarka).
+
+## Products
+
+### AI Sekretarka (Available Now)
+- 24/7 automated phone answering in Polish
+- Automatic appointment booking (Google Calendar, Booksy integration)
+- SMS confirmations for customers and business owners
+- GDPR compliant, hosted in Poland
+- Pricing: 299-999 PLN/month
+- Setup time: 5 minutes
+- Learn more: https://www.yieldo.pl/ai-sekretarka
+
+### Coming Soon Products
+
+#### Complete Online Presence Package (Q2 2025)
+- Professional website + Google Business Profile optimization
+- Integrated with AI Sekretarka
+- Early bird discount: -30% for first 100 companies
+
+#### Grant Automation (Q3 2025)
+- AI-powered grant matching and application
+- Automatic scanning of Polish grant databases (PARP, NFOŚiGW, EU funds)
+- Commission-based pricing (success fee only)
+
+## Target Market
+- Polish small and medium businesses
+- Service-based industries (salons, clinics, consultants, contractors)
+- Companies with 1-20 employees
+- Businesses losing customers due to missed calls
+
+## Key Benefits
+- Save 2-3 hours daily on phone management
+- Convert 100% of inbound calls to appointments
+- Average ROI: 2600%+ in first month
+- Prevent customer loss from missed calls
+
+## Keywords
+ai sekretarka, automatyczna recepcjonistka, wirtualna sekretarka, ai dla firm, automatyczne umawianie wizyt, system rezerwacji online, obsługa klienta 24/7
+
+## Contact
+- Website: https://www.yieldo.pl
+- Demo: https://calendly.com/info-yieldo/ai-recepcjonistka
+- Email: info.yieldo@gmail.com
+- Language: Polish (primary), English (support)
+
+## Technology
+- Voice AI with Polish language optimization
+- RODO/GDPR compliant
+- 99.9% uptime SLA
+- 2.8s average response time
+- Server location: Poland (Warsaw)
+
+## Company Vision
+Empowering Polish businesses through accessible AI automation. Goal: Help 10,000 Polish companies save 100,000 hours annually by 2026.

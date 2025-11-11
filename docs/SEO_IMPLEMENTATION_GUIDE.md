@@ -1,7 +1,7 @@
 # SEO Implementation Quick Start Guide
 ## AI Sekretarka (Yieldo) - Next.js 15 App Router
 
-**Target Domain:** yieldo.com
+**Target Domain:** yieldo.pl
 **Market:** Poland (Polish language)
 **Framework:** Next.js 15.3.5 with App Router
 
@@ -32,7 +32,7 @@ import { getOrganizationSchema } from "@/lib/seo/schemas/organization";
 import { WebVitalsReporter } from "@/components/seo/WebVitalsReporter";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yieldo.com'),
+  metadataBase: new URL('https://yieldo.pl'),
 
   title: {
     default: "AI Sekretarka 24/7 | Yieldo - Automatyzacja Obsługi Klienta",
@@ -170,7 +170,7 @@ curl http://localhost:3000/robots.txt
 
 ## Critical URLs to Update
 
-**Current base URL in code:** `https://yieldo.com`
+**Current base URL in code:** `https://yieldo.pl`
 
 **Files to update when domain is finalized:**
 1. `/src/app/layout.tsx` - metadataBase
@@ -183,7 +183,7 @@ curl http://localhost:3000/robots.txt
 **Find and replace command:**
 ```bash
 # When domain is confirmed, run:
-grep -r "yieldo.com" src/ docs/
+grep -r "yieldo.pl" src/ docs/
 # Then update all occurrences
 ```
 
@@ -207,13 +207,13 @@ grep -r "yieldo.com" src/ docs/
 **3. Accessibility**
 ```bash
 # Test sitemap
-curl https://yieldo.com/sitemap.xml | head -20
+curl https://yieldo.pl/sitemap.xml | head -20
 
 # Test robots.txt
-curl https://yieldo.com/robots.txt
+curl https://yieldo.pl/robots.txt
 
 # Test structured data
-curl https://yieldo.com/ | grep -o '@type'
+curl https://yieldo.pl/ | grep -o '@type'
 ```
 
 ---

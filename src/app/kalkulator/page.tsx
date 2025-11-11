@@ -64,8 +64,8 @@ export default function CalculatorPage() {
     <div className="min-h-screen bg-gradient-to-b from-blue-50/30 to-white">
       {/* JSON-LD Structured Data */}
       <BreadcrumbSchema items={[
-        { name: 'Strona Główna', url: 'https://yieldo.com' },
-        { name: 'Kalkulator', url: 'https://yieldo.com/kalkulator' }
+        { name: 'Strona Główna', url: 'https://yieldo.pl' },
+        { name: 'Kalkulator', url: 'https://yieldo.pl/kalkulator' }
       ]} />
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">

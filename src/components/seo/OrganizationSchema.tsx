@@ -18,8 +18,8 @@ export interface OrganizationSchemaProps {
 
 export default function OrganizationSchema({
   name = 'Yieldo',
-  url = 'https://yieldo.com',
-  logo = 'https://yieldo.com/logo.png',
+  url = 'https://yieldo.pl',
+  logo = 'https://yieldo.pl/logo.png',
   description = 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczna obsługa telefonów 24/7, umawianie wizyt i zarządzanie klientami.',
   email = 'info.yieldo@gmail.com',
   telephone,

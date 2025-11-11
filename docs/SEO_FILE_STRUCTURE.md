@@ -149,7 +149,7 @@
    - Add comprehensive metadata
    - Import Organization schema
    - Add WebVitalsReporter component
-   - Update base URL to yieldo.com
+   - Update base URL to yieldo.pl
 
 2. `/src/app/ai-sekretarka/page.tsx`
    - Add page-specific metadata

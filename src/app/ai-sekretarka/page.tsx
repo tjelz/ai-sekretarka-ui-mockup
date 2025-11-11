@@ -79,8 +79,8 @@ export default function AISekretarkaPage() {
         }
       ]} />
       <BreadcrumbSchema items={[
-        { name: 'Strona Główna', url: 'https://yieldo.com' },
-        { name: 'AI Sekretarka', url: 'https://yieldo.com/ai-sekretarka' }
+        { name: 'Strona Główna', url: 'https://yieldo.pl' },
+        { name: 'AI Sekretarka', url: 'https://yieldo.pl/ai-sekretarka' }
       ]} />
       {/* Modern Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-200/50 shadow-sm">

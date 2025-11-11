@@ -141,7 +141,7 @@ npm install --save-dev schema-dts web-vitals
 
 ## 📱 Target Market
 
-**Domain:** yieldo.com
+**Domain:** yieldo.pl
 **Language:** Polish (pl_PL)
 **Primary Keywords:**
 - AI Sekretarka

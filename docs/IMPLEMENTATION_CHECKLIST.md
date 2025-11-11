@@ -242,7 +242,7 @@ npx lighthouse http://localhost:3000 --view
 
 ## Notes
 
-- **Domain:** yieldo.com (update all base URLs)
+- **Domain:** yieldo.pl (update all base URLs)
 - **Primary Market:** Poland (Polish language)
 - **Target Keywords:** AI Sekretarka, wirtualna sekretarka, automatyczna obsługa telefonów
 - **Next.js Version:** 15.3.5

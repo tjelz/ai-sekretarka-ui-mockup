@@ -10,7 +10,7 @@ export interface PageMetadataConfig {
 }
 
 const SITE_NAME = 'Yieldo'
-const SITE_URL = 'https://yieldo.com'
+const SITE_URL = 'https://yieldo.pl'
 const DEFAULT_OG_IMAGE = '/og-image.jpg'
 
 export function generateMetadata(config: PageMetadataConfig): Metadata {

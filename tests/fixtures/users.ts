@@ -9,7 +9,7 @@ export const mockUsers = {
   adminUser: {
     id: 'admin-user-456',
     name: 'Admin User',
-    email: 'admin@yieldo.com',
+    email: 'admin@yieldo.pl',
     password: 'AdminPass123!',
     hashedPassword: '$2b$10$zyxwvutsrqponmlkjihgfedcba0987654321ZYXWVUTSRQ',
   },

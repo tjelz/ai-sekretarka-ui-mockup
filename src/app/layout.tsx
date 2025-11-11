@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yieldo.com'),
+  metadataBase: new URL('https://yieldo.pl'),
   title: {
     default: 'Yieldo - AI Sekretarka | Automatyczna Obsługa Telefonów 24/7',
     template: '%s | Yieldo'
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pl_PL',
-    url: 'https://yieldo.com',
+    url: 'https://yieldo.pl',
     siteName: 'Yieldo',
     title: 'Yieldo - AI Sekretarka | Automatyczna Obsługa Telefonów 24/7',
     description: 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczna obsługa telefonów 24/7, umawianie wizyt i zarządzanie klientami.',
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     google: 'your-google-verification-code',
   },
   alternates: {
-    canonical: 'https://yieldo.com',
+    canonical: 'https://yieldo.pl',
   },
 };
 

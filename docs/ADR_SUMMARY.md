@@ -77,7 +77,7 @@ Use Next.js 15 sitemap.ts with dynamic route generation
 Implement strict canonical URL structure
 
 **Rules:**
-1. Always absolute URLs: `https://yieldo.com/path/`
+1. Always absolute URLs: `https://yieldo.pl/path/`
 2. Trailing slash consistency: Always include
 3. HTTPS enforcement: Redirect HTTP to HTTPS
 4. Non-www canonical: Choose non-www

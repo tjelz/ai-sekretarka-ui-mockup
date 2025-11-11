@@ -23,7 +23,7 @@ export interface LocalBusinessSchemaProps {
 export default function LocalBusinessSchema({
   name = 'Yieldo',
   description = 'Profesjonalna AI Sekretarka dla Twojej firmy',
-  image = 'https://yieldo.com/logo.png',
+  image = 'https://yieldo.pl/logo.png',
   telephone,
   email = 'info.yieldo@gmail.com',
   address = {

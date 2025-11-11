@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'AI Sekretarka - Automatyczna Obsługa Telefonów 24/7',
     description: 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczne odbieranie telefonów 24/7, umawianie wizyt i zarządzanie klientami.',
     type: 'website',
-    url: 'https://yieldo.com/ai-sekretarka',
+    url: 'https://yieldo.pl/ai-sekretarka',
     images: [
       {
         url: '/og-image.jpg',
@@ -36,6 +36,6 @@ export const metadata: Metadata = {
     images: ['/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://yieldo.com/ai-sekretarka',
+    canonical: 'https://yieldo.pl/ai-sekretarka',
   },
 };

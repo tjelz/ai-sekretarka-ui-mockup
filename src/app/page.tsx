@@ -13,7 +13,7 @@ export default function Home() {
       {/* JSON-LD Structured Data */}
       <OrganizationSchema />
       <BreadcrumbSchema items={[
-        { name: 'Strona Główna', url: 'https://yieldo.com' }
+        { name: 'Strona Główna', url: 'https://yieldo.pl' }
       ]} />
       {/* Navigation Bar */}
       <Navbar />

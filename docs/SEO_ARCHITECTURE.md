@@ -4,13 +4,13 @@
 **Document Version:** 1.0.0
 **Date:** 2025-11-10
 **Author:** SEO Architecture Designer
-**Project:** yieldo.com (Yieldo)
+**Project:** yieldo.pl (Yieldo)
 
 ---
 
 ## Executive Summary
 
-This document outlines a comprehensive SEO architecture for the AI Sekretarka platform, designed specifically for the Polish market (yieldo.com). The architecture leverages Next.js 15 App Router features, implements structured data, and optimizes for Core Web Vitals to achieve maximum visibility in Polish search results.
+This document outlines a comprehensive SEO architecture for the AI Sekretarka platform, designed specifically for the Polish market (yieldo.pl). The architecture leverages Next.js 15 App Router features, implements structured data, and optimizes for Core Web Vitals to achieve maximum visibility in Polish search results.
 
 **Target Market:** Polish SMBs and enterprises
 **Primary Keywords:** AI Sekretarka, AI asystent biznesowy, automatyzacja obsługi klienta
@@ -90,14 +90,14 @@ export async function generateMetadata({ params }): Promise<Metadata> { ... }
 **Decision:** Implement strict canonical URL structure
 
 **Rules:**
-1. Always use absolute URLs: `https://yieldo.com/path`
+1. Always use absolute URLs: `https://yieldo.pl/path`
 2. Trailing slash consistency: Always include trailing slash
 3. HTTPS enforcement: Redirect all HTTP to HTTPS
 4. WWW canonicalization: Choose non-www as canonical
 
 **Implementation:**
 ```typescript
-const baseUrl = 'https://yieldo.com';
+const baseUrl = 'https://yieldo.pl';
 const canonicalUrl = `${baseUrl}${pathname}/`;
 ```
 
@@ -170,7 +170,7 @@ const canonicalUrl = `${baseUrl}${pathname}/`;
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yieldo.com'),
+  metadataBase: new URL('https://yieldo.pl'),
 
   title: {
     default: "AI Sekretarka 24/7 | Yieldo - Automatyzacja Obsługi Klienta",
@@ -223,7 +223,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'pl_PL',
-    url: 'https://yieldo.com/',
+    url: 'https://yieldo.pl/',
     siteName: 'AI Sekretarka Yieldo',
     title: 'AI Sekretarka 24/7 dla Twojej Firmy | Yieldo',
     description: 'Automatyczna obsługa połączeń, umawianie wizyt i SMS-y. Twój biznes nigdy nie śpi. Profesjonalna AI Sekretarka dla polskich firm.',
@@ -247,9 +247,9 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: 'https://yieldo.com/',
+    canonical: 'https://yieldo.pl/',
     languages: {
-      'pl': 'https://yieldo.com/',
+      'pl': 'https://yieldo.pl/',
     },
   },
 
@@ -277,7 +277,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Sekretarka i Rozwiązania AI dla Firm | Yieldo",
     description: "Kompleksowe rozwiązania AI - od obsługi klientów, przez tworzenie stron, po automatyzację dotacji.",
-    url: "https://yieldo.com/",
+    url: "https://yieldo.pl/",
     images: [
       {
         url: "/og-homepage.png",
@@ -308,7 +308,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AI Sekretarka 24/7 - Nigdy Nie Przegap Klienta",
     description: "Twoja AI Sekretarka rozmawia jak człowiek, umawia wizyty i obsługuje klientów 24 godziny na dobę, 7 dni w tygodniu.",
-    url: "https://yieldo.com/ai-sekretarka/",
+    url: "https://yieldo.pl/ai-sekretarka/",
     images: [
       {
         url: "/og-ai-sekretarka.png",
@@ -330,7 +330,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ile Tracisz na Nieodebranych Połączeniach? | Kalkulator AI Sekretarka",
     description: "Oblicz swoje roczne straty z nieodebranych telefonów i zobacz jak AI Sekretarka może zwiększyć Twoje przychody.",
-    url: "https://yieldo.com/kalkulator/",
+    url: "https://yieldo.pl/kalkulator/",
     images: [
       {
         url: "/og-kalkulator.png",
@@ -358,17 +358,17 @@ export function getOrganizationSchema(): WithContext<Organization> {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://yieldo.com/#organization",
+    "@id": "https://yieldo.pl/#organization",
     "name": "Yieldo",
     "legalName": "Yieldo Sp. z o.o.",
-    "url": "https://yieldo.com",
+    "url": "https://yieldo.pl",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://yieldo.com/logo.png",
+      "url": "https://yieldo.pl/logo.png",
       "width": 250,
       "height": 60
     },
-    "image": "https://yieldo.com/og-image.png",
+    "image": "https://yieldo.pl/og-image.png",
     "description": "Yieldo to agencja AI specjalizująca się w automatyzacji procesów biznesowych. Oferujemy AI Sekretarkę 24/7, tworzenie stron internetowych i automatyzację dotacji dla polskich firm.",
     "foundingDate": "2024",
     "contactPoint": [
@@ -419,7 +419,7 @@ export function getAISekretrkaProductSchema(): WithContext<Product> {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": "https://yieldo.com/ai-sekretarka/#product",
+    "@id": "https://yieldo.pl/ai-sekretarka/#product",
     "name": "AI Sekretarka Yieldo",
     "description": "Profesjonalna AI Sekretarka, która automatycznie odbiera telefony 24/7, umawia spotkania, odpowiada na pytania klientów i wysyła SMS-y z potwierdzeniami. Rozmawia naturalnie jak człowiek.",
     "brand": {
@@ -427,13 +427,13 @@ export function getAISekretrkaProductSchema(): WithContext<Product> {
       "name": "Yieldo"
     },
     "image": [
-      "https://yieldo.com/product-ai-sekretarka-1.png",
-      "https://yieldo.com/product-ai-sekretarka-2.png",
-      "https://yieldo.com/product-ai-sekretarka-3.png"
+      "https://yieldo.pl/product-ai-sekretarka-1.png",
+      "https://yieldo.pl/product-ai-sekretarka-2.png",
+      "https://yieldo.pl/product-ai-sekretarka-3.png"
     ],
     "offers": {
       "@type": "Offer",
-      "url": "https://yieldo.com/ai-sekretarka/",
+      "url": "https://yieldo.pl/ai-sekretarka/",
       "priceCurrency": "PLN",
       "price": "399.00",
       "priceValidUntil": "2025-12-31",
@@ -559,7 +559,7 @@ export function getBreadcrumbSchema(
       "@type": "ListItem",
       "position": index + 1,
       "name": item.name,
-      "item": `https://yieldo.com${item.url}`
+      "item": `https://yieldo.pl${item.url}`
     }))
   };
 }
@@ -631,7 +631,7 @@ export default function RootLayout({ children }) {
 ```typescript
 import { MetadataRoute } from 'next';
 
-const baseUrl = 'https://yieldo.com';
+const baseUrl = 'https://yieldo.pl';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date();
@@ -728,7 +728,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://yieldo.com';
+  const baseUrl = 'https://yieldo.pl';
 
   return {
     rules: [
@@ -795,7 +795,7 @@ export default function robots(): MetadataRoute.Robots {
 
 import { usePathname } from 'next/navigation';
 
-const BASE_URL = 'https://yieldo.com';
+const BASE_URL = 'https://yieldo.pl';
 
 export function CanonicalLink() {
   const pathname = usePathname();
@@ -1302,10 +1302,10 @@ export function WebVitalsReporter() {
 ```typescript
 // In metadata
 alternates: {
-  canonical: 'https://yieldo.com/',
+  canonical: 'https://yieldo.pl/',
   languages: {
-    'pl': 'https://yieldo.com/',
-    'en': 'https://yieldo.com/en/', // Future
+    'pl': 'https://yieldo.pl/',
+    'en': 'https://yieldo.pl/en/', // Future
   },
 }
 ```
@@ -1322,7 +1322,7 @@ export function getLocalBusinessSchema(): WithContext<LocalBusiness> {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Yieldo - AI Sekretarka",
-    "image": "https://yieldo.com/og-image.png",
+    "image": "https://yieldo.pl/og-image.png",
     "telephone": "+48-XXX-XXX-XXX",
     "address": {
       "@type": "PostalAddress",
@@ -1337,7 +1337,7 @@ export function getLocalBusinessSchema(): WithContext<LocalBusiness> {
       "latitude": 52.2297,
       "longitude": 21.0122
     },
-    "url": "https://yieldo.com",
+    "url": "https://yieldo.pl",
     "priceRange": "399 PLN - 1499 PLN",
     "openingHoursSpecification": [
       {

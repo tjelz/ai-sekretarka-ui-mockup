@@ -1,10 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { TrendingUp, Users, Clock, Zap, LucideIcon } from 'lucide-react';
+import { TrendingUp, Users, Clock, Zap, type LucideProps } from 'lucide-react';
+import type React from 'react';
 
 interface StatCardProps {
-  icon: LucideIcon;
+  icon: React.FC<LucideProps>;
   value: number;
   suffix: string;
   label: string;

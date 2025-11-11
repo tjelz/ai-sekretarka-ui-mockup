@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { LucideIcon } from 'lucide-react';
+import type { LucideProps } from 'lucide-react';
 
 interface FloatingStatsCardProps {
-  icon: LucideIcon;
+  icon: React.FC<LucideProps>;
   value: string;
   label: string;
   delay?: number;

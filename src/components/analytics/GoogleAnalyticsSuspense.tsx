@@ -1,7 +1,7 @@
 'use client';
 
 import { Suspense } from 'react';
-import { GoogleAnalytics, GoogleAnalyticsProps } from './GoogleAnalytics';
+import { GoogleAnalytics, type GoogleAnalyticsProps } from './GoogleAnalytics';
 
 /**
  * GoogleAnalytics wrapped in Suspense boundary

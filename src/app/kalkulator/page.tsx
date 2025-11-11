@@ -7,11 +7,13 @@ import Link from "next/link"
 import Image from "next/image"
 import LostRevenueCalculator from "../components/LostRevenueCalculator"
 import { useEffect, useState, useRef } from "react"
+import { ChevronDown } from "lucide-react"
 
 export default function CalculatorPage() {
   // Use mounted state to completely remount form section
   const [mounted, setMounted] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   useEffect(() => {
     // Unmount and remount to force fresh initialization
@@ -61,6 +63,23 @@ export default function CalculatorPage() {
     };
   }, [mounted]);
 
+  // Handle scroll to hide indicator
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setShowScrollIndicator(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setShowScrollIndicator(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50/30 to-white">
       {/* JSON-LD Structured Data */}
@@ -96,6 +115,22 @@ export default function CalculatorPage() {
       <div className="pt-4 pb-0">
         <LostRevenueCalculator showCta={false} compact={true} />
       </div>
+
+      {/* Scroll Down Indicator - Mobile Only */}
+      {showScrollIndicator && (
+        <div className="md:hidden flex justify-center py-6 animate-in fade-in duration-500">
+          <button
+            onClick={scrollToForm}
+            className="flex flex-col items-center gap-2 text-[#007BFF] hover:text-[#0056b3] transition-colors"
+            aria-label="Scroll to form"
+          >
+            <span className="text-sm font-semibold">Wypełnij formularz</span>
+            <div className="animate-bounce">
+              <ChevronDown className="w-8 h-8" strokeWidth={3} />
+            </div>
+          </button>
+        </div>
+      )}
 
       {/* Contact Form - Centered */}
       <section className="px-4 pb-16 pt-0 bg-gradient-to-t from-white to-gray-50">

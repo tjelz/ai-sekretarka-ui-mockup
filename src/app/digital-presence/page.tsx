@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import type { LucideProps } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/ui/footer";
 import {
@@ -97,87 +98,43 @@ function InteractiveMapPreview() {
   );
 }
 
-// Scroll Progress Timeline Component
-function ScrollProgressTimeline() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeStep, setActiveStep] = useState(0);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
+// Timeline Step Component - Extracted to fix React Hooks violations
+function TimelineStep({
+  item,
+  index,
+  activeStep,
+  setActiveStep
+}: {
+  item: {
+    step: string;
+    title: string;
+    description: string;
+    duration: string;
+    icon: React.FC<LucideProps>;
+    gradient: string;
+    color: string;
+  };
+  index: number;
+  activeStep: number;
+  setActiveStep: (step: number) => void;
+}) {
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+    triggerOnce: false,
   });
 
-  const steps = [
-    {
-      step: "01",
-      title: "Konsultacja i Audyt",
-      description: "Rozmawiamy o Twoich celach i analizujemy obecną sytuację. Dla Google Business: sprawdzamy obecny profil i konkurencję. Dla strony: określamy zakres i funkcje.",
-      duration: "1 dzień",
-      icon: MessageSquare,
-      gradient: "from-blue-500 to-blue-600",
-      color: "blue"
-    },
-    {
-      step: "02",
-      title: "Setup Google Business (Start w 48h)",
-      description: "Zaczynamy od Google Business - optymalizujemy profil, dodajemy zdjęcia, konfigurujemy wszystkie sekcje. Klienci mogą Cię znaleźć już w weekend!",
-      duration: "2-3 dni",
-      icon: MapPin,
-      gradient: "from-green-500 to-green-600",
-      color: "green"
-    },
-    {
-      step: "03",
-      title: "Projekt i Budowa Strony",
-      description: "Tworzymy makiety, po zatwierdzeniu budujemy stronę. Responsywna, szybka, SEO-friendly. Integrujemy ze stroną link do Google Business.",
-      duration: "10-14 dni",
-      icon: Code,
-      gradient: "from-purple-500 to-purple-600",
-      color: "purple"
-    },
-    {
-      step: "04",
-      title: "Launch i Ciągła Optymalizacja",
-      description: "Publikujemy stronę, kontynuujemy zarządzanie Google Business (posty, recenzje), dostarczamy raporty. Ciągle optymalizujemy dla lepszych wyników.",
-      duration: "Ongoing",
-      icon: Rocket,
-      gradient: "from-orange-500 to-orange-600",
-      color: "orange"
+  useEffect(() => {
+    if (inView) {
+      setActiveStep(index);
     }
-  ];
+  }, [inView, index, setActiveStep]);
+
+  const Icon = item.icon;
+  const isActive = activeStep >= index;
 
   return (
-    <div ref={containerRef} className="relative py-12 notranslate" translate="no">
-      {/* Progress Line Background */}
-      <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 transform -translate-x-1/2 rounded-full" />
-
-      {/* Animated Progress Line */}
-      <motion.div
-        className="absolute left-1/2 top-0 w-1 bg-gradient-to-b from-purple-500 to-purple-600 transform -translate-x-1/2 rounded-full origin-top"
-        style={{
-          scaleY: scrollYProgress,
-        }}
-      />
-
-      <div className="space-y-24">
-        {steps.map((item, index) => {
-          const [ref, inView] = useInView({
-            threshold: 0.5,
-            triggerOnce: false,
-          });
-
-          useEffect(() => {
-            if (inView) {
-              setActiveStep(index);
-            }
-          }, [inView, index]);
-
-          const Icon = item.icon;
-          const isActive = activeStep >= index;
-
-          return (
-            <motion.div
-              key={index}
-              ref={ref}
+    <motion.div
+      ref={ref}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -276,8 +233,80 @@ function ScrollProgressTimeline() {
                 </motion.div>
               </div>
             </motion.div>
-          );
-        })}
+  );
+}
+
+// Scroll Progress Timeline Component
+function ScrollProgressTimeline() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const steps = [
+    {
+      step: "01",
+      title: "Konsultacja i Audyt",
+      description: "Rozmawiamy o Twoich celach i analizujemy obecną sytuację. Dla Google Business: sprawdzamy obecny profil i konkurencję. Dla strony: określamy zakres i funkcje.",
+      duration: "1 dzień",
+      icon: MessageSquare,
+      gradient: "from-blue-500 to-blue-600",
+      color: "blue"
+    },
+    {
+      step: "02",
+      title: "Setup Google Business (Start w 48h)",
+      description: "Zaczynamy od Google Business - optymalizujemy profil, dodajemy zdjęcia, konfigurujemy wszystkie sekcje. Klienci mogą Cię znaleźć już w weekend!",
+      duration: "2-3 dni",
+      icon: MapPin,
+      gradient: "from-green-500 to-green-600",
+      color: "green"
+    },
+    {
+      step: "03",
+      title: "Projekt i Budowa Strony",
+      description: "Tworzymy makiety, po zatwierdzeniu budujemy stronę. Responsywna, szybka, SEO-friendly. Integrujemy ze stroną link do Google Business.",
+      duration: "10-14 dni",
+      icon: Code,
+      gradient: "from-purple-500 to-purple-600",
+      color: "purple"
+    },
+    {
+      step: "04",
+      title: "Launch i Ciągła Optymalizacja",
+      description: "Publikujemy stronę, kontynuujemy zarządzanie Google Business (posty, recenzje), dostarczamy raporty. Ciągle optymalizujemy dla lepszych wyników.",
+      duration: "Ongoing",
+      icon: Rocket,
+      gradient: "from-orange-500 to-orange-600",
+      color: "orange"
+    }
+  ];
+
+  return (
+    <div ref={containerRef} className="relative py-12 notranslate" translate="no">
+      {/* Progress Line Background */}
+      <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gray-200 transform -translate-x-1/2 rounded-full" />
+
+      {/* Animated Progress Line */}
+      <motion.div
+        className="absolute left-1/2 top-0 w-1 bg-gradient-to-b from-purple-500 to-purple-600 transform -translate-x-1/2 rounded-full origin-top"
+        style={{
+          scaleY: scrollYProgress,
+        }}
+      />
+
+      <div className="space-y-24">
+        {steps.map((item, index) => (
+          <TimelineStep
+            key={index}
+            item={item}
+            index={index}
+            activeStep={activeStep}
+            setActiveStep={setActiveStep}
+          />
+        ))}
       </div>
 
       {/* Overall Progress Indicator */}

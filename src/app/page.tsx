@@ -5,6 +5,7 @@ import { Navbar } from "@/components/ui/navbar"
 import { Footer } from "@/components/ui/footer"
 import ProductShowcaseHero from "@/components/landing/ProductShowcaseHero"
 import VisionMission from "@/components/landing/VisionMission"
+import BespokeSolutionsSection from "@/components/landing/BespokeSolutionsSection"
 
 export default function Home() {
   return (
@@ -32,10 +33,19 @@ export default function Home() {
       <Navbar />
 
       {/* Product Showcase Hero - Modern Bento Grid with Animations */}
-      <ProductShowcaseHero />
+      <section id="produkty">
+        <ProductShowcaseHero />
+      </section>
 
       {/* Vision & Mission Section */}
-      <VisionMission />
+      <section id="o-nas">
+        <VisionMission />
+      </section>
+
+      {/* Bespoke Solutions Consultation Section */}
+      <section id="rozwiazania">
+        <BespokeSolutionsSection />
+      </section>
 
       {/* Footer */}
       <Footer />

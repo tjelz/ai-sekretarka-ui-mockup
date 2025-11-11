@@ -24,7 +24,7 @@ export interface GAEventParams {
   [key: string]: unknown;
 }
 
-interface GoogleAnalyticsProps {
+export interface GoogleAnalyticsProps {
   measurementId?: string;
   debug?: boolean;
 }

@@ -4,10 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
-import { LucideIcon } from 'lucide-react';
+import type { LucideProps } from 'lucide-react';
 
 interface AnimatedStatCardProps {
-  icon: LucideIcon;
+  icon: React.FC<LucideProps>;
   value: number;
   suffix?: string;
   label: string;

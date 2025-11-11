@@ -84,8 +84,156 @@ export default function AISekretarkaPage() {
         { name: 'AI Sekretarka', url: 'https://www.yieldo.pl/ai-sekretarka' }
       ]} />
 
-      {/* Navigation Bar - Shared Component */}
-      <Navbar />
+      {/* Navigation Bar - Product Page */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Link href="/" className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="Yieldo"
+                className="h-8 w-auto"
+              />
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center gap-6">
+              <button
+                onClick={() => {
+                  const element = document.getElementById('funkcje');
+                  if (element) {
+                    const offsetTop = element.offsetTop - 80;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                  }
+                }}
+                className="text-gray-700 hover:text-[#007BFF] font-medium transition-colors"
+              >
+                Funkcje
+              </button>
+              <button
+                onClick={() => {
+                  const element = document.getElementById('jak-to-dziala');
+                  if (element) {
+                    const offsetTop = element.offsetTop - 80;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                  }
+                }}
+                className="text-gray-700 hover:text-[#007BFF] font-medium transition-colors"
+              >
+                Jak to działa
+              </button>
+              <button
+                onClick={() => {
+                  const element = document.getElementById('cennik');
+                  if (element) {
+                    const offsetTop = element.offsetTop - 80;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                  }
+                }}
+                className="text-gray-700 hover:text-[#007BFF] font-medium transition-colors"
+              >
+                Cennik
+              </button>
+              <Link href="/kalkulator" className="text-gray-700 hover:text-[#007BFF] font-medium transition-colors">
+                Kalkulator
+              </Link>
+              <Button
+                onClick={() => {
+                  const element = document.getElementById('kontakt');
+                  if (element) {
+                    const offsetTop = element.offsetTop - 80;
+                    window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                  }
+                }}
+                size="sm"
+                className="bg-[#007BFF] hover:bg-[#0056b3] text-white px-6 py-2 rounded-lg font-semibold transition-all"
+              >
+                Kontakt
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => {
+                const menu = document.getElementById('mobile-menu');
+                if (menu) {
+                  menu.classList.toggle('hidden');
+                }
+              }}
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          <div id="mobile-menu" className="hidden md:hidden border-t border-gray-200 py-4 space-y-2">
+            <button
+              onClick={() => {
+                const element = document.getElementById('funkcje');
+                if (element) {
+                  const offsetTop = element.offsetTop - 80;
+                  window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+                document.getElementById('mobile-menu')?.classList.add('hidden');
+              }}
+              className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors"
+            >
+              Funkcje
+            </button>
+            <button
+              onClick={() => {
+                const element = document.getElementById('jak-to-dziala');
+                if (element) {
+                  const offsetTop = element.offsetTop - 80;
+                  window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+                document.getElementById('mobile-menu')?.classList.add('hidden');
+              }}
+              className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors"
+            >
+              Jak to działa
+            </button>
+            <button
+              onClick={() => {
+                const element = document.getElementById('cennik');
+                if (element) {
+                  const offsetTop = element.offsetTop - 80;
+                  window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+                document.getElementById('mobile-menu')?.classList.add('hidden');
+              }}
+              className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors"
+            >
+              Cennik
+            </button>
+            <Link
+              href="/kalkulator"
+              className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg font-medium transition-colors"
+            >
+              Kalkulator
+            </Link>
+            <Button
+              onClick={() => {
+                const element = document.getElementById('kontakt');
+                if (element) {
+                  const offsetTop = element.offsetTop - 80;
+                  window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                }
+                document.getElementById('mobile-menu')?.classList.add('hidden');
+              }}
+              size="lg"
+              className="w-full bg-[#007BFF] hover:bg-[#0056b3] text-white py-3 rounded-lg font-semibold transition-all"
+            >
+              Kontakt
+            </Button>
+          </div>
+        </div>
+      </nav>
 
       {/* Hero Section - Enhanced Split Layout */}
       <section className="relative py-10 px-4 overflow-hidden mt-12">
@@ -237,7 +385,7 @@ export default function AISekretarkaPage() {
 
 
       {/* Features Section */}
-      <section className="py-12 px-4 bg-gray-50">
+      <section id="funkcje" className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
@@ -309,7 +457,7 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Implementation Section */}
-      <section className="py-12 px-4 bg-gray-50">
+      <section id="jak-to-dziala" className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
@@ -548,7 +696,7 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-12 px-4 bg-white relative">
+      <section id="cennik" className="py-12 px-4 bg-white relative">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">
@@ -655,7 +803,7 @@ export default function AISekretarkaPage() {
       </section>
 
       {/* Footer CTA */}
-      <section id="contact" className="py-12 px-4 bg-gray-50">
+      <section id="kontakt" className="py-12 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 bg-blue-50 text-[#007BFF] px-5 py-2.5 rounded-full text-sm font-medium mb-5">

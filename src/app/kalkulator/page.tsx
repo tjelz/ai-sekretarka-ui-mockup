@@ -118,14 +118,14 @@ export default function CalculatorPage() {
 
       {/* Scroll Down Indicator - Mobile Only */}
       {showScrollIndicator && (
-        <div className="md:hidden flex justify-center py-6 animate-in fade-in duration-500">
+        <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 flex justify-center pb-8 pt-4 bg-gradient-to-t from-white via-white to-transparent pointer-events-none animate-in fade-in duration-500">
           <button
             onClick={scrollToForm}
-            className="flex flex-col items-center gap-2 text-[#007BFF] hover:text-[#0056b3] transition-colors"
+            className="flex flex-col items-center gap-2 text-[#007BFF] hover:text-[#0056b3] transition-colors drop-shadow-md pointer-events-auto"
             aria-label="Scroll to form"
           >
             <span className="text-sm font-semibold">Wypełnij formularz</span>
-            <div className="animate-bounce">
+            <div className="animate-bounce bg-white rounded-full p-2 shadow-lg">
               <ChevronDown className="w-8 h-8" strokeWidth={3} />
             </div>
           </button>

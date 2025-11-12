@@ -27,7 +27,7 @@ export default function LostRevenueCalculator({ showCta = true, compact = false 
 
   return (
     <section className={`w-full bg-gradient-to-b from-white to-gray-50 px-3 sm:px-4 lg:px-6 ${compact ? 'py-10' : 'min-h-screen py-4 md:py-8 flex items-center'}`}>
-      <div className="max-w-6xl mx-auto w-full">
+      <div className="max-w-5xl mx-auto w-full">
         {/* Header */}
         <div className={`text-center ${compact ? 'mb-3' : 'mb-4 md:mb-6'}`}>
           <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-3 py-1.5 rounded-full text-xs font-medium mb-3">
@@ -45,10 +45,10 @@ export default function LostRevenueCalculator({ showCta = true, compact = false 
         </div>
 
         {/* Calculator Card */}
-        <div className={`bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 ${compact ? 'p-4 sm:p-5 md:p-6 mb-3' : 'p-4 sm:p-5 md:p-6 lg:p-8 mb-4'}`}>
-          <div className="grid lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
+        <div className={`bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-100 ${compact ? 'p-4 sm:p-5 md:p-6 mb-3' : 'p-4 sm:p-5 md:p-6 mb-4'}`}>
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6">
             {/* Inputs */}
-            <div className="lg:col-span-3 space-y-6 md:space-y-8">
+            <div className="flex-[2] space-y-4">
               {/* Missed Calls */}
               <div className="bg-blue-50/30 rounded-xl p-4 space-y-3 border border-blue-100/50 hover:border-blue-200 transition-all">
                 <div className="flex items-center justify-between gap-3">
@@ -117,33 +117,33 @@ export default function LostRevenueCalculator({ showCta = true, compact = false 
             </div>
 
             {/* Results */}
-            <div className="lg:col-span-2 flex flex-col justify-center">
-              <div className="bg-gradient-to-br from-blue-50 via-blue-50 to-indigo-50 rounded-xl md:rounded-2xl p-4 md:p-6 border-2 border-blue-100 relative overflow-hidden">
+            <div className="flex-none w-full md:w-auto flex flex-col justify-center items-center md:items-start">
+              <div className="bg-gradient-to-br from-blue-50 via-blue-50 to-indigo-50 rounded-xl p-4 border-2 border-blue-100 relative overflow-hidden w-full max-w-sm">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-200/20 rounded-full blur-3xl" />
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-indigo-200/20 rounded-full blur-3xl" />
-                <div className="relative">
-                  <div className="flex items-center gap-2 mb-3 md:mb-4">
+                <div className="relative text-center">
+                  <div className="flex items-center justify-center gap-2 mb-3">
                     <AlertCircle className="w-4 h-4 text-blue-600" />
                     <h3 className="text-xs font-semibold text-gray-700 uppercase tracking-wide">
                       Twoje straty finansowe
                     </h3>
                   </div>
-                  <div className="mb-3 md:mb-4">
+                  <div className="mb-3">
                     <p className="text-xs text-gray-600 mb-1">Miesięcznie tracisz:</p>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900">
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span className="text-3xl font-black text-gray-900">
                         {formatNumber(monthlyLoss)}
                       </span>
-                      <span className="text-base md:text-xl font-bold text-gray-600">zł</span>
+                      <span className="text-base font-bold text-gray-600">zł</span>
                     </div>
                   </div>
-                  <div className="pt-3 md:pt-4 border-t-2 border-blue-200">
+                  <div className="pt-3 border-t-2 border-blue-200">
                     <p className="text-xs text-gray-600 mb-1">Rocznie tracisz:</p>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-xl sm:text-2xl md:text-3xl font-black text-blue-600">
+                    <div className="flex items-baseline justify-center gap-1">
+                      <span className="text-2xl font-black text-blue-600">
                         {formatNumber(annualLoss)}
                       </span>
-                      <span className="text-sm md:text-lg font-bold text-blue-600">zł</span>
+                      <span className="text-sm font-bold text-blue-600">zł</span>
                     </div>
                   </div>
                 </div>

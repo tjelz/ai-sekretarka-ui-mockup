@@ -42,11 +42,12 @@ const bookings: Booking[] = [];
 async function createBooksyAppointment(booking: Booking) {
   const appointmentDate = new Date(booking.dateTime);
 
-  // Get service details from mapping or use provided IDs
-  const serviceMapping = BOOKSY_SERVICE_MAPPING[booking.serviceName];
-  const serviceId = booking.booksyServiceId || serviceMapping?.serviceId || 1746755;
-  const variantId = booking.booksyVariantId || serviceMapping?.variantId || 3478125;
-  const duration = serviceMapping?.duration || 30;
+  // Get service details from mapping or use default test service
+  const defaultService = { serviceId: 1746755, variantId: 3478125, duration: 30 };
+  const serviceMapping = BOOKSY_SERVICE_MAPPING[booking.serviceName] || defaultService;
+  const serviceId = booking.booksyServiceId || serviceMapping.serviceId;
+  const variantId = booking.booksyVariantId || serviceMapping.variantId;
+  const duration = serviceMapping.duration;
 
   // Calculate end time based on service duration
   const endDate = new Date(appointmentDate);

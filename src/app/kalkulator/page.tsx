@@ -76,7 +76,16 @@ export default function CalculatorPage() {
   }, []);
 
   const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (formRef.current) {
+      const navbarHeight = 80; // h-20 = 80px
+      const elementPosition = formRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - 20; // Extra 20px padding
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
     setShowScrollIndicator(false);
   };
 

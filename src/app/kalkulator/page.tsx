@@ -113,7 +113,12 @@ export default function CalculatorPage() {
 
       {/* Calculator Component from Main Landing Page */}
       <div className="pt-4 pb-0">
-        <LostRevenueCalculator showCta={false} compact={true} />
+        <LostRevenueCalculator
+          showCta={true}
+          compact={true}
+          onCtaClick={scrollToForm}
+          ctaText="Zautomatyzuj odbieranie telefonów"
+        />
       </div>
 
       {/* Scroll Down Indicator - Mobile Only */}

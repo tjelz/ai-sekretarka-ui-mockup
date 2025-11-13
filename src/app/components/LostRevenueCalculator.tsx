@@ -9,9 +9,11 @@ import { TrendingUp, Phone, AlertCircle } from 'lucide-react';
 interface LostRevenueCalculatorProps {
   showCta?: boolean;
   compact?: boolean;
+  onCtaClick?: () => void;
+  ctaText?: string;
 }
 
-export default function LostRevenueCalculator({ showCta = true, compact = false }: LostRevenueCalculatorProps) {
+export default function LostRevenueCalculator({ showCta = true, compact = false, onCtaClick, ctaText = 'Odzyskaj Utracone Przychody →' }: LostRevenueCalculatorProps) {
   const [missedCallsPerWeek, setMissedCallsPerWeek] = useState(20);
   const [avgTransactionValue, setAvgTransactionValue] = useState(150);
 
@@ -149,15 +151,24 @@ export default function LostRevenueCalculator({ showCta = true, compact = false 
                 </div>
               </div>
               {showCta && (
-                <a
-                  href="https://forms.fillout.com/t/xityvM2L42us"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button className="mt-3 md:mt-4 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 md:py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base">
-                    Odzyskaj Utracone Przychody →
+                onCtaClick ? (
+                  <Button
+                    onClick={onCtaClick}
+                    className="mt-3 md:mt-4 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 md:py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base"
+                  >
+                    {ctaText}
                   </Button>
-                </a>
+                ) : (
+                  <a
+                    href="https://forms.fillout.com/t/xityvM2L42us"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="mt-3 md:mt-4 w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 md:py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-600/40 hover:scale-[1.02] active:scale-[0.98] text-sm md:text-base">
+                      {ctaText}
+                    </Button>
+                  </a>
+                )
               )}
             </div>
           </div>

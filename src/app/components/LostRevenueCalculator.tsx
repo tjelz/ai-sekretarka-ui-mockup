@@ -173,23 +173,6 @@ export default function LostRevenueCalculator({ showCta = true, compact = false,
             </div>
           </div>
         </div>
-
-        {/* CTA */}
-        {showCta && (
-          <div className="text-center max-w-4xl mx-auto px-2">
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-4 md:p-6 text-white shadow-xl">
-              <h2 className="text-base sm:text-lg md:text-xl font-bold mb-2">
-                Odzyskaj te pieniądze z naszą wirtualną recepcjonistką 24/7
-              </h2>
-              <p className="text-xs sm:text-sm md:text-base text-blue-100 mb-3 md:mb-4 leading-relaxed">
-                Zautomatyzuj swój biznes i zwiększ przychody już dziś.
-
-              </p>
-              <Button className="bg-white text-blue-600 font-bold py-2.5 md:py-3 px-5 md:px-6 rounded-xl hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 text-xs sm:text-sm md:text-base">
-                Umów się na darmową prezentację            </Button>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   );

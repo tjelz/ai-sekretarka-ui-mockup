@@ -1,6 +1,7 @@
 "use client"
 
 import { OrganizationSchema, ProductSchema, FAQSchema, BreadcrumbSchema } from "@/components/seo"
+import IntegrationStructuredData from "@/components/seo/IntegrationStructuredData"
 import { Navbar } from "@/components/ui/navbar"
 import { Footer } from "@/components/ui/footer"
 import { Button } from "@/components/ui/button"
@@ -13,7 +14,7 @@ import EnhancedPricingCard from "../components/EnhancedPricingCard"
 import AnimatedBackground from "../components/AnimatedBackground"
 import HeroPhoneMockup from "../components/HeroPhoneMockup"
 import TypewriterText from "../components/TypewriterText"
-import AnimatedStatCard from "../components/AnimatedStatCard"
+import CalendarIntegrationSection from "../components/CalendarIntegrationSection"
 
 export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
@@ -57,6 +58,7 @@ export default function AISekretarkaPage() {
       {/* JSON-LD Structured Data */}
       <OrganizationSchema />
       <ProductSchema />
+      <IntegrationStructuredData integrations={['Booksy', 'Google Calendar', 'Microsoft Outlook', 'Calendly']} />
       <FAQSchema faqs={[
         {
           question: 'Jak szybko mogę wdrożyć AI Sekretarkę?',
@@ -73,6 +75,10 @@ export default function AISekretarkaPage() {
         {
           question: 'Czy AI Sekretarka może umawiać wizyty?',
           answer: 'Tak! AI Sekretarka automatycznie zapisuje terminy do kalendarza (Google Calendar lub Booksy) i wysyła SMS-y potwierdzające zarówno do klienta jak i właściciela firmy.'
+        },
+        {
+          question: 'Czy AI Sekretarka integruje się z Booksy?',
+          answer: 'Tak! Jesteśmy jedną z nielicznych, jeśli nie jedyną AI sekretarką na rynku z pełną, dwukierunkową integracją z systemem Booksy. Integracja obejmuje automatyczną synchronizację wizyt w czasie rzeczywistym, zarządzanie dostępnością i przypomnienia dla klientów.'
         },
         {
           question: 'Czy mogę anulować w każdej chwili?',
@@ -327,62 +333,10 @@ export default function AISekretarkaPage() {
         </div>
       </section>
 
-      {/* Stats Section - Live Activity Dashboard */}
-      <section className="relative py-16 px-4 overflow-hidden bg-gradient-to-br from-blue-50/30 via-white to-blue-50/30">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-[0.02]" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23007BFF' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
+      <LostRevenueCalculator compact={true} />
 
-        <div className="container mx-auto max-w-6xl relative z-10">
-          {/* Animated Stats Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <AnimatedStatCard
-              icon={Users}
-              value={42}
-              suffix="+"
-              label="Aktywne sesje"
-              sublabel="w tym momencie"
-              trend="↗ +18% w tym tygodniu"
-              color="blue"
-              delay={0}
-            />
-            <AnimatedStatCard
-              icon={Clock}
-              value={2.8}
-              suffix="s"
-              label="Czas odpowiedzi"
-              sublabel="średnio"
-              trend="↘ -12% szybciej"
-              color="green"
-              delay={0.1}
-            />
-            <AnimatedStatCard
-              icon={TrendingUp}
-              value={99.9}
-              suffix="%"
-              label="Dostępność"
-              sublabel="ostatnie 30 dni"
-              trend="✓ 100% SLA"
-              color="purple"
-              delay={0.2}
-            />
-            <AnimatedStatCard
-              icon={Star}
-              value={20}
-              suffix="+"
-              label="Zadowolonych firm"
-              sublabel="aktywnych klientów"
-              trend="↗ +5 w tym miesiącu"
-              color="orange"
-              delay={0.3}
-            />
-          </div>
-        </div>
-      </section>
-
-      <LostRevenueCalculator />
-
+      {/* Calendar Integration Section - Booksy SEO */}
+      <CalendarIntegrationSection />
 
       {/* Features Section */}
       <section id="funkcje" className="py-12 px-4 bg-gray-50">
@@ -423,7 +377,7 @@ export default function AISekretarkaPage() {
                 Automatyczne Rezerwacje
               </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Wpisywanie terminów do kalendarza (Google Calendar lub Booksy)
+                <strong>Ekskluzywna integracja z Booksy</strong> - jesteśmy jedną z nielicznych, jeśli nie jedyną AI z taką integracją! Dodatkowo Google Calendar, Outlook i inne systemy rezerwacji - automatyczna synchronizacja wizyt
               </p>
             </div>
 
@@ -549,64 +503,6 @@ export default function AISekretarkaPage() {
               </Button>
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* Call Example Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-[#007BFF] px-6 py-3 rounded-full text-sm font-semibold mb-6">
-              <MessageSquare className="w-4 h-4" />
-              Przykład
-            </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-black mb-6">
-              Przykładowa Rozmowa z AI Sekretarką
-            </h2>
-          </div>
-          
-          <div className="bg-gradient-to-br from-white to-blue-50 border-2 border-[#007BFF]/20 p-10 rounded-3xl shadow-xl space-y-6">
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                <Users className="w-5 h-5 text-gray-600" />
-              </div>
-              <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-md flex-1">
-                <p className="text-black">Dzień dobry, chcę umówić spotkanie na piątek.</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 justify-end">
-              <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] p-4 rounded-2xl rounded-tr-none shadow-md flex-1 max-w-md">
-                <p className="text-white">Dzień dobry! Wolny termin na piątek o 15:00. Czy pasuje?</p>
-              </div>
-              <div className="w-10 h-10 bg-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                <Users className="w-5 h-5 text-gray-600" />
-              </div>
-              <div className="bg-white p-4 rounded-2xl rounded-tl-none shadow-md flex-1">
-                <p className="text-black">Tak, na imię Anna.</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 justify-end">
-              <div className="bg-gradient-to-br from-[#007BFF] to-[#0056b3] p-4 rounded-2xl rounded-tr-none shadow-md flex-1 max-w-md">
-                <p className="text-white">Zarezerwowano! Wysyłam SMS potwierdzenie. Dziękujemy!</p>
-              </div>
-              <div className="w-10 h-10 bg-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0">
-                <Sparkles className="w-5 h-5 text-white" />
-              </div>
-            </div>
-          </div>
-          
-          <p className="text-center text-gray-600 mt-8 text-lg flex items-center justify-center gap-2">
-            <CheckCircle2 className="w-5 h-5 text-green-500" />
-            AI może ustalić termin spotkania, sprawdzić ceny, potwierdzić i wysłać SMS
-          </p>
         </div>
       </section>
 

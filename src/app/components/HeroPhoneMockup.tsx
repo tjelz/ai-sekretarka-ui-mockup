@@ -1,25 +1,80 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Calendar, MessageSquare, Check } from 'lucide-react';
+import { Phone, PhoneOff, X } from 'lucide-react';
 import FloatingStatsCard from './FloatingStatsCard';
 import { Clock, TrendingUp, Shield } from 'lucide-react';
 
-export default function HeroPhoneMockup() {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+type CallState = 'incoming' | 'active' | 'ended';
 
-  // Animation sequence
-  const steps = [
-    { type: 'incoming', text: 'Dzwoni: Anna Kowalska' },
-    { type: 'ai-response', text: 'Dzień dobry! Jak mogę pomóc?' },
-    { type: 'user-message', text: 'Chcę umówić wizytę na piątek' },
-    { type: 'ai-thinking', text: '...' },
-    { type: 'calendar', text: 'Dostępny termin: piątek 15:00' },
-    { type: 'confirmation', text: 'Wizyta zarezerwowana!' },
-    { type: 'sms', text: 'SMS wysłany do klienta' },
-  ];
+export default function HeroPhoneMockup() {
+  const [callState, setCallState] = useState<CallState>('incoming');
+  const [isMobile, setIsMobile] = useState(false);
+  const [callDuration, setCallDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const durationIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const callerInfo = {
+    name: 'Anna Kowalska',
+    number: '+48 123 456 789',
+    avatar: '👤'
+  };
+
+  // Initialize audio element
+  useEffect(() => {
+    audioRef.current = new Audio('/audio-call-2.mp3');
+    audioRef.current.preload = 'auto';
+    
+    // Handle audio events
+    const audio = audioRef.current;
+    
+    const handleEnded = () => {
+      setCallState('ended');
+      if (durationIntervalRef.current) {
+        clearInterval(durationIntervalRef.current);
+      }
+    };
+    const handleError = () => {
+      console.error('Error loading audio file');
+      setCallState('ended');
+    };
+
+    audio.addEventListener('ended', handleEnded);
+    audio.addEventListener('error', handleError);
+
+    return () => {
+      audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener('error', handleError);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+      if (durationIntervalRef.current) {
+        clearInterval(durationIntervalRef.current);
+      }
+    };
+  }, []);
+
+  // Track call duration
+  useEffect(() => {
+    if (callState === 'active') {
+      durationIntervalRef.current = setInterval(() => {
+        setCallDuration((prev) => prev + 1);
+      }, 1000);
+    } else {
+      if (durationIntervalRef.current) {
+        clearInterval(durationIntervalRef.current);
+      }
+    }
+
+    return () => {
+      if (durationIntervalRef.current) {
+        clearInterval(durationIntervalRef.current);
+      }
+    };
+  }, [callState]);
 
   useEffect(() => {
     // Check if mobile
@@ -27,16 +82,78 @@ export default function HeroPhoneMockup() {
     checkMobile();
     window.addEventListener('resize', checkMobile);
 
-    // Slower animation on mobile for better performance
-    const interval = setInterval(() => {
-      setCurrentStep((prev) => (prev + 1) % steps.length);
-    }, isMobile ? 3500 : 2500);
-
     return () => {
-      clearInterval(interval);
       window.removeEventListener('resize', checkMobile);
     };
-  }, [isMobile]);
+  }, []);
+
+  // Update current time every minute
+  useEffect(() => {
+    const updateTime = () => {
+      setCurrentTime(new Date());
+    };
+
+    // Update immediately
+    updateTime();
+
+    // Update every minute
+    const timeInterval = setInterval(updateTime, 60000);
+
+    return () => {
+      clearInterval(timeInterval);
+    };
+  }, []);
+
+  const formatCallDuration = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
+
+  const formatCurrentTime = (date: Date) => {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+  };
+
+  const handleAcceptCall = async () => {
+    if (!audioRef.current) return;
+
+    try {
+      setCallState('active');
+      setCallDuration(0);
+      await audioRef.current.play();
+    } catch (error) {
+      console.error('Error playing audio:', error);
+      setCallState('ended');
+    }
+  };
+
+  const handleDeclineCall = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    setCallState('ended');
+    setCallDuration(0);
+  };
+
+  const handleEndCall = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    setCallState('ended');
+    setCallDuration(0);
+  };
+
+  const handleReset = () => {
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+    }
+    setCallState('incoming');
+    setCallDuration(0);
+  };
 
   return (
     <div className="relative w-full h-[500px] flex items-center justify-center">
@@ -75,153 +192,166 @@ export default function HeroPhoneMockup() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-2xl z-30" />
 
         {/* Phone Screen */}
-        <div className="absolute inset-2 bg-white rounded-[32px] overflow-hidden z-20">
+        <div className="absolute inset-2 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 rounded-[32px] overflow-hidden z-20">
           {/* Status Bar */}
-          <div className="h-12 bg-gradient-to-r from-[#007BFF] to-[#0056b3] flex items-center justify-between px-4 text-white text-xs relative z-30">
+          <div className="h-12 bg-black/30 flex items-center justify-between px-4 text-white text-xs relative z-30 backdrop-blur-sm">
             <span className="font-semibold">AI Sekretarka</span>
-            <span>9:41</span>
+            <span>{formatCurrentTime(currentTime)}</span>
           </div>
 
-          {/* Chat Area */}
-          <div className="p-4 space-y-3 bg-gray-50 h-[calc(100%-3rem)] overflow-hidden relative z-20">
+          {/* Call Screen */}
+          <div className="h-[calc(100%-3rem)] flex flex-col items-center justify-between py-12 px-6 relative z-20">
             <AnimatePresence mode="wait">
-              {currentStep === 0 && (
+              {callState === 'incoming' && (
                 <motion.div
                   key="incoming"
-                  className="flex items-center gap-3 bg-green-100 p-4 rounded-xl"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0, opacity: 0 }}
+                  className="flex flex-col items-center justify-center h-full w-full"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
                 >
+                  {/* Caller Avatar */}
                   <motion.div
-                    className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 1, repeat: Infinity }}
+                    className="w-32 h-32 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-full flex items-center justify-center mb-6 shadow-2xl"
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <Phone className="w-5 h-5 text-white" />
+                    <span className="text-6xl">{callerInfo.avatar}</span>
                   </motion.div>
-                  <div>
-                    <p className="font-semibold text-gray-900">Przychodzące</p>
-                    <p className="text-sm text-gray-600">{steps[0].text}</p>
-                  </div>
+
+                  {/* Caller Info */}
+                  <motion.div
+                    className="text-center mb-8"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <h2 className="text-3xl font-bold text-white mb-2">{callerInfo.name}</h2>
+                    <p className="text-gray-300 text-lg">{callerInfo.number}</p>
+                    <motion.p
+                      className="text-gray-400 mt-4 text-sm"
+                      animate={{ opacity: [0.5, 1, 0.5] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      Przychodzące połączenie...
+                    </motion.p>
+                  </motion.div>
+
+                  {/* Call Buttons */}
+                  <motion.div
+                    className="flex items-center gap-8 w-full justify-center"
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                  >
+                    {/* Decline Button */}
+                    <motion.button
+                      onClick={handleDeclineCall}
+                      className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center shadow-lg hover:bg-red-600 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label="Decline call"
+                    >
+                      <X className="w-8 h-8 text-white" />
+                    </motion.button>
+
+                    {/* Accept Button */}
+                    <motion.button
+                      onClick={handleAcceptCall}
+                      className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center shadow-xl hover:bg-green-600 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label="Accept call"
+                    >
+                      <Phone className="w-10 h-10 text-white" />
+                    </motion.button>
+                  </motion.div>
                 </motion.div>
               )}
 
-              {currentStep >= 1 && currentStep <= 4 && (
+              {callState === 'active' && (
                 <motion.div
-                  key="chat"
-                  className="space-y-2"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+                  key="active"
+                  className="flex flex-col items-center justify-center h-full w-full"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
                 >
-                  {/* AI Response */}
+                  {/* Caller Avatar */}
                   <motion.div
-                    className="flex items-start gap-2"
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
+                    className="w-32 h-32 bg-gradient-to-br from-[#007BFF] to-[#0056b3] rounded-full flex items-center justify-center mb-6 shadow-2xl"
+                    animate={{ scale: [1, 1.02, 1] }}
+                    transition={{ duration: 3, repeat: Infinity }}
                   >
-                    <div className="w-8 h-8 bg-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0">
-                      <MessageSquare className="w-4 h-4 text-white" />
-                    </div>
-                    <div className="bg-blue-100 rounded-2xl rounded-tl-none px-4 py-2 max-w-[70%]">
-                      <p className="text-sm text-gray-900">{steps[1].text}</p>
-                    </div>
+                    <span className="text-6xl">{callerInfo.avatar}</span>
                   </motion.div>
 
-                  {/* User Message */}
-                  {currentStep >= 2 && (
-                    <motion.div
-                      className="flex justify-end"
-                      initial={{ x: 20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
+                  {/* Caller Info */}
+                  <div className="text-center mb-4">
+                    <h2 className="text-3xl font-bold text-white mb-2">{callerInfo.name}</h2>
+                    <p className="text-gray-300 text-lg mb-4">{callerInfo.number}</p>
+                    <motion.p
+                      className="text-green-400 text-sm font-semibold"
+                      animate={{ opacity: [0.7, 1, 0.7] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
                     >
-                      <div className="bg-gray-200 rounded-2xl rounded-tr-none px-4 py-2 max-w-[70%]">
-                        <p className="text-sm text-gray-900">{steps[2].text}</p>
-                      </div>
-                    </motion.div>
-                  )}
+                      Połączenie aktywne
+                    </motion.p>
+                    <p className="text-white text-2xl font-mono mt-4">
+                      {formatCallDuration(callDuration)}
+                    </p>
+                  </div>
 
-                  {/* AI Thinking */}
-                  {currentStep === 3 && (
-                    <motion.div
-                      className="flex items-start gap-2"
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                    >
-                      <div className="w-8 h-8 bg-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0">
-                        <MessageSquare className="w-4 h-4 text-white" />
-                      </div>
-                      <div className="bg-blue-100 rounded-2xl rounded-tl-none px-4 py-3">
-                        <motion.div
-                          className="flex gap-1"
-                          animate={{ opacity: [0.4, 1, 0.4] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                        >
-                          <div className="w-2 h-2 bg-[#007BFF] rounded-full" />
-                          <div className="w-2 h-2 bg-[#007BFF] rounded-full" />
-                          <div className="w-2 h-2 bg-[#007BFF] rounded-full" />
-                        </motion.div>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  {/* Calendar Event */}
-                  {currentStep === 4 && (
-                    <motion.div
-                      className="flex items-start gap-2"
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                    >
-                      <div className="w-8 h-8 bg-[#007BFF] rounded-full flex items-center justify-center flex-shrink-0">
-                        <Calendar className="w-4 h-4 text-white" />
-                      </div>
-                      <div className="bg-blue-100 rounded-2xl rounded-tl-none px-4 py-2">
-                        <p className="text-sm text-gray-900">{steps[4].text}</p>
-                      </div>
-                    </motion.div>
-                  )}
+                  {/* Hang Up Button */}
+                  <motion.button
+                    onClick={handleEndCall}
+                    className="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center shadow-xl hover:bg-red-600 transition-colors mt-8"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    aria-label="End call"
+                  >
+                    <PhoneOff className="w-10 h-10 text-white" />
+                  </motion.button>
                 </motion.div>
               )}
 
-              {/* Confirmation */}
-              {currentStep === 5 && (
+              {callState === 'ended' && (
                 <motion.div
-                  key="confirmation"
-                  className="flex flex-col items-center justify-center h-full gap-4"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0, opacity: 0 }}
+                  key="ended"
+                  className="flex flex-col items-center justify-center h-full w-full"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
                 >
+                  {/* Caller Avatar */}
                   <motion.div
-                    className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center"
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 0.5 }}
+                    className="w-32 h-32 bg-gray-600 rounded-full flex items-center justify-center mb-6 shadow-2xl"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: 'spring', stiffness: 200 }}
                   >
-                    <Check className="w-10 h-10 text-white" />
+                    <span className="text-6xl">{callerInfo.avatar}</span>
                   </motion.div>
-                  <p className="text-lg font-bold text-gray-900">{steps[5].text}</p>
-                  <p className="text-sm text-gray-600 text-center px-4">
-                    Anna Kowalska<br />Piątek, 15:00
-                  </p>
-                </motion.div>
-              )}
 
-              {/* SMS Notification */}
-              {currentStep === 6 && (
-                <motion.div
-                  key="sms"
-                  className="flex items-center gap-3 bg-purple-100 p-4 rounded-xl"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                >
-                  <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
-                    <MessageSquare className="w-5 h-5 text-white" />
+                  {/* Call Ended Info */}
+                  <div className="text-center mb-8">
+                    <h2 className="text-3xl font-bold text-white mb-2">{callerInfo.name}</h2>
+                    <p className="text-gray-400 text-lg mb-4">Połączenie zakończone</p>
+                    <p className="text-gray-500 text-sm">
+                      Czas trwania: {formatCallDuration(callDuration)}
+                    </p>
                   </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">{steps[6].text}</p>
-                    <p className="text-xs text-gray-600">Potwierdzenie wizyty</p>
-                  </div>
+
+                  {/* Reset Button */}
+                  <motion.button
+                    onClick={handleReset}
+                    className="px-6 py-3 bg-[#007BFF] rounded-full text-white font-semibold hover:bg-[#0056b3] transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    aria-label="Reset call"
+                  >
+                    Odtwórz ponownie
+                  </motion.button>
                 </motion.div>
               )}
             </AnimatePresence>

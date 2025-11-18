@@ -2,7 +2,6 @@
 
 import { OrganizationSchema, ProductSchema, FAQSchema, BreadcrumbSchema } from "@/components/seo"
 import IntegrationStructuredData from "@/components/seo/IntegrationStructuredData"
-import { Navbar } from "@/components/ui/navbar"
 import { Footer } from "@/components/ui/footer"
 import { Button } from "@/components/ui/button"
 import { Phone, Calendar, MessageSquare, Shield, Clock, Zap, TrendingUp, CheckCircle2, Users, Settings, ArrowRight, Star, Sparkles, AlertCircle } from "lucide-react"
@@ -15,10 +14,12 @@ import AnimatedBackground from "../components/AnimatedBackground"
 import HeroPhoneMockup from "../components/HeroPhoneMockup"
 import TypewriterText from "../components/TypewriterText"
 import CalendarIntegrationSection from "../components/CalendarIntegrationSection"
+import OnboardingModal from "../components/OnboardingModal"
 
 export default function AISekretarkaPage() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isOnboardingOpen, setIsOnboardingOpen] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -51,6 +52,14 @@ export default function AISekretarkaPage() {
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const handleOpenOnboarding = () => {
+    setIsOnboardingOpen(true)
+  }
+
+  const handleCloseOnboarding = () => {
+    setIsOnboardingOpen(false)
   }
 
   return (
@@ -271,7 +280,7 @@ export default function AISekretarkaPage() {
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
                 <a
                   href="https://forms.fillout.com/t/xityvM2L42us"
                   target="_blank"
@@ -300,6 +309,15 @@ export default function AISekretarkaPage() {
                     Zobacz 15-Min Demo
                   </Button>
                 </a>
+                <Button
+                  size="lg"
+                  onClick={handleOpenOnboarding}
+                  aria-label="Rozpocznij onboarding i wypróbuj usługę za darmo"
+                  className="bg-gray-900 text-white hover:bg-black text-xl px-10 py-8 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                >
+                  <Sparkles className="w-5 h-5" />
+                  Wypróbuj za darmo
+                </Button>
               </div>
 
               {/* Quick Value Props */}
@@ -337,6 +355,8 @@ export default function AISekretarkaPage() {
 
       {/* Calendar Integration Section - Booksy SEO */}
       <CalendarIntegrationSection />
+
+      <OnboardingModal isOpen={isOnboardingOpen} onClose={handleCloseOnboarding} />
 
       {/* Features Section */}
       <section id="funkcje" className="py-12 px-4 bg-gray-50">

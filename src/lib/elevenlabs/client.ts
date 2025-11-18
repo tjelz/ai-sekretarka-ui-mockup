@@ -9,6 +9,7 @@ import { z } from 'zod';
 const elevenLabsEnvSchema = z.object({
   ELEVENLABS_API_KEY: z.string().min(1, 'ElevenLabs API key is required'),
   ELEVENLABS_BASE_URL: z.string().url().default('https://api.elevenlabs.io'),
+  ELEVENLABS_PROJECT_ID: z.string().optional(),
 });
 
 // Type definitions
@@ -29,6 +30,11 @@ export interface Agent {
   greeting_message?: string;
   context?: string;
   language?: string;
+  conversation_config?: {
+    speaking_style?: string;
+    response_length?: 'short' | 'medium' | 'long';
+    temperature?: number;
+  };
   created_at: string;
   updated_at: string;
 }
@@ -60,15 +66,18 @@ export interface ConversationMetrics {
 export class ElevenLabsClient {
   private apiKey: string;
   private baseUrl: string;
+  private projectId?: string;
 
   constructor() {
     const env = elevenLabsEnvSchema.parse({
       ELEVENLABS_API_KEY: process.env.ELEVENLABS_API_KEY,
       ELEVENLABS_BASE_URL: process.env.ELEVENLABS_BASE_URL,
+      ELEVENLABS_PROJECT_ID: process.env.ELEVENLABS_PROJECT_ID,
     });
 
     this.apiKey = env.ELEVENLABS_API_KEY;
     this.baseUrl = env.ELEVENLABS_BASE_URL;
+    this.projectId = env.ELEVENLABS_PROJECT_ID;
   }
 
   private async request<T>(
@@ -86,14 +95,34 @@ export class ElevenLabsClient {
       },
     });
 
+    const responseBody = await response.text();
+
     if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
+      let errorDetail: any = {};
+      try {
+        errorDetail = responseBody ? JSON.parse(responseBody) : {};
+      } catch {
+        errorDetail = { raw: responseBody };
+      }
+
+      console.error("[ElevenLabs] Request failed", {
+        endpoint,
+        status: response.status,
+        statusText: response.statusText,
+        detail: errorDetail,
+        payloadPreview: typeof options.body === "string" ? options.body.slice(0, 500) : undefined
+      });
+
       throw new Error(
-        `ElevenLabs API error: ${response.status} - ${error.detail || response.statusText}`
+        `ElevenLabs API error: ${response.status} - ${errorDetail.detail || response.statusText}`
       );
     }
 
-    return response.json();
+    if (!responseBody) {
+      return {} as T;
+    }
+
+    return JSON.parse(responseBody) as T;
   }
 
   // Voice Management
@@ -117,10 +146,17 @@ export class ElevenLabsClient {
   }
 
   async createAgent(config: AgentConfig): Promise<Agent> {
-    return this.request<Agent>('/v1/convai/agents', {
+    return this.request<Agent>('/v1/convai/agents/create', {
       method: 'POST',
       body: JSON.stringify(config),
     });
+  }
+
+  async createKnowledgeBaseDocumentFromUrl(params: { url: string; name?: string }) {
+    return this.request<{ id: string; name: string }>('/v1/convai/knowledge-base/url', {
+      method: 'POST',
+      body: JSON.stringify(params)
+    })
   }
 
   async updateAgent(agentId: string, config: Partial<AgentConfig>): Promise<Agent> {

@@ -130,7 +130,7 @@ export default async function SettingsPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label>ElevenLabs API Key</Label>
+            <Label>API Key</Label>
             <div className="flex space-x-2">
               <Input type="password" value="sk_••••••••••••••••" readOnly />
               <Button variant="outline">Update</Button>

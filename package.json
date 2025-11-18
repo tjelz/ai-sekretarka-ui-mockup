@@ -18,7 +18,8 @@
         "test:e2e": "playwright test --config tests/setup/playwright.config.ts",
         "test:e2e:ui": "playwright test --config tests/setup/playwright.config.ts --ui",
         "test:e2e:headed": "playwright test --config tests/setup/playwright.config.ts --headed",
-        "test:all": "npm run test:ci && npm run test:e2e"
+        "test:all": "npm run test:ci && npm run test:e2e",
+        "db:migrate": "node scripts/run-migration.js"
     },
     "dependencies": {
         "@auth/pg-adapter": "^1.11.1",

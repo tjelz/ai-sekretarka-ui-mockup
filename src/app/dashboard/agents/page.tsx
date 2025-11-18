@@ -5,60 +5,66 @@
 
 import { auth } from '@/auth';
 import { redirect } from 'next/navigation';
-import { AgentList } from '@/components/dashboard/AgentList';
 import { Button } from '@/components/ui/button';
-import { Plus } from 'lucide-react';
 import Link from 'next/link';
+import OnboardingTable from '@/components/dashboard/OnboardingTable';
+import { listOnboardingSubmissions } from '@/db/onboarding';
+import type { OnboardingStatus } from '@/types/onboarding';
 
-// Mock data - replace with actual API calls
-const mockAgents = [
-  {
-    agent_id: '1',
-    name: 'Sales Assistant',
-    voice_id: 'voice_1',
-    description: 'Handles incoming sales inquiries and qualifies leads',
-    greeting_message: 'Hello! How can I help you today?',
-    language: 'English',
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  },
-  {
-    agent_id: '2',
-    name: 'Support Bot',
-    voice_id: 'voice_2',
-    description: 'Provides customer support and troubleshooting',
-    greeting_message: 'Hi! I\'m here to help with any issues you might have.',
-    language: 'English',
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  },
-];
+type AgentsPageProps = {
+  searchParams?: Record<string, string | string[] | undefined>;
+};
 
-export default async function AgentsPage() {
+const statusOptions = new Set<"all" | OnboardingStatus>([
+  "all",
+  "pending",
+  "agent_ready",
+  "completed",
+  "failed"
+]);
+
+export default async function AgentsPage({ searchParams }: AgentsPageProps) {
   const session = await auth();
 
   if (!session?.user) {
     redirect('/login');
   }
 
+  const statusParam = searchParams?.status;
+  const statusValue =
+    typeof statusParam === 'string' && statusOptions.has(statusParam as any)
+      ? (statusParam as "all" | OnboardingStatus)
+      : "all";
+
+  const submissions = await listOnboardingSubmissions({
+    status: statusValue === "all" ? undefined : statusValue,
+    limit: 100
+  });
+
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">AI Agents</h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">
-            Manage your AI voice assistants
+          <h1 className="text-3xl font-bold">Agenci głosowi</h1>
+          <p className="mt-1 text-sm text-gray-500">
+            Monitoruj zgłoszenia onboardingowe i szybciej uruchamiaj nowych agentów dla klientów.
           </p>
         </div>
-        <Button asChild>
-          <Link href="/dashboard/agents/new">
-            <Plus className="mr-2 h-4 w-4" />
-            Create Agent
-          </Link>
-        </Button>
+        <div className="flex flex-wrap gap-2">
+          <Button asChild variant="outline">
+            <Link href="/ai-sekretarka">
+              Wyświetl stronę onboardingową
+            </Link>
+          </Button>
+          <Button asChild>
+            <Link href="/dashboard">
+              Przejdź do panelu agenta
+            </Link>
+          </Button>
+        </div>
       </div>
 
-      <AgentList agents={mockAgents} />
+      <OnboardingTable submissions={submissions} selectedStatus={statusValue} />
     </div>
   );
 }

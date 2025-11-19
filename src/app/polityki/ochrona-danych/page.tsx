@@ -1,6 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
-import PolicyLayout from '@/components/policies/PolicyLayout';
+import PolicyLayout from '../components/PolicyLayout';
 import { formatPolicyContent, parsePolicyMetadata } from '@/lib/policies/format-policy';
 import { PolicyStructuredData } from '@/lib/policies/structured-data';
 import fs from 'fs';

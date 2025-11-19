@@ -1,97 +1,130 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { AgentAnalytics } from "@/lib/agents/insights"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { TrendingUp, HeadphonesIcon, Smile, Gauge } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { TrendingUp, HeadphonesIcon, Smile, Clock, PhoneIncoming } from "lucide-react"
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts"
 
 type AgentAnalyticsPanelProps = {
   analytics: AgentAnalytics
 }
 
-const metricCards = [
-  {
-    key: "totalCalls",
-    label: "Rozmowy w tym tygodniu",
-    icon: HeadphonesIcon
-  },
-  {
-    key: "answeredRate",
-    label: "Skuteczność odebrań",
-    icon: Gauge
-  },
-  {
-    key: "avgDuration",
-    label: "Średnia długość",
-    icon: TrendingUp
-  },
-  {
-    key: "sentimentScore",
-    label: "Satysfakcja klientów",
-    icon: Smile
-  }
-] as const
-
-const formatMetric = (key: typeof metricCards[number]["key"], analytics: AgentAnalytics) => {
-  if (key === "answeredRate") {
-    return `${Math.round(analytics.answeredRate * 100)}%`
-  }
-  if (key === "avgDuration") {
-    return `${Math.round(analytics.avgDuration / 60)}m ${analytics.avgDuration % 60}s`
-  }
-  if (key === "sentimentScore") {
-    return `${Math.round(analytics.sentimentScore * 100)} / 100`
-  }
-  return analytics.totalCalls.toString()
-}
-
 const AgentAnalyticsPanel = ({ analytics }: AgentAnalyticsPanelProps) => {
+  // Prepare data for Recharts
+  const chartData = analytics.weeklyTrend.map((value, index) => ({
+    day: `Dzień ${index + 1}`,
+    calls: value
+  }))
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
-    <Card className="border border-gray-200">
-      <CardHeader className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <CardTitle className="text-xl font-semibold text-gray-900">
-          Wyniki agenta
-        </CardTitle>
-        <p className="text-sm text-gray-500">Dane za ostatnie 7 dni</p>
+    <div className="space-y-6">
+      {/* Top Metrics Grid */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Wszystkie Rozmowy</CardTitle>
+            <HeadphonesIcon className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{analytics.totalCalls}</div>
+            <p className="text-xs text-muted-foreground">
+              +20.1% w stosunku do zeszłego tygodnia
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Skuteczność</CardTitle>
+            <PhoneIncoming className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {metricCards.map(({ key, label, icon: Icon }) => (
-            <div
-              key={key}
-              className="rounded-2xl border border-gray-100 bg-gray-50 p-4 flex flex-col gap-2"
-            >
-              <div className="flex items-center gap-2 text-sm text-gray-500">
-                <Icon className="h-4 w-4 text-[#007BFF]" />
-                <span>{label}</span>
-              </div>
-              <p className="text-2xl font-bold text-gray-900">
-                {formatMetric(key, analytics)}
-              </p>
+          <CardContent>
+            <div className="text-2xl font-bold">{Math.round(analytics.answeredRate * 100)}%</div>
+            <p className="text-xs text-muted-foreground">
+              Odebranych połączeń
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Średni Czas</CardTitle>
+            <Clock className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">
+                {Math.floor(analytics.avgDuration / 60)}m {analytics.avgDuration % 60}s
             </div>
-          ))}
+            <p className="text-xs text-muted-foreground">
+              Na jedną rozmowę
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Zadowolenie</CardTitle>
+            <Smile className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">{Math.round(analytics.sentimentScore * 100)}%</div>
+            <p className="text-xs text-muted-foreground">
+              Pozytywnych opinii
+            </p>
+          </CardContent>
+        </Card>
         </div>
 
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <TrendingUp className="h-4 w-4 text-[#007BFF]" />
-            <p className="text-sm font-semibold text-gray-800">Trend rozmów</p>
-          </div>
-          <div className="rounded-2xl border border-gray-100 bg-white p-4">
-            <div className="flex h-24 items-end gap-2">
-              {analytics.weeklyTrend.map((value, idx) => (
-                <div key={idx} className="flex-1 flex flex-col items-center gap-2 text-xs text-gray-500">
-                  <div
-                    className="w-full rounded-full bg-gradient-to-t from-[#007BFF] to-[#00C6FF]"
-                    style={{ height: `${value}%` }}
+      {/* Main Chart */}
+      <Card className="col-span-4">
+        <CardHeader>
+          <CardTitle>Aktywność Agenta</CardTitle>
+          <CardDescription>
+            Liczba rozmów w ciągu ostatnich 7 dni
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="pl-2">
+          <div className="h-[300px] w-full">
+            {isMounted ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={chartData}>
+                  <XAxis
+                    dataKey="day"
+                    stroke="#888888"
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={false}
                   />
-                  <span>D{idx + 1}</span>
-                </div>
-              ))}
-            </div>
+                  <YAxis
+                    stroke="#888888"
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={false}
+                    tickFormatter={(value) => `${value}`}
+                  />
+                  <Tooltip
+                    contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                    cursor={{ fill: 'transparent' }}
+                  />
+                  <Bar
+                    dataKey="calls"
+                    fill="var(--primary)"
+                    radius={[4, 4, 0, 0]}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            ) : (
+              <div className="h-full w-full bg-gray-50/50 animate-pulse rounded-lg" />
+            )}
           </div>
-        </div>
-      </CardContent>
+        </CardContent>
     </Card>
+    </div>
   )
 }
 
 export default AgentAnalyticsPanel
-

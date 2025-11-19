@@ -87,8 +87,13 @@ export const getAgentAnalytics = async (agentId: string): Promise<AgentAnalytics
       sentimentScore,
       weeklyTrend
     }
-  } catch (error) {
-    console.warn('Failed to fetch real analytics data from ElevenLabs, falling back to mock data:', error)
+  } catch (error: any) {
+    const is404 = error?.status === 404 || error?.message?.includes('404');
+    if (!is404) {
+      console.warn('Failed to fetch real analytics data from ElevenLabs, falling back to mock data:', error)
+    } else {
+      // Silently fall back to mock data for 404s (expected for mock/new agents)
+    }
 
     // Fallback to mock data if API fails
     const seed = getSeed(agentId)
@@ -138,8 +143,13 @@ export const getRecentTranscripts = async (
         highlights
       }
     })
-  } catch (error) {
-    console.warn('Failed to fetch real transcript data from ElevenLabs, falling back to mock data:', error)
+  } catch (error: any) {
+    const is404 = error?.status === 404 || error?.message?.includes('404');
+    if (!is404) {
+      console.warn('Failed to fetch real transcript data from ElevenLabs, falling back to mock data:', error)
+    } else {
+      // Silently fall back to mock data for 404s
+    }
 
     // Fallback to mock data if API fails
     const seed = getSeed(agentId)

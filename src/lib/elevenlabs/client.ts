@@ -105,17 +105,22 @@ export class ElevenLabsClient {
         errorDetail = { raw: responseBody };
       }
 
-      console.error("[ElevenLabs] Request failed", {
-        endpoint,
-        status: response.status,
-        statusText: response.statusText,
-        detail: errorDetail,
-        payloadPreview: typeof options.body === "string" ? options.body.slice(0, 500) : undefined
-      });
+      // Suppress 404 logs for metrics and conversations as they are expected for new agents
+      if (response.status !== 404) {
+        console.error("[ElevenLabs] Request failed", {
+          endpoint,
+          status: response.status,
+          statusText: response.statusText,
+          detail: errorDetail,
+          payloadPreview: typeof options.body === "string" ? options.body.slice(0, 500) : undefined
+        });
+      }
 
-      throw new Error(
+      const error = new Error(
         `ElevenLabs API error: ${response.status} - ${errorDetail.detail || response.statusText}`
       );
+      (error as any).status = response.status; // Attach status to error object
+      throw error;
     }
 
     if (!responseBody) {

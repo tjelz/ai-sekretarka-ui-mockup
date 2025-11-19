@@ -1,7 +1,7 @@
 "use client"
 
 import { AgentTranscript } from "@/lib/agents/insights"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -28,6 +28,11 @@ const sentimentConfig: Record<AgentTranscript["sentiment"], { label: string; cla
 
 const TranscriptList = ({ transcripts }: TranscriptListProps) => {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const toggleRow = (id: string) => {
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }))
@@ -57,12 +62,12 @@ const TranscriptList = ({ transcripts }: TranscriptListProps) => {
                 <div>
                   <p className="text-sm font-semibold text-gray-900">{transcript.caller}</p>
                   <p className="text-xs text-gray-500">
-                    {new Date(transcript.createdAt).toLocaleString("pl-PL", {
+                    {mounted ? new Date(transcript.createdAt).toLocaleString("pl-PL", {
                       day: "2-digit",
                       month: "short",
                       hour: "2-digit",
                       minute: "2-digit"
-                    })}
+                    }) : <span className="opacity-0">Loading...</span>}
                   </p>
                 </div>
                 <div className="flex items-center gap-2">

@@ -10,24 +10,21 @@ export { viewport } from './viewport';
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.yieldo.pl'),
   title: {
-    default: 'Yieldo - AI Sekretarka | Automatyczna Obsługa Telefonów 24/7',
+    default: 'Yieldo - Inteligentna Automatyzacja Biznesu',
     template: '%s | Yieldo'
   },
-  description: 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczna obsługa telefonów 24/7, umawianie wizyt i zarządzanie klientami. Oszczędź czas i zwiększ przychody.',
+  description: 'Yieldo dostarcza zaawansowanych agentów AI, którzy automatyzują obsługę klienta, sprzedaż i rezerwacje wizyt 24/7. Zwiększ zyski swojej firmy.',
   keywords: [
     'AI Sekretarka',
-    'automatyczna obsługa telefonów',
-    'wirtualna sekretarka',
-    'AI dla biznesu',
     'automatyzacja biznesu',
-    'Yieldo',
+    'sztuczna inteligencja dla firm',
+    'wirtualna recepcjonistka',
     'obsługa klienta AI',
-    'rezerwacje online',
-    'umówienie wizyty',
-    'asystent AI',
-    'sekretarka 24/7'
+    'automatyczne umawianie wizyt',
+    'Booksy integracja AI',
+    'Yieldo'
   ],
-  authors: [{ name: 'Yieldo' }],
+  authors: [{ name: 'Yieldo Team' }],
   creator: 'Yieldo',
   publisher: 'Yieldo',
   robots: {
@@ -51,21 +48,21 @@ export const metadata: Metadata = {
     locale: 'pl_PL',
     url: 'https://www.yieldo.pl',
     siteName: 'Yieldo',
-    title: 'Yieldo - AI Sekretarka | Automatyczna Obsługa Telefonów 24/7',
-    description: 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczna obsługa telefonów 24/7, umawianie wizyt i zarządzanie klientami.',
+    title: 'Yieldo - Inteligentna Automatyzacja Biznesu',
+    description: 'Yieldo dostarcza zaawansowanych agentów AI, którzy automatyzują obsługę klienta, sprzedaż i rezerwacje wizyt 24/7.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Yieldo - AI Sekretarka',
+        alt: 'Yieldo AI Platform',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Yieldo - AI Sekretarka | Automatyczna Obsługa Telefonów 24/7',
-    description: 'Profesjonalna AI Sekretarka dla Twojej firmy. Automatyczna obsługa telefonów 24/7, umawianie wizyt i zarządzanie klientami.',
+    title: 'Yieldo - Inteligentna Automatyzacja Biznesu',
+    description: 'Zwiększ zyski swojej firmy dzięki agentom AI pracującym 24/7.',
     images: ['/og-image.jpg'],
     creator: '@yieldo_pl',
   },
@@ -83,8 +80,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" suppressHydrationWarning>
-      <body className="antialiased">
+    <html lang="pl" suppressHydrationWarning className="scroll-smooth light" style={{ colorScheme: 'light' }}>
+      <body className="antialiased font-sans selection:bg-blue-100 selection:text-blue-900 bg-white text-slate-900">
         {children}
         <Toaster />
         <Analytics />

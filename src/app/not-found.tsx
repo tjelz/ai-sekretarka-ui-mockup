@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import { Home, Search, ArrowLeft } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
@@ -51,12 +50,12 @@ export default function NotFound() {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
-          <Button asChild size="lg" className="min-w-[200px]">
+          <button className="min-w-[200px] bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md">
             <Link href="/">
               <Home className="mr-2 h-5 w-5" />
               Strona główna
             </Link>
-          </Button>
+          </button>
         </div>
       </div>
     </div>

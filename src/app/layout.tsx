@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from '@vercel/analytics/react';
-import { AnalyticsProvider } from '@/components/analytics';
+import { AnalyticsProvider } from '@/app/components/analytics';
 
 // Export viewport separately (Next.js 15 requirement)
 export { viewport } from './viewport';
@@ -80,10 +79,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" suppressHydrationWarning className="scroll-smooth light" style={{ colorScheme: 'light' }}>
-      <body className="antialiased font-sans selection:bg-blue-100 selection:text-blue-900 bg-white text-slate-900">
+    <html lang="pl" suppressHydrationWarning>
+      <body className="bg-white text-slate-900 antialiased scroll-smooth">
         {children}
-        <Toaster />
         <Analytics />
         <AnalyticsProvider showCookieConsent />
       </body>

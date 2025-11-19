@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import OrganizationSchema from '@/components/seo/OrganizationSchema'
-import WebPageSchema from '@/components/seo/WebPageSchema'
+import OrganizationSchema from '@/app/components/seo/OrganizationSchema'
+import WebPageSchema from '@/app/components/seo/WebPageSchema'
 import { homeMetadata } from './metadata'
 
 export const metadata: Metadata = homeMetadata
